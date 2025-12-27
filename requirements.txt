@@ -1,6 +1,7 @@
 torch
 torchvision
 torchaudio
+transformers
 opencv-python
 ffmpeg-python
 pillow
@@ -16,3 +17,4 @@ onnxruntime
 torchcam
 flask
 requests
+scikit-learn

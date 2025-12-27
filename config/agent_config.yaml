@@ -1,0 +1,81 @@
+# E-Raksha Agent Configuration
+# Agentic cascade decision thresholds and parameters
+
+# Decision thresholds for cascade
+thresholds:
+  high_confidence: 0.85    # Above this: immediate decision
+  low_confidence: 0.15     # Below this: immediate decision (opposite class)
+  verifier_threshold: 0.7  # Verifier confidence threshold
+
+# Confidence smoothing parameters
+smoothing:
+  alpha: 0.6              # EMA smoothing factor (0-1)
+  window_size: 8          # Number of recent predictions to consider
+  reset_on_new_video: true
+
+# Preprocessing parameters
+preprocessing:
+  num_frames: 8           # Number of video frames to extract
+  audio_duration: 3.0     # Audio duration in seconds
+  sample_rate: 16000      # Audio sample rate
+  frame_size: 224         # Input frame size (224x224)
+  
+# Model paths (relative to project root)
+models:
+  student: "models/student_distilled.pt"
+  verifier: "models/student_distilled.pt"  # Can be same as student
+  teacher: null  # Optional teacher model for final stage
+  
+# Logging configuration
+logging:
+  log_file: "logs/agent_logs.jsonl"
+  save_heatmaps: true
+  heatmap_dir: "logs/heatmaps"
+  log_level: "INFO"
+  max_log_size_mb: 100
+  
+# Performance settings
+performance:
+  batch_size: 1           # For mobile deployment
+  use_half_precision: false  # FP16 for faster inference
+  max_processing_time: 10.0   # Max seconds per video
+  
+# Security settings
+security:
+  max_file_size_mb: 100   # Maximum video file size
+  allowed_formats: ["mp4", "avi", "mov", "mkv"]
+  sanitize_paths: true
+  
+# Explanation settings
+explanations:
+  generate_heatmaps: true
+  heatmap_top_k_frames: 3  # Generate heatmaps for top-k frames
+  save_intermediate_features: false
+  
+# Calibration settings (for confidence calibration)
+calibration:
+  temperature_scaling: true
+  temperature: 1.0        # Will be learned from validation data
+  
+# Agent behavior
+behavior:
+  conservative_mode: false  # If true, lower thresholds for fake detection
+  adaptive_thresholds: false  # If true, adapt thresholds based on recent performance
+  
+# Mobile deployment settings
+mobile:
+  optimize_for_battery: true
+  reduce_computation: false
+  cache_features: true
+  
+# Monitoring and alerts
+monitoring:
+  enable_performance_tracking: true
+  alert_on_low_confidence: true
+  alert_threshold: 0.3
+  
+# Development/Debug settings
+debug:
+  save_debug_info: false
+  verbose_logging: false
+  profile_performance: false

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Raksha Deepfake Detection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 90%;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .upload-area {
+            border: 3px dashed #667eea;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .upload-area:hover {
+            border-color: #764ba2;
+            background-color: #f8f9ff;
+        }
+        
+        .upload-area.dragover {
+            border-color: #764ba2;
+            background-color: #f0f4ff;
+        }
+        
+        .upload-icon {
+            font-size: 3em;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .upload-text {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .upload-subtext {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        #fileInput {
+            display: none;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .progress-container {
+            display: none;
+            margin: 20px 0;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .results {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .results.real {
+            background-color: #d4edda;
+            border: 2px solid #28a745;
+        }
+        
+        .results.fake {
+            background-color: #f8d7da;
+            border: 2px solid #dc3545;
+        }
+        
+        .results.error {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+        }
+        
+        .result-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .result-text {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .result-confidence {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        
+        .result-details {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 15px;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>E-Raksha</h1>
+            <p>AI-Powered Deepfake Detection</p>
+        </div>
+        
+        <div class="upload-area" id="uploadArea">
+            <div class="upload-icon">📹</div>
+            <div class="upload-text">Drop your video here or click to browse</div>
+            <div class="upload-subtext">Supports MP4, AVI, MOV files (max 100MB)</div>
+        </div>
+        
+        <input type="file" id="fileInput" accept="video/*">
+        
+        <div style="text-align: center;">
+            <button class="btn" onclick="document.getElementById('fileInput').click()">
+                Choose Video File
+            </button>
+            <button class="btn" id="analyzeBtn" onclick="analyzeVideo()" disabled>
+                Analyze Video
+            </button>
+        </div>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <div>Analyzing video for deepfake content...</div>
+        </div>
+        
+        <div class="progress-container" id="progressContainer">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+        
+        <div class="results" id="results">
+            <div class="result-icon" id="resultIcon"></div>
+            <div class="result-text" id="resultText"></div>
+            <div class="result-confidence" id="resultConfidence"></div>
+            <div class="result-details" id="resultDetails"></div>
+        </div>
+    </div>
+
+    <script>
+        let selectedFile = null;
+        const API_BASE = 'http://localhost:8000';
+        
+        // File input handling
+        const fileInput = document.getElementById('fileInput');
+        const uploadArea = document.getElementById('uploadArea');
+        const analyzeBtn = document.getElementById('analyzeBtn');
+        
+        fileInput.addEventListener('change', handleFileSelect);
+        uploadArea.addEventListener('click', () => fileInput.click());
+        uploadArea.addEventListener('dragover', handleDragOver);
+        uploadArea.addEventListener('drop', handleDrop);
+        uploadArea.addEventListener('dragenter', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+        uploadArea.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+        });
+        
+        function handleDragOver(e) {
+            e.preventDefault();
+        }
+        
+        function handleDrop(e) {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                const file = files[0];
+                if (file.type.startsWith('video/')) {
+                    selectedFile = file;
+                    updateUI();
+                } else {
+                    alert('Please select a video file');
+                }
+            }
+        }
+        
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            if (file) {
+                selectedFile = file;
+                updateUI();
+            }
+        }
+        
+        function updateUI() {
+            if (selectedFile) {
+                document.querySelector('.upload-text').textContent = `Selected: ${selectedFile.name}`;
+                document.querySelector('.upload-subtext').textContent = `Size: ${(selectedFile.size / 1024 / 1024).toFixed(2)} MB`;
+                analyzeBtn.disabled = false;
+            }
+        }
+        
+        async function analyzeVideo() {
+            if (!selectedFile) {
+                alert('Please select a video file first');
+                return;
+            }
+            
+            // Show loading
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('results').style.display = 'none';
+            analyzeBtn.disabled = true;
+            
+            // Create form data
+            const formData = new FormData();
+            formData.append('file', selectedFile);
+            
+            try {
+                const response = await fetch(`${API_BASE}/predict`, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                displayResults(result);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                displayError(error.message);
+            } finally {
+                document.getElementById('loading').style.display = 'none';
+                analyzeBtn.disabled = false;
+            }
+        }
+        
+        function displayResults(result) {
+            const resultsDiv = document.getElementById('results');
+            const resultIcon = document.getElementById('resultIcon');
+            const resultText = document.getElementById('resultText');
+            const resultConfidence = document.getElementById('resultConfidence');
+            const resultDetails = document.getElementById('resultDetails');
+            
+            // Clear previous classes
+            resultsDiv.className = 'results';
+            
+            if (result.error) {
+                resultsDiv.classList.add('error');
+                resultIcon.textContent = '⚠️';
+                resultText.textContent = 'Analysis Error';
+                resultConfidence.textContent = result.error;
+                resultDetails.textContent = '';
+            } else {
+                const isReal = result.prediction === 'real';
+                resultsDiv.classList.add(isReal ? 'real' : 'fake');
+                
+                resultIcon.textContent = isReal ? '✅' : '❌';
+                resultText.textContent = isReal ? 'REAL VIDEO' : 'DEEPFAKE DETECTED';
+                resultConfidence.textContent = `Confidence: ${(result.confidence * 100).toFixed(1)}%`;
+                
+                const details = [
+                    `Faces analyzed: ${result.faces_analyzed}`,
+                    `Model: ${result.model_info?.architecture || 'ResNet18'}`,
+                    `Accuracy: ${result.model_info?.accuracy || '86.25%'}`
+                ];
+                
+                if (result.fake_votes !== undefined) {
+                    details.push(`Fake votes: ${result.fake_votes}/${result.total_votes}`);
+                }
+                
+                resultDetails.textContent = details.join(' • ');
+            }
+            
+            resultsDiv.style.display = 'block';
+        }
+        
+        function displayError(message) {
+            const resultsDiv = document.getElementById('results');
+            const resultIcon = document.getElementById('resultIcon');
+            const resultText = document.getElementById('resultText');
+            const resultConfidence = document.getElementById('resultConfidence');
+            const resultDetails = document.getElementById('resultDetails');
+            
+            resultsDiv.className = 'results error';
+            resultIcon.textContent = '❌';
+            resultText.textContent = 'Analysis Failed';
+            resultConfidence.textContent = message;
+            resultDetails.textContent = 'Please try again with a different video file.';
+            
+            resultsDiv.style.display = 'block';
+        }
+        
+        // Check API health on load
+        async function checkAPIHealth() {
+            try {
+                const response = await fetch(`${API_BASE}/health`);
+                if (response.ok) {
+                    console.log('API is healthy');
+                } else {
+                    console.warn('API health check failed');
+                }
+            } catch (error) {
+                console.error('API is not accessible:', error);
+                alert('Backend API is not running. Please start the backend server first.');
+            }
+        }
+        
+        // Check API health when page loads
+        window.addEventListener('load', checkAPIHealth);
+    </script>
+</body>
+</html>

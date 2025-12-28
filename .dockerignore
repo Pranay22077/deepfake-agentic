@@ -1,0 +1,119 @@
+# E-Raksha Docker Ignore File
+
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+*.out
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.temp
+
+# Test data (too large for Docker image)
+test-data/
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# Kaggle outputs (too large)
+kaggle_outputs*/
+*.zip
+
+# Model files (will be copied separately)
+# *.pt
+# *.pkl
+
+# Documentation
+*.md
+docs/
+
+# Development files
+debug_*.py
+test_*.py
+analyze_*.py
+evaluate_*.py
+inspect_*.py
+monitor_*.py
+create_*.py
+verify_*.py
+
+# Archive
+archive/
+
+# Export
+export/
+
+# Jupyter notebooks
+*.ipynb
+.ipynb_checkpoints/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+
+# Pytest
+.pytest_cache/
+
+# Node modules (if any)
+node_modules/
+
+# Backup files
+*.bak
+*.backup

@@ -4,11 +4,21 @@
 echo "🚀 Starting E-Raksha Deepfake Detection System"
 echo "=============================================="
 
-# Check if model file exists
+# Check if model file exists, if not try to download
 if [ ! -f "/app/fixed_deepfake_model.pt" ]; then
     echo "❌ Model file not found: /app/fixed_deepfake_model.pt"
-    echo "Please ensure the model file is included in the Docker image"
-    exit 1
+    echo "🔄 Attempting to download model..."
+    
+    cd /app
+    python download_model.py
+    
+    if [ ! -f "/app/fixed_deepfake_model.pt" ]; then
+        echo "❌ Model download failed. Please check:"
+        echo "   1. Internet connection"
+        echo "   2. Model file availability"
+        echo "   3. Manual download from GitHub releases"
+        exit 1
+    fi
 fi
 
 echo "✅ Model file found: $(ls -lh /app/fixed_deepfake_model.pt)"

@@ -40,6 +40,9 @@ RUN pip install --no-cache-dir -r backend_requirements.txt
 # Copy application code
 COPY . .
 
+# Download model files if not present
+RUN python download_model.py || echo "Model download failed - will try at runtime"
+
 # Create necessary directories
 RUN mkdir -p logs models uploads temp
 

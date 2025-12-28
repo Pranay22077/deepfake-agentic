@@ -46,7 +46,9 @@ kaggle.json
 
 # PyTorch
 *.pth
-*.pt
+# Large model files (downloaded separately)
+fixed_deepfake_model.pt
+baseline_student.pkl
 *.onnx
 *.onnx.data
 
@@ -71,9 +73,11 @@ test-data/
 uploads/
 temp/
 
-# Model outputs (except baseline)
+# Model outputs (except main model)
 models/*.pt
 !models/baseline_student.pt
+# Allow main model file in root
+!fixed_deepfake_model.pt
 
 # Export outputs (except baseline)
 export/*.pt

@@ -23,15 +23,16 @@ if %errorlevel% neq 0 (
 
 REM Check if model file exists
 if not exist "fixed_deepfake_model.pt" (
-    echo ❌ Model file not found: fixed_deepfake_model.pt
-    echo    Please ensure the model file is in the project root directory.
-    pause
-    exit /b 1
+    echo 🔧 Running setup to download models...
+    python setup.py
+    if %errorlevel% neq 0 (
+        echo ❌ Setup failed. Please check the error messages above.
+        pause
+        exit /b 1
+    )
+) else (
+    echo ✅ Model file found
 )
-
-echo ✅ Docker is installed
-echo ✅ Docker Compose is available
-echo ✅ Model file found
 
 echo.
 echo 🔧 Building and starting E-Raksha...

@@ -26,7 +26,15 @@ fi
 
 echo "✅ Docker is installed"
 echo "✅ Docker Compose is available"
-echo "✅ Model file found: $(ls -lh fixed_deepfake_model.pt)"
+
+echo ""
+echo "🔧 Running setup (downloading models if needed)..."
+python setup.py
+
+if [ $? -ne 0 ]; then
+    echo "❌ Setup failed. Please check the error messages above."
+    exit 1
+fi
 
 # Check if ports are available
 if lsof -Pi :8000 -sTCP:LISTEN -t >/dev/null ; then

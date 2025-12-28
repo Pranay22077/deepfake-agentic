@@ -7,23 +7,29 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-Latest-red)](https://fastapi.tiangolo.com)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.1.0-orange)](https://pytorch.org)
 
-## 🚀 One-Command Deployment
+## 🚀 One-Command Setup
 
-**For end users - get E-Raksha running in 2 minutes:**
+**For end users - get E-Raksha running in 3 minutes:**
 
 ```bash
-# Download and run E-Raksha
-git clone <your-repository-url>
-cd eraksha
+# 1. Download E-Raksha
+git clone https://github.com/Pranay22077/deepfake-agentic.git
+cd deepfake-agentic
+
+# 2. Run setup (downloads models automatically)
+python setup.py
+
+# 3. Start the system
 docker-compose up --build
 
-# Open: http://localhost:3001
+# 4. Open: http://localhost:3001
 ```
 
 **For Windows users:**
 ```cmd
+# Download the repository, then:
+python setup.py
 # Double-click: build-and-run.bat
-# Or run: build-and-run.bat
 ```
 
 ## ✨ Features

@@ -1,0 +1,65 @@
+name: Build and Release E-Raksha
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      run: |
+        pip install requests tqdm
+        
+    - name: Check for model files
+      run: |
+        echo "Checking for model files..."
+        ls -la *.pt *.pkl || echo "No model files found in repository"
+        
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: E-Raksha Release ${{ github.ref }}
+        body: |
+          ## E-Raksha Deepfake Detection System
+          
+          ### What's Included:
+          - Complete Docker deployment setup
+          - Professional web interface
+          - Trained ResNet18 model (45% accuracy)
+          - Production-ready backend API
+          - Comprehensive documentation
+          
+          ### Quick Start:
+          ```bash
+          git clone https://github.com/Pranay22077/deepfake-agentic.git
+          cd deepfake-agentic
+          python setup.py  # Downloads models automatically
+          docker-compose up --build
+          ```
+          
+          ### Model Files:
+          The model files are too large for Git and will be downloaded automatically during setup.
+          If automatic download fails, you can manually download them from this release.
+          
+        draft: false
+        prerelease: false
+        
+    # Note: Model files would need to be uploaded manually to the release
+    # since they're too large for the repository

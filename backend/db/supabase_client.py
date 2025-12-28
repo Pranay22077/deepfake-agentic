@@ -14,9 +14,17 @@ class SupabaseClient:
     """Supabase database client for E-Raksha"""
     
     def __init__(self):
-        # Supabase credentials from environment or defaults
-        self.url = os.getenv('SUPABASE_URL', 'https://rzgplzaytxronhcakemi.supabase.co')
-        self.key = os.getenv('SUPABASE_ANON_KEY', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ6Z3BsemF5dHhyb25oY2FrZW1pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY4NzMxODAsImV4cCI6MjA4MjQ0OTE4MH0.6wxeRoi8ZnUmX4Vu86HKx4wWaiOJm_rPhXGrFKyEvyg')
+        # Supabase credentials from environment variables
+        self.url = os.getenv('SUPABASE_URL')
+        self.key = os.getenv('SUPABASE_ANON_KEY')
+        
+        # Check if credentials are provided
+        if not self.url or not self.key:
+            print("⚠️  Supabase credentials not found in environment variables")
+            print("   Database features will be disabled")
+            print("   Set SUPABASE_URL and SUPABASE_ANON_KEY in .env file")
+            self.client = None
+            return
         
         try:
             self.client: Client = create_client(self.url, self.key)

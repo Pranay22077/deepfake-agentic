@@ -1,26 +1,48 @@
+# E-Raksha Docker Compose Configuration
 version: '3.8'
 
 services:
-  eraksha-site:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
+  eraksha:
+    build: .
+    container_name: eraksha-app
     ports:
-      - "8080:80"
-    container_name: eraksha-site
-    restart: unless-stopped
+      - "8000:8000"  # Backend API
+      - "3001:3001"  # Frontend
     volumes:
-      - ./export:/usr/share/nginx/html/models:ro
+      - ./uploads:/app/uploads
+      - ./logs:/app/logs
+      - ./models:/app/models
     environment:
-      - NGINX_HOST=localhost
-      - NGINX_PORT=80
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+      - MODEL_PATH=/app/fixed_deepfake_model.pt
+      - PORT=8000
+      - HOST=0.0.0.0
+      # Database credentials (optional - set in .env file)
+      - SUPABASE_URL=${SUPABASE_URL:-}
+      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY:-}
+    env_file:
+      - .env  # Load environment variables from .env file (if exists)
+    restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost"]
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 40s
+      start_period: 60s
 
-networks:
-  default:
-    name: eraksha-network
+  # Optional: Add database service if needed
+  # postgres:
+  #   image: postgres:13
+  #   container_name: eraksha-db
+  #   environment:
+  #     POSTGRES_DB: eraksha
+  #     POSTGRES_USER: eraksha
+  #     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+
+# volumes:
+#   postgres_data:

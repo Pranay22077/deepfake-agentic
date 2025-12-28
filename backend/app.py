@@ -21,6 +21,10 @@ import tempfile
 import uuid
 from datetime import datetime
 import json
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Import our enhanced modules
 from db.supabase_client import supabase_client
@@ -424,4 +428,9 @@ async def get_system_stats():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    
+    # Get configuration from environment
+    host = os.getenv('API_HOST', '0.0.0.0')
+    port = int(os.getenv('API_PORT', '8000'))
+    
+    uvicorn.run(app, host=host, port=port)

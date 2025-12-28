@@ -27,6 +27,23 @@ venv/
 ENV/
 env/
 
+# Environment Variables and Secrets
+.env
+.env.local
+.env.production
+.env.development
+*.key
+*.pem
+secrets.json
+config.json
+
+# API Keys and Credentials
+kaggle.json
+*_credentials.json
+*_config.json
+*_secrets.py
+*_keys.py
+
 # PyTorch
 *.pth
 *.pt
@@ -50,6 +67,9 @@ Thumbs.db
 data/raw/
 data_processed/
 processed_data/
+test-data/
+uploads/
+temp/
 
 # Model outputs (except baseline)
 models/*.pt
@@ -66,12 +86,27 @@ export/*.onnx.data
 # Demo outputs
 demo_output/
 *_output/
+kaggle_outputs*/
+*.zip
 
 # Logs
 *.log
 logs/
+*.out
 
 # Temporary files
 *.tmp
 *.temp
 .cache/
+
+# Docker
+.dockerignore.bak
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Evaluation results
+evaluation_results.json
+domain_analysis.json

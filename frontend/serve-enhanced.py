@@ -25,19 +25,22 @@ class EnhancedHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     
     def guess_type(self, path):
         """Guess MIME type with enhanced mappings"""
-        mimetype, encoding = super().guess_type(path)
+        try:
+            mimetype, encoding = super().guess_type(path)
+        except (ValueError, TypeError):
+            mimetype, encoding = None, None
         
         # Enhanced MIME type mappings
         if path.endswith('.js'):
-            return 'application/javascript', encoding
+            return 'application/javascript'
         elif path.endswith('.css'):
-            return 'text/css', encoding
+            return 'text/css'
         elif path.endswith('.html'):
-            return 'text/html', encoding
+            return 'text/html'
         elif path.endswith('.json'):
-            return 'application/json', encoding
+            return 'application/json'
         
-        return mimetype, encoding
+        return mimetype or 'text/plain'
     
     def do_GET(self):
         """Handle GET requests"""

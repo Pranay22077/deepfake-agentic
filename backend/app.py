@@ -32,6 +32,15 @@ from api.inference import EnhancedInference
 
 app = FastAPI(title="E-Raksha Deepfake Detection API", version="1.0.0")
 
+# Import and include API enhancements
+try:
+    from api_enhancements import router as enhancements_router, add_to_history
+    app.include_router(enhancements_router, prefix="/api/v1", tags=["enhancements"])
+    print("✅ API enhancements loaded successfully")
+except ImportError as e:
+    print(f"⚠️  API enhancements not available: {e}")
+    add_to_history = None
+
 # CORS middleware for frontend
 app.add_middleware(
     CORSMiddleware,
@@ -358,6 +367,16 @@ async def predict_deepfake(file: UploadFile = File(...)):
                 result=result,
                 confidence=result.get('confidence', 0.0)
             )
+            
+            # Add to history tracking
+            if add_to_history:
+                processing_time = result.get('processing_time', 0.0)
+                add_to_history(
+                    filename=file.filename,
+                    prediction=result.get('prediction', 'unknown'),
+                    confidence=result.get('confidence', 0.0),
+                    processing_time=processing_time
+                )
         
         return result
         

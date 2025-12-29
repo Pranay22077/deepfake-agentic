@@ -1,11 +1,17 @@
-# E-Raksha Agent Configuration
-# Agentic cascade decision thresholds and parameters
+# E-Raksha LangGraph Agent Configuration
+# Person 4: Agentic deepfake detection with intelligent routing
 
-# Decision thresholds for cascade
+# Decision thresholds for LangGraph routing
 thresholds:
-  high_confidence: 0.85    # Above this: immediate decision
-  low_confidence: 0.15     # Below this: immediate decision (opposite class)
-  verifier_threshold: 0.7  # Verifier confidence threshold
+  high_confidence: 0.85    # Above this: accept student prediction
+  medium_confidence: 0.60  # Above this: route to AV specialist
+  low_confidence: 0.40     # Below this: route to human review
+
+# AV-Model routing parameters
+routing:
+  use_av_model: true
+  av_threshold: 0.70
+  lip_sync_threshold: 0.30
 
 # Confidence smoothing parameters
 smoothing:
@@ -13,18 +19,17 @@ smoothing:
   window_size: 8          # Number of recent predictions to consider
   reset_on_new_video: true
 
-# Preprocessing parameters
+# Model paths (Person 4: Student + AV-Model)
+models:
+  student: "models/baseline_student.pt"
+  av_model: "models/av_model_student.pt"
+  
+# Preprocessing parameters (optimized for AV-Model)
 preprocessing:
-  num_frames: 8           # Number of video frames to extract
+  max_frames: 16          # Maximum frames to extract
   audio_duration: 3.0     # Audio duration in seconds
   sample_rate: 16000      # Audio sample rate
-  frame_size: 224         # Input frame size (224x224)
-  
-# Model paths (relative to project root)
-models:
-  student: "models/student_distilled.pt"
-  verifier: "models/student_distilled.pt"  # Can be same as student
-  teacher: null  # Optional teacher model for final stage
+  face_size: 224          # Input face size (224x224)
   
 # Logging configuration
 logging:
@@ -46,9 +51,10 @@ security:
   allowed_formats: ["mp4", "avi", "mov", "mkv"]
   sanitize_paths: true
   
-# Explanation settings
-explanations:
+# Explanation settings (Person 4: Enhanced explainability)
+explainability:
   generate_heatmaps: true
+  save_explanations: true
   heatmap_top_k_frames: 3  # Generate heatmaps for top-k frames
   save_intermediate_features: false
   

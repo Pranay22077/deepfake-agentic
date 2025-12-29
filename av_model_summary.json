@@ -1,0 +1,37 @@
+{
+  "person": "Person 4 - Agent Developer",
+  "model_name": "AV-Model (Audio-Visual Specialist)",
+  "architecture": {
+    "visual_backbone": "ResNet18",
+    "audio_processing": "Mel-Spectrogram CNN",
+    "lip_sync_detector": "Visual-Audio Correlation Network",
+    "fusion": "Multi-modal Feature Fusion",
+    "classifier": "Binary Classification Head"
+  },
+  "training_results": {
+    "best_accuracy": 93.0,
+    "final_loss": 0.29240277482196686,
+    "epochs_trained": 10,
+    "avg_lip_sync_score": 0.17752332292497158
+  },
+  "model_specs": {
+    "parameters": 13600579,
+    "file_size_mb": 156.01140308380127,
+    "input_format": {
+      "video_frames": "[B, 8, 3, 224, 224]",
+      "lip_regions": "[B, 8, 3, 64, 64]",
+      "audio": "[B, 48000] (3 seconds at 16kHz)"
+    },
+    "output_format": "[B, 2] (Real/Fake logits)"
+  },
+  "specialization": {
+    "primary_focus": "Lip-sync mismatch detection",
+    "audio_visual_correlation": "Advanced multi-modal analysis",
+    "deepfake_artifacts": "Audio-visual inconsistencies",
+    "use_case": "Specialist model for LangGraph agent routing"
+  },
+  "integration_ready": true,
+  "dataset": "DFDC (Deepfake Detection Challenge)",
+  "training_date": "2024",
+  "status": "Ready for team integration"
+}

@@ -5,9 +5,10 @@ python-multipart==0.0.6
 requests==2.31.0
 tqdm==4.66.1
 
-# ML Dependencies (optional for full inference)
-torch==2.1.0
-torchvision==0.16.0
+# Lightweight ML Dependencies (CPU only)
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.1.0+cpu
+torchvision==0.16.0+cpu
 opencv-python-headless==4.8.1.78
 Pillow==10.1.0
 numpy==1.26.2

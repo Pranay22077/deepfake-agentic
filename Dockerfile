@@ -1,25 +1,22 @@
-# Interceptor Backend - Production Docker Image
+# Interceptor Backend - Production Docker Image (Lightweight)
 FROM python:3.11-slim
 
 # Set working directory
 WORKDIR /app
 
 # Install minimal system dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     libgl1 \
     libglib2.0-0 \
-    libsm6 \
-    libxext6 \
-    libxrender1 \
-    libgomp1 \
     ffmpeg \
     curl \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
 
 # Copy backend requirements
 COPY backend-files/requirements.txt .
 
-# Install Python dependencies
+# Install Python dependencies (CPU-only PyTorch to save space)
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy backend code

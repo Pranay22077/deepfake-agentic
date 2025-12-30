@@ -4,6 +4,9 @@ import { Progress } from '../components/ui/progress';
 import SystemArchitectureCanvas from '../components/SystemArchitectureCanvas';
 import { useArchitecture } from '../context/ArchitectureContext';
 
+// API URL - uses environment variable in production, localhost in development
+const API_URL = (import.meta as any).env?.VITE_API_URL || 'http://localhost:8000';
+
 const AnalysisWorkbench = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -92,7 +95,7 @@ const AnalysisWorkbench = () => {
       }, 100);
 
       // Call real backend API
-      const response = await fetch('http://localhost:8000/predict', {
+      const response = await fetch(`${API_URL}/predict`, {
         method: 'POST',
         body: formData,
       });

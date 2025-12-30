@@ -1,232 +1,234 @@
-# 🚀 E-Raksha Complete Deployment Guide
+# 🚀 Interceptor Deployment Guide
 
-## For End Users: One-Command Setup
+## Architecture Overview
 
-### Prerequisites
-- Docker installed on your system
-- 4GB+ RAM available
-- Ports 8000 and 3001 free
+```
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│   Frontend      │     │    Backend      │     │  Model Weights  │
+│   (Vercel)      │────▶│(Railway/Render) │────▶│ (Hugging Face)  │
+│   Free tier     │     │   Free tier     │     │   Free storage  │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+```
 
-### Quick Start
+---
+
+## Step 1: Upload Model Weights to Hugging Face
+
+### 1.1 Create Hugging Face Account
+1. Go to https://huggingface.co/join
+2. Create a free account
+
+### 1.2 Create a Model Repository
+1. Click "New Model" at https://huggingface.co/new
+2. Name it: `interceptor-models`
+3. Set visibility: Public (for free hosting)
+
+### 1.3 Upload Model Files
 ```bash
-# 1. Download E-Raksha
-git clone <your-repository-url>
-cd eraksha
+# Install huggingface CLI
+pip install huggingface-hub
 
-# 2. Start the application
-docker-compose up --build
+# Login
+huggingface-cli login
 
-# 3. Open in browser
-# Frontend: http://localhost:3001
-# API: http://localhost:8000
+# Upload models
+huggingface-cli upload your-username/interceptor-models models/ --repo-type model
 ```
 
-That's it! E-Raksha is now running locally.
+Or upload via web interface:
+1. Go to your repo: https://huggingface.co/your-username/interceptor-models
+2. Click "Files and versions" → "Add file" → "Upload files"
+3. Upload all `.pt` files from the `models/` folder
 
-## 🧪 Test Your Deployment
+### 1.4 Update Backend Code
+Edit `backend/model_downloader.py`:
+```python
+HF_REPO = "your-username/interceptor-models"  # Your actual repo
+```
+
+---
+
+## Step 2: Deploy Frontend to Vercel
+
+### 2.1 Push Code to GitHub
+```bash
+git add .
+git commit -m "Prepare for deployment"
+git push origin main
+```
+
+### 2.2 Deploy to Vercel
+1. Go to https://vercel.com
+2. Click "Import Project"
+3. Select your GitHub repository
+4. Configure:
+   - Framework: Vite
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+5. Add Environment Variable:
+   ```
+   VITE_API_URL=https://your-backend-url.railway.app
+   ```
+6. Click "Deploy"
+
+### 2.3 Update Frontend API URL
+Create `.env.production`:
+```
+VITE_API_URL=https://your-backend-url.railway.app
+```
+
+Update `src/app/pages/AnalysisWorkbench.tsx`:
+```typescript
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
+// Then use:
+const response = await fetch(`${API_URL}/predict`, {
+```
+
+---
+
+## Step 3: Deploy Backend to Railway (Recommended)
+
+### 3.1 Create Railway Account
+1. Go to https://railway.app
+2. Sign up with GitHub
+
+### 3.2 Deploy
+1. Click "New Project" → "Deploy from GitHub repo"
+2. Select your repository
+3. Railway auto-detects Python
+4. Add environment variables if needed:
+   ```
+   PORT=8000
+   HF_REPO=your-username/interceptor-models
+   ```
+5. Click "Deploy"
+
+### 3.3 Get Your Backend URL
+- Railway provides: `https://your-project.up.railway.app`
+- Use this URL in your Vercel frontend config
+
+---
+
+## Alternative: Deploy Backend to Render
+
+### 3.1 Create Render Account
+1. Go to https://render.com
+2. Sign up with GitHub
+
+### 3.2 Deploy
+1. Click "New" → "Web Service"
+2. Connect your GitHub repo
+3. Configure:
+   - Name: `interceptor-api`
+   - Environment: Python 3
+   - Build Command: `pip install -r backend/requirements.txt`
+   - Start Command: `cd backend && python app.py`
+4. Click "Create Web Service"
+
+---
+
+## Step 4: Configure CORS & Environment
+
+### Backend Environment Variables
+```
+PORT=8000
+HF_REPO=your-username/interceptor-models
+ALLOWED_ORIGINS=https://your-frontend.vercel.app
+```
+
+### Frontend Environment Variables (Vercel)
+```
+VITE_API_URL=https://your-backend.railway.app
+```
+
+---
+
+## Step 5: Test Deployment
+
+### Test Backend
+```bash
+curl https://your-backend.railway.app/health
+```
+
+Expected response:
+```json
+{
+  "status": "healthy",
+  "torch_available": true,
+  "models_found": ["bg_model_student.pt", ...]
+}
+```
+
+### Test Frontend
+1. Open https://your-frontend.vercel.app
+2. Upload a test video
+3. Verify analysis works
+
+---
+
+## Cost Summary (Free Tiers)
+
+| Service | Free Tier |
+|---------|-----------|
+| **Vercel** | 100GB bandwidth/month |
+| **Railway** | $5 credit/month (~500 hours) |
+| **Render** | 750 hours/month |
+| **Hugging Face** | Unlimited public models |
+
+---
+
+## Troubleshooting
+
+### Backend not starting
+- Check logs in Railway/Render dashboard
+- Ensure `requirements.txt` is correct
+- Verify Python version compatibility
+
+### Models not loading
+- Check Hugging Face repo is public
+- Verify model file names match
+- Check download permissions
+
+### CORS errors
+- Add frontend URL to `ALLOWED_ORIGINS`
+- Verify backend CORS middleware config
+
+### Slow cold starts
+- Railway/Render free tiers sleep after inactivity
+- First request may take 30-60 seconds
+- Consider upgrading for always-on
+
+---
+
+## Production Checklist
+
+- [ ] Model weights uploaded to Hugging Face
+- [ ] Backend deployed and healthy
+- [ ] Frontend deployed and connected
+- [ ] CORS configured correctly
+- [ ] Environment variables set
+- [ ] Test video analysis works
+- [ ] Custom domain configured (optional)
+
+---
+
+## Quick Commands
 
 ```bash
-# Run the test script
-python docker/test-deployment.py
+# Push to GitHub
+git add . && git commit -m "Deploy" && git push
+
+# Test backend locally
+cd backend && python app.py
+
+# Test frontend locally
+npm run dev
+
+# Build frontend
+npm run build
 ```
 
-Expected output:
-```
-🧪 E-Raksha Docker Deployment Test
-========================================
-✅ Backend Health Check: PASSED
-✅ Frontend Access: PASSED
-✅ API Documentation: PASSED
-📊 Test Results: 3/3 tests passed
-🎉 All tests passed! E-Raksha is running correctly.
-```
+---
 
-## 📱 Using E-Raksha
-
-1. **Open the app**: http://localhost:3001
-2. **Upload a video**: Drag & drop or click to browse
-3. **Wait for analysis**: Usually 2-5 seconds
-4. **View results**: 
-   - Prediction: Real or Fake
-   - Confidence score
-   - Detailed analysis
-   - Heatmaps showing suspicious areas
-
-## 🔧 Advanced Usage
-
-### Custom Ports
-Edit `docker-compose.yml`:
-```yaml
-ports:
-  - "8001:8000"  # Backend on port 8001
-  - "3002:3001"  # Frontend on port 3002
-```
-
-### Persistent Data
-```bash
-# Create directories for persistent data
-mkdir -p uploads logs models
-
-# Run with volume mounts
-docker-compose up --build
-```
-
-### Development Mode
-```bash
-# Run in development mode with live reload
-docker-compose -f docker-compose.dev.yml up --build
-```
-
-## 🌐 Production Deployment Options
-
-### Option 1: Docker Hub
-```bash
-# Build and push to Docker Hub
-docker build -t yourusername/eraksha:latest .
-docker push yourusername/eraksha:latest
-
-# Users can then run:
-docker run -p 8000:8000 -p 3001:3001 yourusername/eraksha:latest
-```
-
-### Option 2: Railway
-1. Connect your GitHub repository to Railway
-2. Railway will automatically detect the Dockerfile
-3. Set environment variables if needed
-4. Deploy with one click
-
-### Option 3: Render
-1. Connect repository to Render
-2. Choose "Web Service" 
-3. Use Docker deployment
-4. Set ports: 8000 (backend), 3001 (frontend)
-
-### Option 4: AWS ECS
-1. Push image to ECR
-2. Create ECS task definition
-3. Deploy to ECS cluster
-4. Configure load balancer
-
-## 📊 System Architecture
-
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Frontend      │    │    Backend      │    │   Database      │
-│   (Port 3001)   │◄──►│   (Port 8000)   │◄──►│   (Supabase)    │
-│                 │    │                 │    │                 │
-│ • Upload UI     │    │ • FastAPI       │    │ • Inference     │
-│ • Results       │    │ • Model         │    │   Logs          │
-│ • Heatmaps      │    │ • Inference     │    │ • Feedback      │
-│ • Statistics    │    │ • Logging       │    │ • Statistics    │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-```
-
-## 🛠 Troubleshooting
-
-### Common Issues
-
-**"Port already in use"**
-```bash
-# Find what's using the port
-netstat -tulpn | grep :8000
-
-# Kill the process or change ports in docker-compose.yml
-```
-
-**"Model not found"**
-```bash
-# Ensure model file exists
-ls -la fixed_deepfake_model.pt
-
-# Rebuild without cache
-docker-compose build --no-cache
-```
-
-**"Container keeps restarting"**
-```bash
-# Check logs
-docker-compose logs -f
-
-# Check container status
-docker ps -a
-```
-
-**"Out of memory"**
-```bash
-# Increase Docker memory limit to 4GB+
-# Docker Desktop: Settings > Resources > Memory
-```
-
-### Debug Commands
-```bash
-# View all logs
-docker-compose logs -f
-
-# View specific service logs
-docker-compose logs backend
-docker-compose logs frontend
-
-# Enter container for debugging
-docker-compose exec eraksha bash
-
-# Check container health
-docker ps
-curl http://localhost:8000/health
-```
-
-## 📈 Performance Expectations
-
-### Startup Time
-- **First run**: 2-3 minutes (downloading dependencies)
-- **Subsequent runs**: 30-60 seconds
-
-### Processing Speed
-- **Small videos** (<10MB): 2-3 seconds
-- **Medium videos** (10-50MB): 3-5 seconds
-- **Large videos** (>50MB): 5-10 seconds
-
-### Resource Usage
-- **RAM**: 1-2GB during processing
-- **CPU**: Moderate usage during inference
-- **Storage**: 2GB for Docker image
-
-### Model Performance
-- **Accuracy**: 45% (expected due to domain shift)
-- **Confidence**: Realistic scores (20-80%)
-- **Bias**: No systematic bias toward real/fake
-
-## 🎯 Success Checklist
-
-After deployment, verify:
-- [ ] Frontend loads at http://localhost:3001
-- [ ] Backend API responds at http://localhost:8000/health
-- [ ] Can upload and process a test video
-- [ ] Results show prediction and confidence
-- [ ] Heatmaps are generated
-- [ ] No error messages in logs
-
-## 📞 Support
-
-If you encounter issues:
-
-1. **Check logs**: `docker-compose logs -f`
-2. **Verify requirements**: 4GB RAM, Docker installed
-3. **Test connectivity**: `curl http://localhost:8000/health`
-4. **Rebuild**: `docker-compose build --no-cache`
-5. **Check ports**: Ensure 8000 and 3001 are free
-
-## 🎉 Deployment Complete!
-
-Your E-Raksha deepfake detection system is now:
-- ✅ **Containerized** and portable
-- ✅ **Easy to deploy** with one command
-- ✅ **Production ready** with health checks
-- ✅ **Scalable** for cloud deployment
-- ✅ **User-friendly** with web interface
-
-**Share with others:**
-```bash
-git clone <your-repo-url> && cd eraksha && docker-compose up --build
-```
-
-Anyone can now run E-Raksha locally in under 5 minutes! 🚀
+**Your Interceptor deployment is ready!** 🛡️

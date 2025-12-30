@@ -1,17 +1,8 @@
-# Interceptor Backend Requirements
+# Interceptor Backend Requirements (Lightweight)
 fastapi==0.104.1
 uvicorn[standard]==0.24.0
 python-multipart==0.0.6
-requests==2.31.0
-tqdm==4.66.1
 
-# Lightweight ML Dependencies (CPU only)
---extra-index-url https://download.pytorch.org/whl/cpu
-torch==2.1.0+cpu
-torchvision==0.16.0+cpu
+# Video analysis
 opencv-python-headless==4.8.1.78
-Pillow==10.1.0
 numpy==1.26.2
-
-# For Hugging Face model downloads
-huggingface-hub==0.19.4

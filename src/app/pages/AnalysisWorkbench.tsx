@@ -4,8 +4,9 @@ import { Progress } from '../components/ui/progress';
 import SystemArchitectureCanvas from '../components/SystemArchitectureCanvas';
 import { useArchitecture } from '../context/ArchitectureContext';
 
-// API URL - uses environment variable in production, localhost in development
-const API_URL = (import.meta as any).env?.VITE_API_URL || 'http://localhost:8000';
+// API URL - hardcoded for production
+const API_URL = 'https://interceptor-api-production.up.railway.app';
+console.log('API URL:', API_URL);
 
 const AnalysisWorkbench = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);

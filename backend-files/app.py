@@ -31,8 +31,8 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
+    allow_credentials=False,  # Changed to False for wildcard origins
+    allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
 
@@ -61,39 +61,48 @@ def analyze_video(video_path: str) -> dict:
         "file_hash": "",
     }
     
-    # Generate hash for consistent results
-    with open(video_path, 'rb') as f:
-        result["file_hash"] = hashlib.md5(f.read(1024*100)).hexdigest()  # First 100KB
+    try:
+        # Generate hash for consistent results
+        with open(video_path, 'rb') as f:
+            result["file_hash"] = hashlib.md5(f.read(1024*100)).hexdigest()  # First 100KB
+    except Exception as e:
+        print(f"Hash generation error: {e}")
+        result["file_hash"] = hashlib.md5(str(os.path.getsize(video_path)).encode()).hexdigest()
     
     if CV2_AVAILABLE:
         try:
             cap = cv2.VideoCapture(video_path)
-            result["fps"] = cap.get(cv2.CAP_PROP_FPS) or 30
-            result["width"] = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)) or 1280
-            result["height"] = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)) or 720
-            result["frame_count"] = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)) or 100
-            result["duration"] = result["frame_count"] / result["fps"] if result["fps"] > 0 else 3.33
-            
-            # Analyze a few frames
-            brightness_samples = []
-            contrast_samples = []
-            blur_samples = []
-            
-            for i in range(min(5, result["frame_count"])):
-                cap.set(cv2.CAP_PROP_POS_FRAMES, i * (result["frame_count"] // 5))
-                ret, frame = cap.read()
-                if ret:
-                    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-                    brightness_samples.append(np.mean(gray))
-                    contrast_samples.append(np.std(gray))
-                    blur_samples.append(cv2.Laplacian(gray, cv2.CV_64F).var())
-            
-            cap.release()
-            
-            if brightness_samples:
-                result["brightness"] = np.mean(brightness_samples)
-                result["contrast"] = np.mean(contrast_samples)
-                result["blur_score"] = np.mean(blur_samples)
+            if cap.isOpened():
+                result["fps"] = cap.get(cv2.CAP_PROP_FPS) or 30
+                result["width"] = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)) or 1280
+                result["height"] = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)) or 720
+                result["frame_count"] = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)) or 100
+                result["duration"] = result["frame_count"] / result["fps"] if result["fps"] > 0 else 3.33
+                
+                # Analyze a few frames
+                brightness_samples = []
+                contrast_samples = []
+                blur_samples = []
+                
+                sample_count = min(3, result["frame_count"])  # Reduced samples
+                for i in range(sample_count):
+                    frame_pos = i * (result["frame_count"] // sample_count) if sample_count > 0 else 0
+                    cap.set(cv2.CAP_PROP_POS_FRAMES, frame_pos)
+                    ret, frame = cap.read()
+                    if ret and frame is not None:
+                        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+                        brightness_samples.append(np.mean(gray))
+                        contrast_samples.append(np.std(gray))
+                        blur_samples.append(cv2.Laplacian(gray, cv2.CV_64F).var())
+                
+                cap.release()
+                
+                if brightness_samples:
+                    result["brightness"] = np.mean(brightness_samples)
+                    result["contrast"] = np.mean(contrast_samples)
+                    result["blur_score"] = np.mean(blur_samples)
+            else:
+                cap.release()
         except Exception as e:
             print(f"Video analysis error: {e}")
     

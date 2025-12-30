@@ -1,0 +1,11 @@
+# Ignore backend files for frontend-only deployment
+backend-files/
+*.pt
+*.pkl
+models/
+.venv/
+__pycache__/
+*.py
+requirements.txt
+railway.json
+render.yaml

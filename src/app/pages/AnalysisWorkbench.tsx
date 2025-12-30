@@ -4,8 +4,8 @@ import { Progress } from '../components/ui/progress';
 import SystemArchitectureCanvas from '../components/SystemArchitectureCanvas';
 import { useArchitecture } from '../context/ArchitectureContext';
 
-// API URL - hardcoded for production
-const API_URL = 'https://interceptor-api-production.up.railway.app';
+// Use Vercel API endpoint (same domain, no CORS issues)
+const API_URL = '/api';
 console.log('API URL:', API_URL);
 
 const AnalysisWorkbench = () => {

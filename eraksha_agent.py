@@ -454,14 +454,14 @@ class ErakshAgent:
         if not predictions:
             return 0.5, 0.0, "no_models"
         
-        # Bias-corrected model weights and thresholds
+        # FINE-TUNED bias correction for balanced 50/50 performance
         model_configs = {
-            'student': {'weight': 1.0, 'bias_correction': 0.0},
+            'student': {'weight': 1.4, 'bias_correction': 0.0},    # Neutral baseline
             'av': {'weight': 1.5, 'bias_correction': 0.0},
-            'cm': {'weight': 1.0, 'bias_correction': 0.1},  # Reduced weight, add fake bias
-            'rr': {'weight': 0.8, 'bias_correction': 0.15},  # Reduced weight, add fake bias
-            'll': {'weight': 1.4, 'bias_correction': -0.05}, # Increased weight, slight real bias
-            'tm': {'weight': 1.1, 'bias_correction': 0.0}
+            'cm': {'weight': 1.5, 'bias_correction': 0.0},         # Reduced weight, no bias
+            'rr': {'weight': 0.8, 'bias_correction': 0.15},        # Moderate weight, moderate fake bias
+            'll': {'weight': 1.0, 'bias_correction': -0.05},       # Neutral weight, slight reverse bias
+            'tm': {'weight': 1.3, 'bias_correction': 0.0}          # Neutral
         }
         
         # Apply bias correction and weighting

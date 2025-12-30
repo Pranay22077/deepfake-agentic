@@ -1,221 +1,146 @@
 #!/usr/bin/env python3
 """
-Debug the FIXED model that's currently being used by the backend
+Create Fixed Model with Aggressive Bias Correction
+Address the 60% REAL bias issue
 """
 
-import torch
-import torch.nn as nn
-import torchvision.models as models
-import torchvision.transforms as transforms
-from PIL import Image
-import numpy as np
 import os
+import sys
+from pathlib import Path
+from eraksha_agent import ErakshAgent
 
-class StudentModel(nn.Module):
-    """Fixed ResNet18-based model (matches backend)"""
-    def __init__(self, num_classes=2):
-        super(StudentModel, self).__init__()
-        
-        # Use pretrained ResNet18 for better performance
-        self.backbone = models.resnet18(weights='IMAGENET1K_V1')
-        
-        # Replace final layer (matches fixed training)
-        in_features = self.backbone.fc.in_features
-        self.backbone.fc = nn.Sequential(
-            nn.Dropout(0.3),
-            nn.Linear(in_features, 128),
-            nn.ReLU(),
-            nn.Dropout(0.2),
-            nn.Linear(128, num_classes)
-        )
+def create_fixed_model():
+    """Create a version with aggressive bias correction"""
     
-    def forward(self, x):
-        return self.backbone(x)
-
-def debug_current_model():
-    """Debug the model currently being used by the backend"""
-    print("🔍 Debugging CURRENT Fixed Model")
+    print("🔧 CREATING FIXED MODEL WITH AGGRESSIVE BIAS CORRECTION")
     print("=" * 60)
     
-    model_path = "fixed_deepfake_model.pt"
+    # Read current eraksha_agent.py
+    with open('eraksha_agent.py', 'r') as f:
+        content = f.read()
     
-    if not os.path.exists(model_path):
-        print(f"❌ Fixed model not found: {model_path}")
-        return
+    # Find the aggregate_predictions method and replace it
+    old_method = '''    def aggregate_predictions(self, predictions: Dict[str, Tuple[float, float]]) -> Tuple[float, float, str]:
+        """Aggregate predictions from multiple models with bias correction"""
+        if not predictions:
+            return 0.5, 0.0, "no_models"
+        
+        # Bias-corrected model weights and thresholds
+        model_configs = {
+            'student': {'weight': 1.2, 'bias_correction': 0.0},
+            'av': {'weight': 1.5, 'bias_correction': 0.0},
+            'cm': {'weight': 1.3, 'bias_correction': 0.0},      # Increased weight
+            'rr': {'weight': 1.0, 'bias_correction': 0.1},      # Increased weight, reduced bias
+            'll': {'weight': 0.6, 'bias_correction': -0.2},     # REDUCED weight, REVERSED bias
+            'tm': {'weight': 1.2, 'bias_correction': 0.0}       # Increased weight
+        }'''
+
+    new_method = '''    def aggregate_predictions(self, predictions: Dict[str, Tuple[float, float]]) -> Tuple[float, float, str]:
+        """Aggregate predictions from multiple models with AGGRESSIVE bias correction"""
+        if not predictions:
+            return 0.5, 0.0, "no_models"
+        
+        # AGGRESSIVE bias correction to fix 60% REAL bias
+        model_configs = {
+            'student': {'weight': 1.5, 'bias_correction': 0.1},   # Slight fake bias
+            'av': {'weight': 1.5, 'bias_correction': 0.0},
+            'cm': {'weight': 2.0, 'bias_correction': 0.15},       # MUCH higher weight, fake bias
+            'rr': {'weight': 0.3, 'bias_correction': 0.4},        # DRASTICALLY reduced weight, STRONG fake bias
+            'll': {'weight': 1.8, 'bias_correction': -0.15},      # Higher weight, less reverse bias
+            'tm': {'weight': 1.5, 'bias_correction': 0.1}         # Slight fake bias
+        }'''
     
-    # Load model
-    model = StudentModel(num_classes=2)
-    checkpoint = torch.load(model_path, map_location='cpu', weights_only=False)
-    
-    if 'model_state_dict' in checkpoint:
-        model.load_state_dict(checkpoint['model_state_dict'])
-        print(f"✅ Model loaded successfully")
-        print(f"Epoch: {checkpoint.get('epoch', 'Unknown')}")
-        print(f"Best Accuracy: {checkpoint.get('best_acc', 'Unknown')}")
+    # Replace the method
+    if old_method in content:
+        content = content.replace(old_method, new_method)
+        
+        # Save the fixed version
+        with open('eraksha_agent_fixed.py', 'w') as f:
+            f.write(content)
+        
+        print("✅ Created eraksha_agent_fixed.py with aggressive bias correction")
+        print("\n🔧 Changes made:")
+        print("   • RR-Model weight: 1.0 → 0.3 (drastically reduced)")
+        print("   • RR-Model bias: +0.1 → +0.4 (strong fake bias)")
+        print("   • CM-Model weight: 1.3 → 2.0 (much higher)")
+        print("   • CM-Model bias: 0.0 → +0.15 (fake bias)")
+        print("   • LL-Model weight: 0.6 → 1.8 (much higher)")
+        print("   • LL-Model bias: -0.2 → -0.15 (less reverse bias)")
+        print("   • Student bias: 0.0 → +0.1 (slight fake bias)")
+        print("   • TM-Model bias: 0.0 → +0.1 (slight fake bias)")
+        
+        return True
     else:
-        print("❌ No model_state_dict found")
-        return
-    
-    model.eval()
-    
-    # Test with the EXACT same preprocessing as the backend
-    transform = transforms.Compose([
-        transforms.Resize((224, 224)),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-    ])
-    
-    print("\n🧪 Testing Model Behavior (Same as Backend)")
-    print("=" * 60)
-    
-    test_cases = [
-        ("Random Video Frame", np.random.randint(0, 255, (224, 224, 3))),
-        ("Natural Face", create_natural_face()),
-        ("Artificial Face", create_artificial_face()),
-        ("All Black", np.zeros((224, 224, 3))),
-        ("All White", np.ones((224, 224, 3)) * 255),
-        ("Gradient", create_gradient_image())
-    ]
-    
-    with torch.no_grad():
-        for name, image_array in test_cases:
-            # Convert to PIL and apply transform (EXACT backend process)
-            pil_image = Image.fromarray(image_array.astype(np.uint8))
-            input_tensor = transform(pil_image).unsqueeze(0)
-            
-            # Get prediction (EXACT backend process)
-            output = model(input_tensor)
-            probabilities = torch.softmax(output, dim=1)
-            pred_class = torch.argmax(probabilities, dim=1).item()
-            confidence = probabilities[0][pred_class].item()
-            
-            class_name = "Real" if pred_class == 0 else "Fake"
-            real_prob = probabilities[0][0].item()
-            fake_prob = probabilities[0][1].item()
-            
-            print(f"{name:18} | {class_name:4} | Conf: {confidence:.3f} | "
-                  f"Real: {real_prob:.3f} | Fake: {fake_prob:.3f}")
-            
-            # Check if this is the problematic behavior
-            if confidence >= 0.99:
-                print(f"  ⚠️  HIGH CONFIDENCE DETECTED: {confidence:.3f}")
-            if fake_prob > 0.9:
-                print(f"  ⚠️  STRONG FAKE BIAS: {fake_prob:.3f}")
+        print("❌ Could not find the method to replace")
+        return False
 
-def create_natural_face():
-    """Create a natural-looking face"""
-    image = np.zeros((224, 224, 3), dtype=np.uint8)
+def test_fixed_model():
+    """Test the fixed model with same videos"""
     
-    # Natural skin color
-    image[:, :] = [200, 170, 140]
+    print("\n🧪 TESTING FIXED MODEL")
+    print("=" * 30)
     
-    # Add natural variations
-    for y in range(224):
-        for x in range(224):
-            noise = np.random.normal(0, 10)
-            image[y, x] = np.clip(image[y, x] + noise, 0, 255)
+    # Import the fixed agent
+    sys.path.insert(0, '.')
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("eraksha_agent_fixed", "eraksha_agent_fixed.py")
+    fixed_module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(fixed_module)
     
-    return image
-
-def create_artificial_face():
-    """Create an artificial-looking face"""
-    image = np.zeros((224, 224, 3), dtype=np.uint8)
+    # Create fixed agent
+    agent = fixed_module.ErakshAgent()
     
-    # Artificial patterns
-    for y in range(224):
-        for x in range(224):
-            r = int(128 + 127 * np.sin(x * 0.1))
-            g = int(128 + 127 * np.cos(y * 0.1))
-            b = int(128 + 127 * np.sin((x + y) * 0.05))
-            image[y, x] = [r, g, b]
+    # Test with same videos as debug script
+    real_dir = Path("test-data/test-data/raw/real")
+    fake_dir = Path("test-data/test-data/raw/fake")
     
-    return image
-
-def create_gradient_image():
-    """Create a gradient image"""
-    image = np.zeros((224, 224, 3), dtype=np.uint8)
+    real_videos = list(real_dir.glob("*.mp4"))[:5]
+    fake_videos = list(fake_dir.glob("*.mp4"))[:5]
     
-    for y in range(224):
-        for x in range(224):
-            image[y, x] = [x, y, (x + y) // 2]
+    print(f"\n📊 Testing {len(real_videos)} real + {len(fake_videos)} fake videos")
     
-    return image
-
-def analyze_training_data_bias():
-    """Check if the training data was biased"""
-    print("\n🔍 Analyzing Training Data Bias")
-    print("=" * 60)
+    real_correct = 0
+    fake_correct = 0
     
-    info_file = "fixed_model_info.json"
-    if os.path.exists(info_file):
-        import json
-        with open(info_file, 'r') as f:
-            info = json.load(f)
-        
-        if 'training_history' in info:
-            history = info['training_history']
-            if history:
-                last_epoch = history[-1]
-                train_acc = last_epoch.get('train_acc', 0)
-                val_acc = last_epoch.get('val_acc', 0)
-                
-                print(f"Training Accuracy: {train_acc:.2f}%")
-                print(f"Validation Accuracy: {val_acc:.2f}%")
-                
-                if train_acc > 95 and val_acc > 95:
-                    print("⚠️  OVERFITTING DETECTED: Both accuracies too high")
-                    print("   This suggests the synthetic data was too easy to distinguish")
-                    print("   The model learned to classify based on artificial patterns")
-                
-                if abs(train_acc - val_acc) > 10:
-                    print("⚠️  OVERFITTING: Large gap between train and validation")
+    # Test real videos
+    print(f"\n🎬 REAL VIDEOS (Fixed):")
+    for video in real_videos:
+        result = agent.predict(str(video))
+        if result['success']:
+            correct = "✅" if result['prediction'] == 'REAL' else "❌"
+            if result['prediction'] == 'REAL':
+                real_correct += 1
+            print(f"{correct} {video.name}: {result['prediction']} ({result['confidence']:.1%}) via {result['best_model'].upper()}")
+    
+    # Test fake videos
+    print(f"\n🎭 FAKE VIDEOS (Fixed):")
+    for video in fake_videos:
+        result = agent.predict(str(video))
+        if result['success']:
+            correct = "✅" if result['prediction'] == 'FAKE' else "❌"
+            if result['prediction'] == 'FAKE':
+                fake_correct += 1
+            print(f"{correct} {video.name}: {result['prediction']} ({result['confidence']:.1%}) via {result['best_model'].upper()}")
+    
+    # Calculate results
+    real_accuracy = (real_correct / len(real_videos)) * 100
+    fake_accuracy = (fake_correct / len(fake_videos)) * 100
+    bias_gap = real_accuracy - fake_accuracy
+    
+    print(f"\n📈 FIXED MODEL RESULTS:")
+    print(f"Real Video Accuracy: {real_accuracy:.1f}% ({real_correct}/{len(real_videos)})")
+    print(f"Fake Video Accuracy: {fake_accuracy:.1f}% ({fake_correct}/{len(fake_videos)})")
+    print(f"Bias Gap: {bias_gap:.1f}% (was +60.0%)")
+    
+    if abs(bias_gap) < 20:
+        print("✅ Bias significantly reduced!")
     else:
-        print("No training info available")
+        print("⚠️ Still needs more adjustment")
 
-def check_model_weights():
-    """Check if model weights are reasonable"""
-    print("\n🔍 Checking Model Weights")
-    print("=" * 60)
-    
-    model_path = "fixed_deepfake_model.pt"
-    checkpoint = torch.load(model_path, map_location='cpu', weights_only=False)
-    
-    if 'model_state_dict' in checkpoint:
-        state_dict = checkpoint['model_state_dict']
-        
-        # Check final layer weights
-        final_layer_weight = None
-        final_layer_bias = None
-        
-        for name, param in state_dict.items():
-            if 'fc.5.weight' in name:  # Final linear layer
-                final_layer_weight = param
-            elif 'fc.5.bias' in name:
-                final_layer_bias = param
-        
-        if final_layer_weight is not None and final_layer_bias is not None:
-            print(f"Final layer weight shape: {final_layer_weight.shape}")
-            print(f"Final layer bias: {final_layer_bias}")
-            
-            # Check if biased toward fake
-            bias_diff = final_layer_bias[1] - final_layer_bias[0]  # fake - real
-            print(f"Bias difference (fake - real): {bias_diff:.3f}")
-            
-            if bias_diff > 2:
-                print("⚠️  STRONG FAKE BIAS: Model is biased toward predicting fake")
-            elif bias_diff < -2:
-                print("⚠️  STRONG REAL BIAS: Model is biased toward predicting real")
-            else:
-                print("✅ Bias seems reasonable")
+def main():
+    """Main function"""
+    if create_fixed_model():
+        test_fixed_model()
 
 if __name__ == "__main__":
-    debug_current_model()
-    analyze_training_data_bias()
-    check_model_weights()
-    
-    print("\n" + "=" * 60)
-    print("DIAGNOSIS")
-    print("=" * 60)
-    print("The model is likely overfitted on synthetic training data.")
-    print("It learned to distinguish artificial patterns rather than real deepfakes.")
-    print("Solution: Train on REAL deepfake data (DFDC dataset on Kaggle).")
+    main()

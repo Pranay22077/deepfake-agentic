@@ -2,7 +2,13 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torchvision.models as models
-import torchaudio.transforms as T
+
+try:
+    import torchaudio.transforms as T
+    TORCHAUDIO_AVAILABLE = True
+except ImportError:
+    TORCHAUDIO_AVAILABLE = False
+    T = None
 
 class AudioBranch(nn.Module):
     """Lightweight audio processing branch for student model"""
@@ -10,13 +16,16 @@ class AudioBranch(nn.Module):
         super().__init__()
         self.sample_rate = sample_rate
         
-        # Mel spectrogram transform
-        self.mel_transform = T.MelSpectrogram(
-            sample_rate=sample_rate,
-            n_mels=64,
-            n_fft=512,
-            hop_length=256
-        )
+        # Mel spectrogram transform (only if torchaudio is available)
+        if TORCHAUDIO_AVAILABLE:
+            self.mel_transform = T.MelSpectrogram(
+                sample_rate=sample_rate,
+                n_mels=64,
+                n_fft=512,
+                hop_length=256
+            )
+        else:
+            self.mel_transform = None
         
         # Small CNN for mel spectrogram processing
         self.conv_layers = nn.Sequential(

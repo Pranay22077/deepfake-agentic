@@ -8,6 +8,7 @@ import os
 import sys
 import tempfile
 import shutil
+import numpy as np
 from pathlib import Path
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -139,7 +140,7 @@ async def predict_video(file: UploadFile = File(...)):
                         for model, data in result['all_predictions'].items()
                     },
                     "video_characteristics": {
-                        k: float(v) if isinstance(v, (int, float, bool)) else v 
+                        k: (float(v) if hasattr(v, 'item') else (bool(v) if isinstance(v, (bool, np.bool_)) else v))
                         for k, v in result['video_characteristics'].items()
                     },
                     "processing_time": round(result['processing_time'], 2)

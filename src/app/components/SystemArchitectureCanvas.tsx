@@ -47,6 +47,7 @@ const SystemArchitectureCanvas: React.FC = () => {
     { id: 'cm-model', x: 300, y: 165, label: 'CM-Model', type: 'model', icon: 'circle', labelPosition: 'right' },
     { id: 'rr-model', x: 300, y: 220, label: 'RR-Model', type: 'model', icon: 'circle', labelPosition: 'right' },
     { id: 'll-model', x: 300, y: 275, label: 'LL-Model', type: 'model', icon: 'circle', labelPosition: 'right' },
+    { id: 'tm-model', x: 300, y: 330, label: 'TM-Model', type: 'model', icon: 'circle', labelPosition: 'right' },
 
     // Layer 3: Agentic Intelligence (Purple) - Labels on RIGHT
     { id: 'routing-engine', x: 520, y: 75, label: 'Routing Engine', type: 'agent', icon: 'triangle', labelPosition: 'right' },
@@ -55,8 +56,8 @@ const SystemArchitectureCanvas: React.FC = () => {
     { id: 'bias-correction', x: 520, y: 275, label: 'Bias Correction', type: 'agent', icon: 'triangle', labelPosition: 'right' },
 
     // Layer 4: Output (Orange) - Labels on RIGHT
-    { id: 'fastapi', x: 720, y: 120, label: 'FastAPI', type: 'output', icon: 'diamond', labelPosition: 'right' },
-    { id: 'react-ui', x: 720, y: 200, label: 'React UI', type: 'output', icon: 'diamond', labelPosition: 'right' },
+    { id: 'fastapi', x: 720, y: 140, label: 'FastAPI', type: 'output', icon: 'diamond', labelPosition: 'right' },
+    { id: 'react-ui', x: 720, y: 220, label: 'React UI', type: 'output', icon: 'diamond', labelPosition: 'right' },
   ];
 
   const connections: Connection[] = [
@@ -70,9 +71,11 @@ const SystemArchitectureCanvas: React.FC = () => {
     { from: 'video-decoder', to: 'av-model' },
     { from: 'frame-sampler', to: 'cm-model' },
     { from: 'frame-sampler', to: 'rr-model' },
+    { from: 'frame-sampler', to: 'tm-model' },
     { from: 'face-detector', to: 'll-model' },
     { from: 'face-detector', to: 'rr-model' },
     { from: 'face-detector', to: 'cm-model' },
+    { from: 'face-detector', to: 'tm-model' },
     
     // Models to Agents
     { from: 'bg-model', to: 'routing-engine' },
@@ -80,6 +83,7 @@ const SystemArchitectureCanvas: React.FC = () => {
     { from: 'cm-model', to: 'aggregator' },
     { from: 'rr-model', to: 'aggregator' },
     { from: 'll-model', to: 'bias-correction' },
+    { from: 'tm-model', to: 'aggregator' },
     
     // Agent interconnections
     { from: 'routing-engine', to: 'langgraph' },

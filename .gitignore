@@ -127,3 +127,11 @@ logs/
 # Evaluation results
 evaluation_results.json
 domain_analysis.json
+
+# Old UI folders (to be removed)
+E-Raksha Agent UI Design/
+E-Raksha Agent UI Design (1)/
+eraksha-modern-ui/
+frontend/
+frontend-react/
+website/

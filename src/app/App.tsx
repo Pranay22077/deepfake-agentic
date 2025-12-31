@@ -7,8 +7,10 @@ import Home from './pages/Home';
 import AnalysisWorkbench from './pages/AnalysisWorkbench';
 import Dashboard from './pages/Dashboard';
 import Analytics from './pages/Analytics';
+import AdvancedAnalytics from './pages/AdvancedAnalytics';
 import Contact from './pages/Contact';
 import FAQ from './pages/FAQ';
+import ChartDemo from './pages/ChartDemo';
 
 export default function App() {
   return (
@@ -30,8 +32,10 @@ export default function App() {
               <Route path="/workbench" element={<AnalysisWorkbench />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/analytics" element={<Analytics />} />
+              <Route path="/advanced-analytics" element={<AdvancedAnalytics />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/faq" element={<FAQ />} />
+              <Route path="/chart-demo" element={<ChartDemo />} />
             </Routes>
           </div>
         </div>

@@ -1,5 +1,6 @@
-import React from 'react';
-import { FileVideo, TrendingUp, Clock, AlertCircle } from 'lucide-react';
+import { FileVideo, Clock, AlertCircle } from 'lucide-react';
+import { RechartsDonutChart } from '../components/charts/RechartsDonutChart';
+import MetadataSummary from '../components/charts/MetadataSummary';
 
 const Dashboard = () => {
   const stats = [
@@ -86,6 +87,80 @@ const Dashboard = () => {
               <p className="text-3xl font-bold text-gray-900 dark:text-white">{stat.value}</p>
             </div>
           ))}
+        </div>
+
+        {/* Metadata Analysis Section */}
+        <div className="mb-12 animate-fade-in-up">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            Metadata Analysis Dashboard
+          </h2>
+          
+          {/* Summary Overview */}
+          <div className="mb-8 animate-scale-in">
+            <MetadataSummary
+              data={{
+                totalVideos: 1247,
+                fakeDetected: 342,
+                realDetected: 905,
+                averageConfidence: 0.847,
+                averageProcessingTime: 3.2,
+                topPerformingModel: 'TM Model',
+                trend: 'up',
+                trendPercentage: 12.5
+              }}
+            />
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+            {/* Detection Results Distribution */}
+            <div className="animate-slide-in-right">
+              <RechartsDonutChart
+                data={[
+                  { label: 'Real Videos', value: 905, color: '#10B981' },
+                  { label: 'Fake Videos', value: 342, color: '#EF4444' }
+                ]}
+                title="Detection Results"
+                description="Real vs Fake video classification"
+                totalLabel="Videos"
+                trendText="Detection accuracy improved"
+                trendPercentage="+8.2%"
+              />
+            </div>
+
+            {/* Confidence Level Distribution */}
+            <div className="animate-slide-in-right" style={{ animationDelay: '0.1s' }}>
+              <RechartsDonutChart
+                data={[
+                  { label: 'High Confidence', value: 561, color: '#059669' },
+                  { label: 'Medium Confidence', value: 437, color: '#F59E0B' },
+                  { label: 'Low Confidence', value: 249, color: '#EF4444' }
+                ]}
+                title="Confidence Levels"
+                description="Analysis confidence distribution"
+                totalLabel="Analyses"
+                trendText="High confidence increased"
+                trendPercentage="+12.5%"
+              />
+            </div>
+
+            {/* Processing Speed Distribution */}
+            <div className="animate-slide-in-right" style={{ animationDelay: '0.2s' }}>
+              <RechartsDonutChart
+                data={[
+                  { label: 'Fast Processing', value: 498, color: '#3B82F6' },
+                  { label: 'Medium Speed', value: 561, color: '#8B5CF6' },
+                  { label: 'Slower Processing', value: 188, color: '#F97316' }
+                ]}
+                title="Processing Speed"
+                description="Analysis processing time breakdown"
+                totalLabel="Videos"
+                trendText="Processing speed improved"
+                trendPercentage="+15.3%"
+              />
+            </div>
+          </div>
+
+
         </div>
 
         {/* Analysis History */}

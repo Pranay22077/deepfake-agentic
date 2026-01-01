@@ -1,5 +1,6 @@
 {
     "kiroAgent.configureMCP": "Disabled",
     "html.autoClosingTags": false,
-    "typescript.autoClosingTags": false
+    "typescript.autoClosingTags": false,
+    "git.ignoreLimitWarning": true
 }

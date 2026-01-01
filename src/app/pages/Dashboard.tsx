@@ -1,7 +1,7 @@
 import { FileVideo, Clock, AlertCircle } from 'lucide-react';
 import { RechartsDonutChart } from '../components/charts/RechartsDonutChart';
 import MetadataSummary from '../components/charts/MetadataSummary';
-import { getAnalyticsStats, getRecentAnalyses, formatRelativeTime } from '../../lib/supabase.js';
+import { getAnalyticsStats, getRecentAnalyses, formatRelativeTime } from '../../lib/supabase';
 import { useState, useEffect } from 'react';
 
 const Dashboard = () => {

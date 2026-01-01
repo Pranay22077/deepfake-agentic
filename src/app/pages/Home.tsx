@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Zap, Eye, ArrowRight } from 'lucide-react';
-import { getAnalyticsStats } from '../../lib/supabase.js';
+import { getAnalyticsStats } from '../../lib/supabase';
 
 const Home = () => {
   const [stats, setStats] = useState({

@@ -5,7 +5,7 @@ import { useArchitecture } from '../context/ArchitectureContext';
 import { useTheme } from '../context/ThemeContext';
 import SystemArchitectureCanvas from '../components/SystemArchitectureCanvas';
 import LiquidEther from '../components/LiquidEther';
-import { saveAnalysis, checkDuplicateFile, type VideoAnalysis } from '../../lib/supabase.js';
+import { saveAnalysis, checkDuplicateFile, type VideoAnalysis } from '../../lib/supabase';
 
 // Backend API URL - Use environment variable or fallback to Vercel deployment
 const API_URL = import.meta.env.VITE_API_URL || 'https://deepfake-agentic.vercel.app/api';

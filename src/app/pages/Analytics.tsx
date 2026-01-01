@@ -6,7 +6,7 @@ import { AIModelPerformanceChart } from '../components/charts/AIModelPerformance
 import ApexHeatmap from '../components/charts/ApexHeatmap';
 import EChartsPerformance from '../components/charts/EChartsPerformance';
 import PlotlyStatistics from '../components/charts/PlotlyStatistics';
-import { getAnalyticsStats, getRecentAnalyses } from '../../lib/supabase.js';
+import { getAnalyticsStats, getRecentAnalyses } from '../../lib/supabase';
 import { useState, useEffect } from 'react';
 
 const Analytics = () => {

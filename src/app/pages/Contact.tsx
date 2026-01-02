@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, MessageSquare, Send, FileText } from 'lucide-react';
+import { Mail, MessageSquare, Send, FileText, Github } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -173,12 +173,37 @@ This message was sent via the Interceptor contact form.`
                     Read our guides and API docs
                   </p>
                   <a
-                    href="https://drive.google.com/file/d/1l5WB4pIUDuEXwNs7j4DxH1iYzScS7IC6/view"
+                    href="https://docs.google.com/document/d/1hYk1rtjOidR3H3cWOa9RS3BBEQ7n1wQGxVMzI3QYfwM/edit?usp=sharing"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
                   >
                     Google Docs
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* GitHub */}
+            <div className="rounded-xl p-6 bg-white/50 dark:bg-gray-900/50 backdrop-blur-md border border-gray-200 dark:border-gray-800">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-lg bg-blue-500/20">
+                  <Github className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                </div>
+                <div>
+                  <h3 className="text-lg mb-1 font-bold text-gray-900 dark:text-white">
+                    GitHub
+                  </h3>
+                  <p className="text-sm mb-2 text-gray-600 dark:text-gray-400">
+                    Check out our code and contribute
+                  </p>
+                  <a
+                    href="https://github.com/Pranay22077/deepfake-agentic"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
+                  >
+                    View Repository
                   </a>
                 </div>
               </div>

@@ -137,7 +137,7 @@ const FAQ = () => {
                 </div>
               </button>
               <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                className={`overflow-hidden transition-all duration-700 ease-in-out ${
                   openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
@@ -149,6 +149,22 @@ const FAQ = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Contact CTA */}
+        <div className="mt-12 rounded-xl p-8 text-center bg-white/50 dark:bg-gray-900/50 backdrop-blur-md border border-gray-200 dark:border-gray-800">
+          <h3 className="text-xl mb-3 font-bold text-gray-900 dark:text-white">
+            Still have questions?
+          </h3>
+          <p className="text-base mb-6 text-gray-600 dark:text-gray-400">
+            Our team is here to help you get started with Interceptor
+          </p>
+          <a
+            href="/contact"
+            className="inline-flex items-center px-6 py-3 rounded-lg transition-colors bg-blue-600 hover:bg-blue-700 text-white font-medium"
+          >
+            Contact Us
+          </a>
         </div>
       </div>
     </div>

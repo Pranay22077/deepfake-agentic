@@ -237,8 +237,8 @@ build-and-run.bat   # Windows
 ## Usage
 
 ### Web Interface
+![Home Page](Images/Website/home-page.png)
 
-![Dashboard](Images/Website/dashboard.png)
 
 The web interface provides an intuitive way to:
 - Upload videos for analysis
@@ -246,7 +246,7 @@ The web interface provides an intuitive way to:
 - Access detailed explanations
 - Monitor system performance
 
-![Home Page](Images/Website/home-page.png)
+![Dashboard](Images/Website/dashboard.png)
 
 ### Analysis Features
 

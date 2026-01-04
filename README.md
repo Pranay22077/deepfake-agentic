@@ -341,7 +341,7 @@ print(f"Confidence: {result['confidence']:.2f}")
 ### Base URL
 ```
 Development: http://localhost:8000
-Production: https://your-api-domain.com  # Replace with your deployed API URL
+Production: https://api.interceptor.yourdomain.com  # Replace 'yourdomain.com' with your domain
 ```
 
 ### Endpoints

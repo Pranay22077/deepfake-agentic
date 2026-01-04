@@ -352,7 +352,6 @@ Analyze a video file for deepfake detection.
 **Request:**
 ```bash
 curl -X POST "http://localhost:8000/api/analyze" \
-  -H "Content-Type: multipart/form-data" \
   -F "video=@path/to/video.mp4"
 ```
 

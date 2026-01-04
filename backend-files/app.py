@@ -21,7 +21,7 @@ try:
     CV2_AVAILABLE = True
 except ImportError:
     CV2_AVAILABLE = False
-    print("⚠ OpenCV not available")
+    print("[WARNING] OpenCV not available")
 
 app = FastAPI(
     title="Interceptor API",

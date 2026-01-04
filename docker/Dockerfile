@@ -1,7 +1,7 @@
 FROM nginx:alpine
 
-# Copy website files
-COPY website /usr/share/nginx/html
+# Copy built frontend files
+COPY dist /usr/share/nginx/html
 
 # Copy export directory if it exists
 COPY export /usr/share/nginx/html/models

@@ -16,11 +16,10 @@ from fastapi.responses import JSONResponse
 import uvicorn
 
 # Add project root to path
-sys.path.append('.')
-sys.path.append('src')
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Import the bias-corrected agentic system
-from eraksha_agent import ErakshAgent
+from src.agent.eraksha_agent import ErakshAgent
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -45,12 +44,12 @@ agent = None
 async def startup_event():
     """Initialize the agentic system on startup"""
     global agent
-    print("🚀 Initializing E-Raksha Agentic System (Bias Corrected)...")
+    print("[INIT] Initializing E-Raksha Agentic System (Bias Corrected)...")
     try:
         agent = ErakshAgent()
-        print("✅ Agentic system initialized successfully!")
+        print("[OK] Agentic system initialized successfully!")
     except Exception as e:
-        print(f"❌ Failed to initialize agentic system: {e}")
+        print(f"[ERROR] Failed to initialize agentic system: {e}")
         raise e
 
 @app.get("/")
@@ -206,7 +205,7 @@ async def get_models():
     }
 
 if __name__ == "__main__":
-    print("🚀 Starting E-Raksha Agentic API Server (Bias Corrected)")
+    print("[INIT] Starting E-Raksha Agentic API Server (Bias Corrected)")
     uvicorn.run(
         "backend.app_agentic_corrected:app",
         host="0.0.0.0",

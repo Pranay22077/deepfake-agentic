@@ -108,13 +108,13 @@ const ApexHeatmap: React.FC<ApexHeatmapProps> = ({
       y: {
         formatter: function(val: any) {
           let status = '';
-          if (val >= 91) status = '🏆 Outstanding';
-          else if (val >= 81) status = '🌟 Excellent';
-          else if (val >= 66) status = '✅ Very Good';
-          else if (val >= 51) status = '👍 Good';
-          else if (val >= 36) status = '⚠️ Fair';
-          else if (val >= 21) status = '🔶 Low';
-          else status = '🚨 Critical';
+          if (val >= 91) status = '[OUTSTANDING] Outstanding';
+          else if (val >= 81) status = '[EXCELLENT] Excellent';
+          else if (val >= 66) status = '[OK] Very Good';
+          else if (val >= 51) status = '[GOOD] Good';
+          else if (val >= 36) status = '[WARNING] Fair';
+          else if (val >= 21) status = '[LOW] Low';
+          else status = '[CRITICAL] Critical';
           
           return val + '% - ' + status;
         }

@@ -1,6 +1,6 @@
 # E-Raksha Docker Deployment Guide
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Option 1: Docker Compose (Recommended)
 ```bash
@@ -29,13 +29,13 @@ docker run -p 8000:8000 -p 3001:3001 eraksha:latest
 # Backend API: http://localhost:8000
 ```
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Docker installed on your system
 - At least 4GB RAM available
 - Internet connection for downloading dependencies
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 - `MODEL_PATH`: Path to the model file (default: `/app/fixed_deepfake_model.pt`)
@@ -47,7 +47,7 @@ docker run -p 8000:8000 -p 3001:3001 eraksha:latest
 - `./logs:/app/logs` - Application logs
 - `./models:/app/models` - Model files
 
-## 📊 Health Check
+## Health Check
 
 The container includes a health check that verifies the backend API is running:
 ```bash
@@ -58,7 +58,7 @@ docker ps
 curl http://localhost:8000/health
 ```
 
-## 🛠 Troubleshooting
+## Troubleshooting
 
 ### Container won't start
 1. Check if ports 8000 and 3001 are available
@@ -74,14 +74,14 @@ curl http://localhost:8000/health
 2. Check health endpoint: `curl http://localhost:8000/health`
 3. Check backend logs in container
 
-## 📱 Usage
+## Usage
 
 1. Open http://localhost:3001 in your browser
 2. Upload a video file (MP4, AVI, MOV)
 3. Wait for analysis to complete
 4. View results with confidence scores and heatmaps
 
-## 🔄 Updates
+## Updates
 
 To update the application:
 ```bash
@@ -93,13 +93,13 @@ docker-compose down
 docker-compose up --build
 ```
 
-## 📝 API Documentation
+## API Documentation
 
 - Swagger UI: http://localhost:8000/docs
 - ReDoc: http://localhost:8000/redoc
 - Health Check: http://localhost:8000/health
 
-## 🐳 Docker Hub Deployment
+## Docker Hub Deployment
 
 To deploy to Docker Hub:
 ```bash

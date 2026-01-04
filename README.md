@@ -1,7 +1,13 @@
 # Interceptor: Agentic AI for Deepfake Detection & Authenticity Verification
 
+<div align="center">
+
 **Advanced AI-Powered Media Authentication System**  
 *Intelligent deepfake detection using ensemble neural networks and autonomous agent routing*
+
+[Live Demo](https://interceptor-eraksha.vercel.app/) | [Documentation](https://docs.google.com/document/d/1YXaiZdUvvn6Koy5BbKQuuj-fs5QqZ9ef56kuVOXAthQ/edit?tab=t.0) | [Model Weights](https://huggingface.co/Pran-ay-22077/interceptor-models)
+
+</div>
 
 ---
 
@@ -33,9 +39,13 @@
 - **Bias Correction**: Sophisticated mechanism for balanced detection across different scenarios
 - **Edge-Ready**: Optimized for deployment on resource-constrained devices
 
-![System Architecture](Images/Diagrams/entire-workflow.png)
+<p align="center">
+  <img src="Images/Diagrams/entire-workflow.png" alt="System Architecture" width="700">
+</p>
 
 ### Performance Metrics
+
+<div align="center">
 
 | Metric | Value | Target |
 |--------|:-----:|:------:|
@@ -45,13 +55,17 @@
 | **Total Parameters** | 47.2M | <100M |
 | **Inference Memory** | 512 MB | <1GB |
 
+</div>
+
 ---
 
 ## System Architecture
 
 Interceptor employs a four-layer architecture designed for scalability, efficiency, and accuracy:
 
-![Tech Stack](Images/Diagrams/tech_stack.png)
+<p align="center">
+  <img src="Images/Diagrams/tech_stack.png" alt="Tech Stack" width="700">
+</p>
 
 ### Layer 1: Input Processing
 - **Video Decoder**: Handles multiple video formats (MP4, AVI, MOV, MKV, WebM)
@@ -63,7 +77,9 @@ Interceptor employs a four-layer architecture designed for scalability, efficien
 Six specialized neural networks, each optimized for specific deepfake detection scenarios:
 
 #### BG-Model (Baseline Generalist)
-![BG Model](Images/Diagrams/BG-model.png)
+<p align="center">
+  <img src="Images/Diagrams/BG-model.png" alt="BG Model" width="600">
+</p>
 - **Architecture**: MobileNetV3-Small backbone
 - **Parameters**: 2.1M
 - **Size**: 8.2 MB
@@ -71,7 +87,9 @@ Six specialized neural networks, each optimized for specific deepfake detection 
 - **Purpose**: Fast baseline detection for all videos
 
 #### AV-Model (Audio-Visual Specialist)
-![AV Model](Images/Diagrams/AV-model.png)
+<p align="center">
+  <img src="Images/Diagrams/AV-model.png" alt="AV Model" width="600">
+</p>
 - **Architecture**: ResNet18 + Audio CNN + Lip-Sync Detector
 - **Parameters**: 15.8M
 - **Size**: 60.4 MB
@@ -79,13 +97,17 @@ Six specialized neural networks, each optimized for specific deepfake detection 
 - **Purpose**: Audio-visual correlation analysis
 
 #### Specialist Models (CM, RR, LL)
-![Specialist Models](Images/Diagrams/LL-RR-CM-model.png)
+<p align="center">
+  <img src="Images/Diagrams/LL-RR-CM-model.png" alt="Specialist Models" width="600">
+</p>
 - **CM-Model**: Compression artifact detection (80.83% accuracy)
 - **RR-Model**: Re-recording pattern detection (85.0% accuracy)
 - **LL-Model**: Low-light condition analysis (93.42% accuracy)
 
 #### TM-Model (Temporal Specialist)
-![TM Model](Images/Diagrams/TM-model.png)
+<p align="center">
+  <img src="Images/Diagrams/TM-model.png" alt="TM Model" width="600">
+</p>
 - **Architecture**: ResNet18 + LSTM
 - **Parameters**: 14.2M
 - **Size**: 54.3 MB
@@ -135,6 +157,8 @@ Optimized for field operations:
 
 ### Individual Model Accuracy
 
+<div align="center">
+
 | Model | Accuracy | Parameters | Size | Specialization |
 |-------|:--------:|:----------:|:----:|----------------|
 | **BG-Model** | 86.25% | 2.1M | 8.2 MB | Baseline Generalist |
@@ -144,12 +168,21 @@ Optimized for field operations:
 | **LL-Model** | 93.42% | 11.7M | 44.6 MB | Low-light Analysis |
 | **TM-Model** | 78.5% | 14.2M | 54.3 MB | Temporal Consistency |
 
+</div>
+
 ### Ensemble Performance
-- **Overall Accuracy**: 94.9%
-- **Precision**: 94.2%
-- **Recall**: 95.6%
-- **F1-Score**: 94.9%
-- **AUC-ROC**: 0.987
+
+<div align="center">
+
+| Metric | Value |
+|--------|:-----:|
+| **Overall Accuracy** | 94.9% |
+| **Precision** | 94.2% |
+| **Recall** | 95.6% |
+| **F1-Score** | 94.9% |
+| **AUC-ROC** | 0.987 |
+
+</div>
 
 ---
 
@@ -238,7 +271,9 @@ build-and-run.bat   # Windows
 ## Usage
 
 ### Web Interface
-![Home Page](Images/Website/home-page.png)
+<p align="center">
+  <img src="Images/Website/home-page.png" alt="Home Page" width="800">
+</p>
 
 
 The web interface provides an intuitive way to:
@@ -247,11 +282,15 @@ The web interface provides an intuitive way to:
 - Access detailed explanations
 - Monitor system performance
 
-![Dashboard](Images/Website/dashboard.png)
+<p align="center">
+  <img src="Images/Website/dashboard.png" alt="Dashboard" width="800">
+</p>
 
 ### Analysis Features
 
-![Analysis Animation](Images/Website/analysis-and-model-animation.png)
+<p align="center">
+  <img src="Images/Website/analysis-and-model-animation.png" alt="Analysis Animation" width="800">
+</p>
 
 - **Real-time Processing**: Upload and analyze videos instantly
 - **Confidence Scoring**: Detailed confidence levels for each prediction
@@ -260,9 +299,17 @@ The web interface provides an intuitive way to:
 
 ### Analytics Dashboard
 
-![Stats 1](Images/Website/stats_1.png)
-![Stats 2](Images/Website/stats_2.png)
-![Stats 3](Images/Website/stats_3.png)
+<p align="center">
+  <img src="Images/Website/stats_1.png" alt="Analytics Dashboard - Overview" width="750">
+</p>
+
+<p align="center">
+  <img src="Images/Website/stats_2.png" alt="Analytics Dashboard - Detailed Metrics" width="750">
+</p>
+
+<p align="center">
+  <img src="Images/Website/stats_3.png" alt="Analytics Dashboard - Performance Trends" width="750">
+</p>
 
 Comprehensive analytics including:
 - Detection accuracy trends
@@ -291,16 +338,22 @@ print(f"Confidence: {result['confidence']:.2f}")
 
 ## API Documentation
 
+### Base URL
+```
+Development: http://localhost:8000
+Production: https://your-api-domain.com
+```
+
 ### Endpoints
 
 #### POST /api/analyze
 Analyze a video file for deepfake detection.
 
 **Request:**
-```json
-{
-  "video": "multipart/form-data"
-}
+```bash
+curl -X POST "http://localhost:8000/api/analyze" \
+  -H "Content-Type: multipart/form-data" \
+  -F "video=@path/to/video.mp4"
 ```
 
 **Response:**

@@ -20,7 +20,7 @@ class SupabaseClient:
         
         # Check if credentials are provided
         if not self.url or not self.key:
-            print("⚠️  Supabase credentials not found in environment variables")
+            print("[WARNING] Supabase credentials not found in environment variables")
             print("   Database features will be disabled")
             print("   Set SUPABASE_URL and SUPABASE_ANON_KEY in .env file")
             self.client = None
@@ -28,15 +28,15 @@ class SupabaseClient:
         
         try:
             self.client: Client = create_client(self.url, self.key)
-            print("✅ Supabase client initialized successfully")
+            print("[OK] Supabase client initialized successfully")
         except Exception as e:
-            print(f"❌ Failed to initialize Supabase client: {e}")
+            print(f"[ERROR] Failed to initialize Supabase client: {e}")
             self.client = None
     
     def log_inference(self, video_filename: str, result: Dict, confidence: float, model_version: str = "kaggle-v1") -> bool:
         """Log inference result to database"""
         if not self.client:
-            print("⚠️ Supabase client not available, skipping database log")
+            print("[WARNING] Supabase client not available, skipping database log")
             return False
         
         try:
@@ -49,17 +49,17 @@ class SupabaseClient:
             }
             
             response = self.client.table('inference_logs').insert(data).execute()
-            print(f"✅ Logged inference for {video_filename}")
+            print(f"[OK] Logged inference for {video_filename}")
             return True
             
         except Exception as e:
-            print(f"❌ Failed to log inference: {e}")
+            print(f"[ERROR] Failed to log inference: {e}")
             return False
     
     def save_feedback(self, video_filename: str, user_label: str, user_confidence: float = None) -> bool:
         """Save user feedback to database"""
         if not self.client:
-            print("⚠️ Supabase client not available, skipping feedback save")
+            print("[WARNING] Supabase client not available, skipping feedback save")
             return False
         
         try:
@@ -71,11 +71,11 @@ class SupabaseClient:
             }
             
             response = self.client.table('feedback_buffer').insert(data).execute()
-            print(f"✅ Saved feedback for {video_filename}: {user_label}")
+            print(f"[OK] Saved feedback for {video_filename}: {user_label}")
             return True
             
         except Exception as e:
-            print(f"❌ Failed to save feedback: {e}")
+            print(f"[ERROR] Failed to save feedback: {e}")
             return False
     
     def get_inference_stats(self) -> Dict:
@@ -105,7 +105,7 @@ class SupabaseClient:
             }
             
         except Exception as e:
-            print(f"❌ Failed to get stats: {e}")
+            print(f"[ERROR] Failed to get stats: {e}")
             return {"error": str(e), "database_status": "error"}
     
     def create_tables(self) -> bool:
@@ -136,7 +136,7 @@ class SupabaseClient:
         );
         """
         
-        print("📋 SQL for creating tables:")
+        print("[INFO] SQL for creating tables:")
         print(inference_logs_sql)
         print(feedback_buffer_sql)
         print("Run these in your Supabase SQL editor")

@@ -20,7 +20,7 @@ from dotenv import load_dotenv
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Import our agentic system
-from eraksha_agent import ErakshAgent
+from src.agent.eraksha_agent import ErakshAgent
 
 # Load environment variables
 load_dotenv()
@@ -70,12 +70,12 @@ def load_agentic_system():
     global agent
     
     try:
-        print("🚀 Loading E-Raksha Agentic System...")
+        print("[INIT] Loading E-Raksha Agentic System...")
         agent = ErakshAgent(device='auto')
-        print("✅ Agentic system loaded successfully!")
+        print("[OK] Agentic system loaded successfully!")
         return True
     except Exception as e:
-        print(f"❌ Failed to load agentic system: {e}")
+        print(f"[ERROR] Failed to load agentic system: {e}")
         agent = None
         return False
 
@@ -84,9 +84,9 @@ async def startup_event():
     """Load agentic system on startup"""
     success = load_agentic_system()
     if success:
-        print("🎉 E-Raksha Agentic API started successfully")
+        print("[OK] E-Raksha Agentic API started successfully")
     else:
-        print("⚠️ API started but agentic system failed to load")
+        print("[WARNING] API started but agentic system failed to load")
 
 @app.get("/")
 async def root():
@@ -318,5 +318,5 @@ if __name__ == "__main__":
     host = os.getenv('API_HOST', '0.0.0.0')
     port = int(os.getenv('API_PORT', '8000'))
     
-    print(f"🚀 Starting E-Raksha Agentic API on {host}:{port}")
+    print(f"[INIT] Starting E-Raksha Agentic API on {host}:{port}")
     uvicorn.run(app, host=host, port=port)

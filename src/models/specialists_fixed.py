@@ -363,14 +363,14 @@ def load_specialist_model_fixed(model_path, model_type, device='cpu'):
         missing_keys, unexpected_keys = model.load_state_dict(state_dict, strict=False)
         
         if missing_keys:
-            print(f"⚠️ Missing keys in {model_type.upper()}-Model: {len(missing_keys)} keys")
+            print(f"[WARNING] Missing keys in {model_type.upper()}-Model: {len(missing_keys)} keys")
         if unexpected_keys:
-            print(f"⚠️ Unexpected keys in {model_type.upper()}-Model: {len(unexpected_keys)} keys")
+            print(f"[WARNING] Unexpected keys in {model_type.upper()}-Model: {len(unexpected_keys)} keys")
         
-        print(f"✅ Loaded {model_type.upper()}-Model: {accuracy}% accuracy")
+        print(f"[OK] Loaded {model_type.upper()}-Model: {accuracy}% accuracy")
     else:
         model.load_state_dict(checkpoint, strict=False)
-        print(f"✅ Loaded {model_type.upper()}-Model (basic format)")
+        print(f"[OK] Loaded {model_type.upper()}-Model (basic format)")
     
     model.to(device)
     model.eval()
@@ -379,7 +379,7 @@ def load_specialist_model_fixed(model_path, model_type, device='cpu'):
 
 if __name__ == "__main__":
     # Test all fixed specialist models
-    print("🧪 Testing Fixed Specialist Models...")
+    print("[TEST] Testing Fixed Specialist Models...")
     
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
@@ -405,17 +405,17 @@ if __name__ == "__main__":
                 # Test both single frame and sequence
                 output_single = model(test_input)
                 output_sequence = model(test_sequence)
-                print(f"✅ {name}: Single frame {output_single.shape}, Sequence {output_sequence.shape}")
+                print(f"[OK] {name}: Single frame {output_single.shape}, Sequence {output_sequence.shape}")
             elif name == "AV-Model":
                 # Test with and without audio
                 output_no_audio = model(test_sequence)
                 output_with_audio = model(test_sequence, test_audio)
-                print(f"✅ {name}: No audio {output_no_audio.shape}, With audio {output_with_audio.shape}")
+                print(f"[OK] {name}: No audio {output_no_audio.shape}, With audio {output_with_audio.shape}")
             else:
                 output = model(test_input)
-                print(f"✅ {name}: {output.shape}")
+                print(f"[OK] {name}: {output.shape}")
         
         params = sum(p.numel() for p in model.parameters())
         print(f"   Parameters: {params:,}")
     
-    print("🎉 All fixed specialist models working correctly!")
+    print("[OK] All fixed specialist models working correctly!")

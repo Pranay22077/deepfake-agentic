@@ -22,7 +22,7 @@ from enum import Enum
 from langgraph.graph import StateGraph, END
 
 # Add src to path
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from models.audiovisual import AVModel
 # from preprocess.extract_faces import FaceExtractor
@@ -92,7 +92,7 @@ class LangGraphAgent:
         else:
             self.device = torch.device(device)
         
-        print(f"🚀 Initializing LangGraph Agent on {self.device}")
+        print(f"[INIT] Initializing LangGraph Agent on {self.device}")
         
         # Load configuration
         self.config = self._load_config(config_path)
@@ -111,7 +111,7 @@ class LangGraphAgent:
         # Setup logging
         self.logger = logging.getLogger(__name__)
         
-        print("✅ LangGraph Agent initialized successfully!")
+        print("[OK] LangGraph Agent initialized successfully!")
     
     def _load_config(self, config_path: str) -> Dict:
         """Load agent configuration"""
@@ -145,14 +145,14 @@ class LangGraphAgent:
                     user_config = yaml.safe_load(f)
                 default_config.update(user_config)
             except:
-                print(f"⚠️ Could not load config from {config_path}, using defaults")
+                print(f"[WARNING] Could not load config from {config_path}, using defaults")
         
         return default_config
     
     def _load_student_model(self, model_path: str):
         """Load baseline student model"""
         if not os.path.exists(model_path):
-            print(f"⚠️ Student model not found: {model_path}")
+            print(f"[WARNING] Student model not found: {model_path}")
             return None
         
         try:
@@ -163,16 +163,16 @@ class LangGraphAgent:
             model.load_state_dict(checkpoint['model_state_dict'])
             model.to(self.device)
             model.eval()
-            print(f"✅ Loaded student model: {checkpoint.get('best_acc', 'Unknown')}% accuracy")
+            print(f"[OK] Loaded student model: {checkpoint.get('best_acc', 'Unknown')}% accuracy")
             return model
         except Exception as e:
-            print(f"❌ Failed to load student model: {e}")
+            print(f"[ERROR] Failed to load student model: {e}")
             return None
     
     def _load_av_model(self, model_path: str):
         """Load AV-Model (Audio-Visual Specialist)"""
         if not os.path.exists(model_path):
-            print(f"⚠️ AV-Model not found: {model_path}")
+            print(f"[WARNING] AV-Model not found: {model_path}")
             return None
         
         try:
@@ -181,10 +181,10 @@ class LangGraphAgent:
             model.load_state_dict(checkpoint['model_state_dict'])
             model.to(self.device)
             model.eval()
-            print(f"✅ Loaded AV-Model: {checkpoint.get('best_acc', 93.0):.1f}% accuracy")
+            print(f"[OK] Loaded AV-Model: {checkpoint.get('best_acc', 93.0):.1f}% accuracy")
             return model
         except Exception as e:
-            print(f"❌ Failed to load AV-Model: {e}")
+            print(f"[ERROR] Failed to load AV-Model: {e}")
             return None
     
     def _build_workflow(self) -> StateGraph:
@@ -254,7 +254,7 @@ class LangGraphAgent:
             state['error_message'] = f"Unsupported video format"
             return state
         
-        print(f"[INGEST] ✅ Request {state['request_id']}: {os.path.basename(video_path)}")
+        print(f"[INGEST] [OK] Request {state['request_id']}: {os.path.basename(video_path)}")
         return state
     
     def _metadata_node(self, state: AgentState) -> AgentState:
@@ -307,7 +307,7 @@ class LangGraphAgent:
                 'file_size_mb': file_size / (1024 * 1024)
             }
             
-            print(f"[METADATA] 📊 {state['resolution'][0]}x{state['resolution'][1]}, "
+            print(f"[METADATA] {state['resolution'][0]}x{state['resolution'][1]}, "
                   f"{state['fps']:.1f}fps, {state['duration']:.1f}s, "
                   f"brightness: {state['avg_brightness']:.1f}")
             
@@ -396,13 +396,13 @@ class LangGraphAgent:
                 state['audio_waveform'] = waveform.squeeze(0)
                 
             except Exception as e:
-                print(f"[PREPROCESS] ⚠️ Audio extraction failed: {e}")
+                print(f"[PREPROCESS] [WARNING] Audio extraction failed: {e}")
                 # Create silent audio
                 target_length = int(self.config['preprocessing']['audio_duration'] * 
                                   self.config['preprocessing']['sample_rate'])
                 state['audio_waveform'] = torch.zeros(target_length)
             
-            print(f"[PREPROCESS] ✅ Extracted {len(faces)} faces, "
+            print(f"[PREPROCESS] [OK] Extracted {len(faces)} faces, "
                   f"audio: {state['audio_waveform'].shape[0] / target_sr:.1f}s")
             
         except Exception as e:
@@ -438,11 +438,11 @@ class LangGraphAgent:
             state['student_prediction'] = fake_prob
             state['student_confidence'] = max(fake_prob, 1 - fake_prob)
             
-            print(f"[STUDENT] 🎯 Prediction: {fake_prob:.3f}, "
+            print(f"[STUDENT] Prediction: {fake_prob:.3f}, "
                   f"Confidence: {state['student_confidence']:.3f}")
             
         except Exception as e:
-            print(f"[STUDENT] ❌ Inference failed: {e}")
+            print(f"[STUDENT] [ERROR] Inference failed: {e}")
             state['student_prediction'] = 0.5
             state['student_confidence'] = 0.0
         
@@ -461,19 +461,19 @@ class LangGraphAgent:
         if confidence >= high_thresh:
             state['next_action'] = 'ACCEPT'
             state['stage_taken'] = 'student_only'
-            print(f"[POLICY] ✅ High confidence ({confidence:.3f}) -> ACCEPT")
+            print(f"[POLICY] [OK] High confidence ({confidence:.3f}) -> ACCEPT")
             
         elif confidence >= medium_thresh and self.av_model is not None:
             # Medium confidence + AV model available -> use AV specialist
             state['next_action'] = 'AV_SPECIALIST'
             state['stage_taken'] = 'av_specialist'
-            print(f"[POLICY] 🔄 Medium confidence ({confidence:.3f}) -> AV SPECIALIST")
+            print(f"[POLICY] [ROUTE] Medium confidence ({confidence:.3f}) -> AV SPECIALIST")
             
         else:
             # Low confidence -> human review
             state['next_action'] = 'HUMAN'
             state['stage_taken'] = 'human_review'
-            print(f"[POLICY] 👤 Low confidence ({confidence:.3f}) -> HUMAN REVIEW")
+            print(f"[POLICY] [HUMAN] Low confidence ({confidence:.3f}) -> HUMAN REVIEW")
         
         return state
     
@@ -514,12 +514,12 @@ class LangGraphAgent:
             state['av_confidence'] = state['specialist_confidence']
             state['selected_specialist'] = 'av_model'
             
-            print(f"[AV-SPECIALIST] 🎵 Prediction: {fake_prob:.3f}, "
+            print(f"[AV-SPECIALIST] Prediction: {fake_prob:.3f}, "
                   f"Confidence: {state['specialist_confidence']:.3f}, "
                   f"Lip-sync: {state['lip_sync_score']:.3f}")
             
         except Exception as e:
-            print(f"[AV-SPECIALIST] ❌ Failed: {e}")
+            print(f"[AV-SPECIALIST] [ERROR] Failed: {e}")
             # Fallback to student
             state['specialist_prediction'] = state['student_prediction']
             state['specialist_confidence'] = state['student_confidence']
@@ -529,7 +529,7 @@ class LangGraphAgent:
     
     def _human_review_node(self, state: AgentState) -> AgentState:
         """Node 7: Human review escalation"""
-        print("[HUMAN] 👤 Escalated to human review")
+        print("[HUMAN] Escalated to human review")
         
         # In production, this would:
         # 1. Save to review queue
@@ -593,7 +593,7 @@ class LangGraphAgent:
         # Placeholder for heatmaps
         state['heatmaps'] = []
         
-        print(f"[EXPLANATION] 🎯 Final: {pred} ({conf_pct:.1f}% confidence)")
+        print(f"[EXPLANATION] Final: {pred} ({conf_pct:.1f}% confidence)")
         
         return state
     
@@ -679,23 +679,23 @@ def create_langgraph_agent(**kwargs) -> LangGraphAgent:
 
 if __name__ == "__main__":
     # Test agent creation
-    print("🧪 Testing LangGraph Agent...")
+    print("[TEST] Testing LangGraph Agent...")
     
     try:
         agent = create_langgraph_agent()
-        print("✅ LangGraph Agent created successfully!")
+        print("[OK] LangGraph Agent created successfully!")
         
         # Test with a video if available
         test_videos = ["test_video_short.mp4", "test_video_long.mp4"]
         for video in test_videos:
             if os.path.exists(video):
-                print(f"\n🎬 Testing with {video}...")
+                print(f"\n[VIDEO] Testing with {video}...")
                 result = agent.predict(video)
                 print(f"Result: {result}")
                 break
         else:
-            print("📝 No test videos found, but agent is ready!")
+            print("[INFO] No test videos found, but agent is ready!")
             
     except Exception as e:
-        print(f"❌ Agent test failed: {e}")
-        print("🔧 Check model paths and dependencies")
+        print(f"[ERROR] Agent test failed: {e}")
+        print("[INFO] Check model paths and dependencies")

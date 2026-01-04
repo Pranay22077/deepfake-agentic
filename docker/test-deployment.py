@@ -14,15 +14,15 @@ def test_backend_health():
         response = requests.get("http://localhost:8000/health", timeout=10)
         if response.status_code == 200:
             data = response.json()
-            print("✅ Backend Health Check: PASSED")
+            print("[OK] Backend Health Check: PASSED")
             print(f"   Model loaded: {data.get('model_loaded', False)}")
             print(f"   Device: {data.get('device', 'unknown')}")
             return True
         else:
-            print(f"❌ Backend Health Check: FAILED (Status: {response.status_code})")
+            print(f"[ERROR] Backend Health Check: FAILED (Status: {response.status_code})")
             return False
     except Exception as e:
-        print(f"❌ Backend Health Check: FAILED ({e})")
+        print(f"[ERROR] Backend Health Check: FAILED ({e})")
         return False
 
 def test_frontend():
@@ -30,13 +30,13 @@ def test_frontend():
     try:
         response = requests.get("http://localhost:3001", timeout=10)
         if response.status_code == 200:
-            print("✅ Frontend Access: PASSED")
+            print("[OK] Frontend Access: PASSED")
             return True
         else:
-            print(f"❌ Frontend Access: FAILED (Status: {response.status_code})")
+            print(f"[ERROR] Frontend Access: FAILED (Status: {response.status_code})")
             return False
     except Exception as e:
-        print(f"❌ Frontend Access: FAILED ({e})")
+        print(f"[ERROR] Frontend Access: FAILED ({e})")
         return False
 
 def test_api_docs():
@@ -44,21 +44,21 @@ def test_api_docs():
     try:
         response = requests.get("http://localhost:8000/docs", timeout=10)
         if response.status_code == 200:
-            print("✅ API Documentation: PASSED")
+            print("[OK] API Documentation: PASSED")
             return True
         else:
-            print(f"❌ API Documentation: FAILED (Status: {response.status_code})")
+            print(f"[ERROR] API Documentation: FAILED (Status: {response.status_code})")
             return False
     except Exception as e:
-        print(f"❌ API Documentation: FAILED ({e})")
+        print(f"[ERROR] API Documentation: FAILED ({e})")
         return False
 
 def main():
     """Run all tests"""
-    print("🧪 E-Raksha Docker Deployment Test")
+    print("[TEST] E-Raksha Docker Deployment Test")
     print("=" * 40)
     
-    print("⏳ Waiting for services to start...")
+    print("[WAIT] Waiting for services to start...")
     time.sleep(5)
     
     tests = [
@@ -71,23 +71,23 @@ def main():
     total = len(tests)
     
     for test_name, test_func in tests:
-        print(f"\n🔍 Testing {test_name}...")
+        print(f"\n[CHECK] Testing {test_name}...")
         if test_func():
             passed += 1
         time.sleep(1)
     
     print("\n" + "=" * 40)
-    print(f"📊 Test Results: {passed}/{total} tests passed")
+    print(f"[STATS] Test Results: {passed}/{total} tests passed")
     
     if passed == total:
-        print("🎉 All tests passed! E-Raksha is running correctly.")
-        print("\n📱 Access the application:")
+        print("[DONE] All tests passed! E-Raksha is running correctly.")
+        print("\n[ACCESS] Access the application:")
         print("   Frontend: http://localhost:3001")
         print("   Backend API: http://localhost:8000")
         print("   API Docs: http://localhost:8000/docs")
         return 0
     else:
-        print("❌ Some tests failed. Check the Docker logs:")
+        print("[ERROR] Some tests failed. Check the Docker logs:")
         print("   docker-compose logs")
         return 1
 

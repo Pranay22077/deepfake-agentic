@@ -341,7 +341,7 @@ print(f"Confidence: {result['confidence']:.2f}")
 ### Base URL
 ```
 Development: http://localhost:8000
-Production: https://your-api-domain.com
+Production: https://your-api-domain.com  # Replace with your deployed API URL
 ```
 
 ### Endpoints
@@ -351,8 +351,9 @@ Analyze a video file for deepfake detection.
 
 **Request:**
 ```bash
+# Replace 'video.mp4' with the path to your video file
 curl -X POST "http://localhost:8000/api/analyze" \
-  -F "video=@path/to/video.mp4"
+  -F "video=@video.mp4"
 ```
 
 **Response:**

@@ -1,4 +1,4 @@
-# Interceptor: Agentic AI for Deepfake Detection & Authenticity Verification
+﻿# Interceptor: Agentic AI for Deepfake Detection & Authenticity Verification
 
 **Advanced AI-Powered Media Authentication System**  
 *Intelligent deepfake detection using ensemble neural networks and autonomous agent routing*
@@ -24,7 +24,7 @@
 
 ## Overview
 
-[Interceptor](https://interceptor-eraksha.vercel.app/) is an advanced agentic AI system designed for autonomous deepfake detection and media authenticity verification. The system addresses the critical challenge of detecting manipulated media, verifying authenticity, and strengthening digital trust across platforms and operational environments.
+Interceptor is an advanced agentic AI system designed for autonomous deepfake detection and media authenticity verification. The system addresses the critical challenge of detecting manipulated media, verifying authenticity, and strengthening digital trust across platforms and operational environments.
 
 ### Key Innovations
 
@@ -188,7 +188,6 @@ Optimized for field operations:
 - Python 3.9+
 - Docker (optional)
 - CUDA-compatible GPU (optional, for training)
-- [Model Weights (optional)](https://huggingface.co/Pran-ay-22077/interceptor-models)
 
 ### Quick Start
 
@@ -238,8 +237,8 @@ build-and-run.bat   # Windows
 ## Usage
 
 ### Web Interface
-![Home Page](Images/Website/home-page.png)
 
+![Dashboard](Images/Website/dashboard.png)
 
 The web interface provides an intuitive way to:
 - Upload videos for analysis
@@ -247,7 +246,7 @@ The web interface provides an intuitive way to:
 - Access detailed explanations
 - Monitor system performance
 
-![Dashboard](Images/Website/dashboard.png)
+![Home Page](Images/Website/home-page.png)
 
 ### Analysis Features
 
@@ -356,7 +355,7 @@ Check system health status.
 ### Dataset Preparation
 
 The system supports training on various deepfake datasets:
-- [DFDC (Deepfake Detection Challenge)](https://www.kaggle.com/datasets/pranay22077/dfdc-10)
+- DFDC (Deepfake Detection Challenge)
 - FaceForensics++
 - CelebDF
 - DeeperForensics
@@ -549,9 +548,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For questions, support, or collaboration opportunities:
 
-- **Project Repository**: [GitHub](https://github.com/Pranay22077/deepfake-agentic)
-- **Documentation**: [Technical Docs](https://docs.google.com/document/d/1YXaiZdUvvn6Koy5BbKQuuj-fs5QqZ9ef56kuVOXAthQ/edit?tab=t.0)
-- **Issues**: [GitHub Issues](https://github.com/Pranay22077/deepfake-agentic/issues)
+- **Project Repository**: [GitHub](https://github.com/your-username/interceptor)
+- **Documentation**: [Technical Docs](INTERCEPTOR_TECHNICAL_DOCUMENTATION.md)
+- **Issues**: [GitHub Issues](https://github.com/your-username/interceptor/issues)
 
 ---
 

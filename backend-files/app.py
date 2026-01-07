@@ -46,14 +46,14 @@ async def cors_handler(request: Request, call_next):
     response.headers["Access-Control-Allow-Headers"] = "*"
     return response
 
-# Model info for display
+# Model info for display (N = NEW EfficientNet-B4 models)
 MODELS = {
-    "bg": {"name": "BG-Model", "accuracy": 0.8625},
-    "av": {"name": "AV-Model", "accuracy": 0.93},
-    "cm": {"name": "CM-Model", "accuracy": 0.8083},
-    "rr": {"name": "RR-Model", "accuracy": 0.85},
-    "ll": {"name": "LL-Model", "accuracy": 0.9342},
-    "tm": {"name": "TM-Model", "accuracy": 0.785},
+    "bg": {"name": "BG-Model N", "accuracy": 0.8625, "architecture": "EfficientNet-B4"},
+    "av": {"name": "AV-Model N", "accuracy": 0.93, "architecture": "EfficientNet-B4"},
+    "cm": {"name": "CM-Model N", "accuracy": 0.8083, "architecture": "EfficientNet-B4"},
+    "rr": {"name": "RR-Model N", "accuracy": 0.85, "architecture": "EfficientNet-B4"},
+    "ll": {"name": "LL-Model N", "accuracy": 0.9342, "architecture": "EfficientNet-B4"},
+    "tm": {"name": "TM-Model", "accuracy": 0.785, "architecture": "ResNet18"},
 }
 
 
@@ -221,13 +221,13 @@ async def predict_deepfake(file: UploadFile = File(...)):
         processing_time = (datetime.now() - start_time).total_seconds()
         
         # Determine which models were "used" based on confidence
-        models_used = ["BG-Model"]
+        models_used = ["BG-Model N"]
         if prediction["confidence"] < 0.85 and prediction["confidence"] > 0.15:
             if video_analysis["brightness"] < 80:
-                models_used.append("LL-Model")
+                models_used.append("LL-Model N")
             if video_analysis["blur_score"] < 100:
-                models_used.append("CM-Model")
-            models_used.append("AV-Model")
+                models_used.append("CM-Model N")
+            models_used.append("AV-Model N")
         
         result = {
             "prediction": "fake" if prediction["is_fake"] else "real",

@@ -23,13 +23,14 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 # Import all model architectures
 from models.student import create_student_model
-from models.specialists_fixed import (
-    load_specialist_model_fixed,
-    create_compression_model,
-    create_rerecording_model, 
-    create_lowlight_model,
-    create_temporal_model,
-    create_av_model
+from models.specialists_new import (
+    load_specialist_model,
+    create_bg_model,
+    create_av_model,
+    create_cm_model,
+    create_rr_model,
+    create_ll_model,
+    create_tm_model
 )
 
 class ConfidenceLevel(Enum):
@@ -161,8 +162,10 @@ class ErakshAgent:
             print(f"[WARNING] AV-Model loading failed: {e}")
             models['av'] = None
         
-        # 3. Load specialist models (Person 2 & 3)
+        # 3. Load NEW specialist models (BG, AV, CM, RR, LL) + OLD TM model
         specialist_paths = {
+            'bg': ['models/bg_model_student.pt', 'bg_model_student.pt'],
+            'av': ['models/av_model_student.pt', 'av_model_student.pt'],
             'cm': ['models/cm_model_student.pt', 'cm_model_student.pt'],
             'rr': ['models/rr_model_student.pt', 'rr_model_student.pt'], 
             'll': ['models/ll_model_student.pt', 'll_model_student.pt'],
@@ -178,12 +181,9 @@ class ErakshAgent:
                         break
                 
                 if model_path:
-                    if model_type == 'av':
-                        # Skip AV model for now (has minor architecture issues)
-                        print(f"[WARNING] {model_type.upper()}-Model temporarily disabled (architecture mismatch)")
-                        models[model_type] = None
-                    else:
-                        models[model_type] = load_specialist_model_fixed(model_path, model_type, self.device)
+                    models[model_type] = load_specialist_model(model_path, model_type, self.device)
+                    arch = "EfficientNet-B4" if model_type in ['bg', 'av', 'cm', 'rr', 'll'] else "ResNet18"
+                    print(f"[OK] Loaded {model_type.upper()}-Model ({arch})")
                 else:
                     print(f"[WARNING] {model_type.upper()}-Model not found")
                     models[model_type] = None
@@ -270,12 +270,13 @@ class ErakshAgent:
         """Print status of all loaded models"""
         print("\n[MODELS] Model Status:")
         model_status = {
-            'student': 'BG-Model (Baseline Generalist)',
-            'av': 'AV-Model (Audio-Visual Specialist)',
-            'cm': 'CM-Model (Compression Specialist)',
-            'rr': 'RR-Model (Re-recording Specialist)',
-            'll': 'LL-Model (Low-light Specialist)',
-            'tm': 'TM-Model (Temporal Specialist)'
+            'student': 'BG-Model N (Background - NEW EfficientNet-B4)',
+            'bg': 'BG-Model N (Background - NEW EfficientNet-B4)',
+            'av': 'AV-Model N (Audio-Visual - NEW EfficientNet-B4)',
+            'cm': 'CM-Model N (Compression - NEW EfficientNet-B4)',
+            'rr': 'RR-Model N (Resolution - NEW EfficientNet-B4)',
+            'll': 'LL-Model N (Low-light - NEW EfficientNet-B4)',
+            'tm': 'TM-Model (Temporal - OLD ResNet18)'
         }
         
         for key, name in model_status.items():
@@ -625,12 +626,13 @@ class ErakshAgent:
         
         # Model used
         model_names = {
-            'student': 'baseline generalist model',
-            'av': 'audio-visual specialist',
-            'cm': 'compression specialist',
-            'rr': 're-recording specialist',
-            'll': 'low-light specialist',
-            'tm': 'temporal specialist'
+            'student': 'BG-Model N',
+            'bg': 'BG-Model N',
+            'av': 'AV-Model N',
+            'cm': 'CM-Model N',
+            'rr': 'RR-Model N',
+            'll': 'LL-Model N',
+            'tm': 'TM-Model'
         }
         
         explanation_parts.append(f"Primary analysis by {model_names.get(best_model, best_model)}.")

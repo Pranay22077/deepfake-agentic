@@ -15,12 +15,12 @@ HF_BASE_URL = f"https://huggingface.co/{HF_REPO}/resolve/main"
 
 # Model files to download
 MODEL_FILES = {
-    "baseline_student.pt": "BG-Model (Baseline Generalist)",
-    "av_model_student.pt": "AV-Model (Audio-Visual)",
-    "cm_model_student.pt": "CM-Model (Compression)",
-    "rr_model_student.pt": "RR-Model (Re-recording)",
-    "ll_model_student.pt": "LL-Model (Low-light)",
-    "tm_model_student.pt": "TM-Model (Temporal)",
+    "bg_model_student.pt": "BG-Model N (Background - NEW EfficientNet-B4)",
+    "av_model_student.pt": "AV-Model N (Audio-Visual - NEW EfficientNet-B4)",
+    "cm_model_student.pt": "CM-Model N (Compression - NEW EfficientNet-B4)",
+    "rr_model_student.pt": "RR-Model N (Resolution - NEW EfficientNet-B4)",
+    "ll_model_student.pt": "LL-Model N (Low-light - NEW EfficientNet-B4)",
+    "tm_model_student.pt": "TM-Model (Temporal - OLD ResNet18)",
 }
 
 # Local models directory

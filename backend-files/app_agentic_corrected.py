@@ -186,24 +186,24 @@ async def get_models():
     
     models_info = {}
     
-    # Updated bias corrections based on actual 100-video test results
-    bias_corrections = {
-        "student": {"weight": 1.0, "bias": -0.24},  # BG model, fake bias
-        "bg": {"weight": 1.0, "bias": -0.24},       # 78% fake → subtract 0.24
-        "av": {"weight": 1.0, "bias": -0.29},       # 82% fake → subtract 0.29
-        "cm": {"weight": 1.5, "bias": +0.22},       # 48% fake → add 0.22 (best accuracy)
-        "rr": {"weight": 1.0, "bias": +0.32},       # 24% fake → add 0.32
-        "ll": {"weight": 1.0, "bias": +0.06},       # 50% fake → add 0.06
+    # Updated model info based on correct_models_test_results.json
+    model_info = {
+        "student": {"weight": 1.0, "accuracy": 0.54},  # BG model
+        "bg": {"weight": 1.0, "accuracy": 0.54},       # Same as student
+        "av": {"weight": 1.0, "accuracy": 0.53},       # Slightly lower
+        "cm": {"weight": 2.0, "accuracy": 0.70},       # BEST - highest weight
+        "rr": {"weight": 1.0, "accuracy": 0.56},       # Good performance
+        "ll": {"weight": 1.0, "accuracy": 0.56},       # Good performance
         # TM excluded - broken model
     }
     
     model_types = {
-        "student": "Baseline Generalist Model (BG)",
-        "bg": "Background/Lighting Specialist",
-        "av": "Audio-Visual Specialist",
-        "cm": "Compression Specialist (Best - 70% acc)", 
-        "rr": "Resolution Specialist",
-        "ll": "Low-light Specialist",
+        "student": "BG-Model-N (Background - NEW EfficientNet-B4)",
+        "bg": "BG-Model-N (Background - NEW EfficientNet-B4)",
+        "av": "AV-Model-N (Audio-Visual - NEW EfficientNet-B4)",
+        "cm": "CM-Model-N (Compression - NEW EfficientNet-B4 - BEST 70% acc)", 
+        "rr": "RR-Model-N (Resolution - NEW EfficientNet-B4)",
+        "ll": "LL-Model-N (Low-light - NEW EfficientNet-B4)",
     }
     
     for model_name, model in agent.models.items():
@@ -212,7 +212,7 @@ async def get_models():
                 "status": "loaded",
                 "type": model_types.get(model_name, "Unknown"),
                 "architecture": "EfficientNet-B4 + Specialist Module",
-                "bias_correction": bias_corrections.get(model_name, {"weight": 1.0, "bias": 0.0})
+                "performance": model_info.get(model_name, {"weight": 1.0, "accuracy": 0.5})
             }
         else:
             models_info[model_name] = {
@@ -223,8 +223,8 @@ async def get_models():
     return {
         "models": models_info,
         "total_loaded": len([m for m in agent.models.values() if m is not None]),
-        "bias_correction_enabled": True,
-        "note": "TM model excluded (broken - predicts all REAL)"
+        "ensemble_logic": "weighted_by_accuracy",
+        "note": "TM model excluded (broken - predicts all REAL). Using exact logic from correct_models_test_results.json"
     }
 
 if __name__ == "__main__":

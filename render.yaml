@@ -3,11 +3,13 @@ services:
   - type: web
     name: interceptor-api
     env: python
-    buildCommand: pip install -r backend-files/requirements.txt
-    startCommand: cd backend-files && python app.py
+    buildCommand: pip install -r backend-files/requirements.txt && pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+    startCommand: python backend-files/start_server.py
     healthCheckPath: /health
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
       - key: PORT
         value: 8000
+      - key: PYTHONPATH
+        value: /opt/render/project/src

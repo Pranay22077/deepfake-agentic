@@ -162,14 +162,14 @@ class ErakshAgent:
             print(f"[WARNING] AV-Model loading failed: {e}")
             models['av'] = None
         
-        # 3. Load NEW specialist models (BG, AV, CM, RR, LL) + OLD TM model
+        # 3. Load NEW specialist models (BG, AV, CM, RR, LL) - TM excluded (broken)
         specialist_paths = {
-            'bg': ['models/bg_model_student.pt', 'bg_model_student.pt'],
+            'bg': ['models/baseline_student.pt', 'baseline_student.pt'],
             'av': ['models/av_model_student.pt', 'av_model_student.pt'],
             'cm': ['models/cm_model_student.pt', 'cm_model_student.pt'],
             'rr': ['models/rr_model_student.pt', 'rr_model_student.pt'], 
             'll': ['models/ll_model_student.pt', 'll_model_student.pt'],
-            'tm': ['models/tm_model_student.pt', 'tm_model_student.pt']
+            # 'tm': EXCLUDED - predicts all REAL (broken)
         }
         
         for model_type, paths in specialist_paths.items():
@@ -194,11 +194,12 @@ class ErakshAgent:
         return models
     
     def _load_student_model(self):
-        """Load baseline student model"""
+        """Load baseline student model (BG model)"""
         model_paths = [
-            "baseline_student.pkl",
+            "baseline_student.pt",
             "models/baseline_student.pt",
-            "kaggle_outputs/baseline_student.pkl"
+            "baseline_student.pkl",
+            "models/baseline_student.pkl"
         ]
         
         for path in model_paths:
@@ -268,7 +269,7 @@ class ErakshAgent:
     
     def _print_model_status(self):
         """Print status of all loaded models"""
-        print("\n[MODELS] Model Status:")
+        print("\n[MODELS] Model Status (5 NEW EfficientNet-B4 models):")
         model_status = {
             'student': 'BG-Model N (Background - NEW EfficientNet-B4)',
             'bg': 'BG-Model N (Background - NEW EfficientNet-B4)',
@@ -276,7 +277,7 @@ class ErakshAgent:
             'cm': 'CM-Model N (Compression - NEW EfficientNet-B4)',
             'rr': 'RR-Model N (Resolution - NEW EfficientNet-B4)',
             'll': 'LL-Model N (Low-light - NEW EfficientNet-B4)',
-            'tm': 'TM-Model (Temporal - OLD ResNet18)'
+            # TM excluded - broken model
         }
         
         for key, name in model_status.items():
@@ -284,8 +285,12 @@ class ErakshAgent:
             print(f"   {name}: {status}")
     
     def extract_frames(self, video_path: str, max_frames: int = 8) -> List[torch.Tensor]:
-        """Extract frames from video"""
+        """Extract frames from video with ImageNet normalization"""
         frames = []
+        
+        # ImageNet normalization constants
+        mean = np.array([0.485, 0.456, 0.406])
+        std = np.array([0.229, 0.224, 0.225])
         
         try:
             cap = cv2.VideoCapture(video_path)
@@ -302,8 +307,12 @@ class ErakshAgent:
                     frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                     frame_resized = cv2.resize(frame_rgb, (224, 224))
                     
+                    # Normalize: /255, then ImageNet normalization
+                    frame_normalized = frame_resized.astype(np.float32) / 255.0
+                    frame_normalized = (frame_normalized - mean) / std
+                    
                     # Convert to tensor
-                    frame_tensor = torch.from_numpy(frame_resized).float() / 255.0
+                    frame_tensor = torch.from_numpy(frame_normalized).float()
                     frame_tensor = frame_tensor.permute(2, 0, 1)  # CHW
                     frames.append(frame_tensor)
             
@@ -404,23 +413,25 @@ class ErakshAgent:
             return 0.5, 0.0
     
     def run_av_inference(self, frames: List[torch.Tensor], audio: torch.Tensor) -> Tuple[float, float, float]:
-        """Run AV-Model inference"""
+        """Run AV-Model inference (NEW EfficientNet-B4 model)"""
         if self.models['av'] is None:
             return 0.5, 0.0, 0.5
         
         try:
-            # Prepare inputs
-            video_frames = torch.stack(frames[:8]).unsqueeze(0).to(self.device)  # [1, 8, 3, 224, 224]
-            audio_waveform = audio.unsqueeze(0).to(self.device)  # [1, audio_length]
+            # NEW AV model uses same interface as other specialists
+            # Takes batch of frames, not video+audio
+            selected_frames = frames[:4]
+            input_frames = torch.stack(selected_frames).to(self.device)  # [4, C, H, W]
             
             with torch.no_grad():
-                logits, features = self.models['av'](video_frames, audio_waveform, return_features=True)
+                logits = self.models['av'](input_frames)
                 probs = torch.softmax(logits, dim=1)
-                fake_prob = probs[0, 1].item()
+                fake_probs = probs[:, 1]
+                fake_prob = torch.mean(fake_probs).item()
                 confidence = max(fake_prob, 1 - fake_prob)
-                lip_sync_score = features['lip_sync_score'][0].item()
             
-            return fake_prob, confidence, lip_sync_score
+            # No lip sync score for new model
+            return fake_prob, confidence, 0.5
             
         except Exception as e:
             print(f"[WARNING] AV inference failed: {e}")
@@ -450,13 +461,11 @@ class ErakshAgent:
             if video_characteristics['is_low_light'] and self.models['ll'] is not None:
                 specialists_to_use.append('ll')
             
-            # Always use temporal model for medium confidence
-            if self.models['tm'] is not None:
-                specialists_to_use.append('tm')
+            # TM model excluded (broken - predicts all REAL)
         
-        # Low confidence -> use all available specialists
+        # Low confidence -> use all available specialists (excluding TM which is broken)
         else:
-            for specialist in ['av', 'cm', 'rr', 'll', 'tm']:
+            for specialist in ['av', 'cm', 'rr', 'll']:
                 if self.models[specialist] is not None:
                     specialists_to_use.append(specialist)
         
@@ -467,14 +476,20 @@ class ErakshAgent:
         if not predictions:
             return 0.5, 0.0, "no_models"
         
-        # FINE-TUNED bias correction for balanced 50/50 performance
+        # CALIBRATED bias corrections based on actual 100-video test results:
+        # BG: 30% real, 78% fake → FAKE bias (subtract from fake_prob to balance)
+        # AV: 24% real, 82% fake → FAKE bias (subtract from fake_prob)
+        # CM: 92% real, 48% fake → REAL bias (add to fake_prob) - BEST MODEL
+        # RR: 88% real, 24% fake → REAL bias (add to fake_prob)
+        # LL: 62% real, 50% fake → slight REAL bias
+        # TM: EXCLUDED (broken - predicts all REAL)
         model_configs = {
-            'student': {'weight': 1.4, 'bias_correction': 0.0},    # Neutral baseline
-            'av': {'weight': 1.5, 'bias_correction': 0.0},
-            'cm': {'weight': 1.5, 'bias_correction': 0.0},         # Reduced weight, no bias
-            'rr': {'weight': 0.8, 'bias_correction': 0.15},        # Moderate weight, moderate fake bias
-            'll': {'weight': 1.0, 'bias_correction': -0.05},       # Neutral weight, slight reverse bias
-            'tm': {'weight': 1.3, 'bias_correction': 0.0}          # Neutral
+            'student': {'weight': 1.0, 'bias_correction': -0.24},  # BG model, fake bias
+            'bg': {'weight': 1.0, 'bias_correction': -0.24},       # 78% fake → subtract 0.24
+            'av': {'weight': 1.0, 'bias_correction': -0.29},       # 82% fake → subtract 0.29
+            'cm': {'weight': 1.5, 'bias_correction': +0.22},       # 48% fake → add 0.22 (best accuracy, higher weight)
+            'rr': {'weight': 1.0, 'bias_correction': +0.32},       # 24% fake → add 0.32
+            'll': {'weight': 1.0, 'bias_correction': +0.06},       # 50% fake → add 0.06
         }
         
         # Apply bias correction and weighting

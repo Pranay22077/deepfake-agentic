@@ -1,4 +1,4 @@
-# Interceptor Backend Requirements (Lightweight)
+# Interceptor Backend Requirements
 fastapi==0.104.1
 uvicorn[standard]==0.24.0
 python-multipart==0.0.6
@@ -6,3 +6,13 @@ python-multipart==0.0.6
 # Video analysis
 opencv-python-headless==4.8.1.78
 numpy==1.26.2
+
+# Deep Learning (for actual model inference)
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+
+# Hugging Face Hub for model downloads
+huggingface-hub>=0.19.0
+requests>=2.31.0
+tqdm>=4.66.0

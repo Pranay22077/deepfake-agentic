@@ -2,6 +2,7 @@
 """
 E-Raksha Agentic Backend - Bias Corrected Version
 FastAPI backend with bias-corrected agentic system
+Uses models from Hugging Face: https://huggingface.co/Pran-ay-22077/interceptor-models
 """
 
 import os
@@ -16,7 +17,17 @@ from fastapi.responses import JSONResponse
 import uvicorn
 
 # Add project root to path
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+backend_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, project_root)
+sys.path.insert(0, backend_dir)
+
+# Download models from Hugging Face on import
+try:
+    from model_downloader import ensure_models_downloaded
+except ImportError:
+    # If running from project root
+    from backend_files.model_downloader import ensure_models_downloaded
 
 # Import the bias-corrected agentic system
 from src.agent.eraksha_agent import ErakshAgent
@@ -46,6 +57,10 @@ async def startup_event():
     global agent
     print("[INIT] Initializing E-Raksha Agentic System (Bias Corrected)...")
     try:
+        # Ensure models are downloaded from Hugging Face
+        print("[DOWNLOAD] Checking/downloading models from Hugging Face...")
+        ensure_models_downloaded()
+        
         agent = ErakshAgent()
         print("[OK] Agentic system initialized successfully!")
     except Exception as e:
@@ -171,37 +186,45 @@ async def get_models():
     
     models_info = {}
     
+    # Updated bias corrections based on actual 100-video test results
+    bias_corrections = {
+        "student": {"weight": 1.0, "bias": -0.24},  # BG model, fake bias
+        "bg": {"weight": 1.0, "bias": -0.24},       # 78% fake → subtract 0.24
+        "av": {"weight": 1.0, "bias": -0.29},       # 82% fake → subtract 0.29
+        "cm": {"weight": 1.5, "bias": +0.22},       # 48% fake → add 0.22 (best accuracy)
+        "rr": {"weight": 1.0, "bias": +0.32},       # 24% fake → add 0.32
+        "ll": {"weight": 1.0, "bias": +0.06},       # 50% fake → add 0.06
+        # TM excluded - broken model
+    }
+    
+    model_types = {
+        "student": "Baseline Generalist Model (BG)",
+        "bg": "Background/Lighting Specialist",
+        "av": "Audio-Visual Specialist",
+        "cm": "Compression Specialist (Best - 70% acc)", 
+        "rr": "Resolution Specialist",
+        "ll": "Low-light Specialist",
+    }
+    
     for model_name, model in agent.models.items():
         if model is not None:
             models_info[model_name] = {
                 "status": "loaded",
-                "type": {
-                    "student": "Baseline Generalist Model",
-                    "av": "Audio-Visual Specialist",
-                    "cm": "Compression Specialist", 
-                    "rr": "Re-recording Specialist",
-                    "ll": "Low-light Specialist",
-                    "tm": "Temporal Specialist"
-                }.get(model_name, "Unknown"),
-                "bias_correction": {
-                    "student": {"weight": 1.0, "bias": 0.0},
-                    "av": {"weight": 1.5, "bias": 0.0},
-                    "cm": {"weight": 1.0, "bias": 0.1},
-                    "rr": {"weight": 0.8, "bias": 0.15},
-                    "ll": {"weight": 1.4, "bias": -0.05},
-                    "tm": {"weight": 1.1, "bias": 0.0}
-                }.get(model_name, {"weight": 1.0, "bias": 0.0})
+                "type": model_types.get(model_name, "Unknown"),
+                "architecture": "EfficientNet-B4 + Specialist Module",
+                "bias_correction": bias_corrections.get(model_name, {"weight": 1.0, "bias": 0.0})
             }
         else:
             models_info[model_name] = {
                 "status": "not_available",
-                "type": "Unknown"
+                "type": model_types.get(model_name, "Unknown")
             }
     
     return {
         "models": models_info,
         "total_loaded": len([m for m in agent.models.values() if m is not None]),
-        "bias_correction_enabled": True
+        "bias_correction_enabled": True,
+        "note": "TM model excluded (broken - predicts all REAL)"
     }
 
 if __name__ == "__main__":

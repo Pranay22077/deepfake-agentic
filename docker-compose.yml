@@ -7,7 +7,6 @@ services:
     container_name: eraksha-app
     ports:
       - "8000:8000"  # Backend API
-      - "3001:3001"  # Frontend
     volumes:
       - ./uploads:/app/uploads
       - ./logs:/app/logs
@@ -15,12 +14,9 @@ services:
     environment:
       - PYTHONPATH=/app
       - PYTHONUNBUFFERED=1
-      - MODEL_PATH=/app/fixed_deepfake_model.pt
       - PORT=8000
       - HOST=0.0.0.0
-      # Database credentials (optional - set in .env file)
-      - SUPABASE_URL=${SUPABASE_URL:-}
-      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY:-}
+      - HF_REPO=Pran-ay-22077/interceptor-models
     env_file:
       - .env  # Load environment variables from .env file (if exists)
     restart: unless-stopped
@@ -29,7 +25,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 60s
+      start_period: 120s  # Increased for model loading
 
   # Optional: Add database service if needed
   # postgres:

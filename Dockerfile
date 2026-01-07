@@ -1,4 +1,4 @@
-# Interceptor Backend - Production Docker Image (Lightweight)
+# Interceptor Backend - Production Docker Image with Agentic System
 FROM python:3.11-slim
 
 # Set working directory
@@ -16,11 +16,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Copy backend requirements
 COPY backend-files/requirements.txt .
 
-# Install Python dependencies (CPU-only PyTorch to save space)
-RUN pip install --no-cache-dir -r requirements.txt
+# Install Python dependencies (CPU-only PyTorch)
+RUN pip install --no-cache-dir -r requirements.txt \
+    && pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 
-# Copy backend code
-COPY backend-files/ .
+# Copy source code
+COPY src/ ./src/
+COPY backend-files/ ./backend-files/
 
 # Create necessary directories
 RUN mkdir -p models temp uploads
@@ -31,12 +33,15 @@ ENV PORT=8000
 ENV HOST=0.0.0.0
 ENV HF_REPO=Pran-ay-22077/interceptor-models
 
+# Download models during build (optional - can also download at runtime)
+RUN python backend-files/model_downloader.py || echo "Models will be downloaded at runtime"
+
 # Expose port
 EXPOSE 8000
 
 # Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+HEALTHCHECK --interval=30s --timeout=10s --start-period=120s --retries=3 \
     CMD curl -f http://localhost:8000/health || exit 1
 
-# Start the server
-CMD ["python", "app.py"]
+# Start the agentic server
+CMD ["python", "backend-files/start_server.py"]

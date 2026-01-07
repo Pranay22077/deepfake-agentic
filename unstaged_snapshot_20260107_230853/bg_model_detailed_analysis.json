@@ -1,0 +1,1372 @@
+{
+  "model_info": {
+    "name": "Background/Lighting Specialist",
+    "specialization": "Background artifacts, lighting inconsistencies, shadow detection",
+    "architecture": "EfficientNet-B4 + BG Specialist Module (44 channels)",
+    "specialist_components": [
+      "bg_texture (texture analysis)",
+      "lighting_detector (lighting consistency)",
+      "shadow_checker (shadow artifacts)",
+      "color_temp (color temperature analysis)"
+    ],
+    "expected_strengths": [
+      "Lighting manipulation detection",
+      "Background replacement artifacts",
+      "Shadow inconsistencies",
+      "Color temperature mismatches",
+      "Texture pattern analysis"
+    ]
+  },
+  "test_summary": {
+    "total_videos": 50,
+    "real_videos": 25,
+    "fake_videos": 25
+  },
+  "recommendations": {
+    "priority": "HIGH",
+    "training_focus": [
+      "URGENT: Fundamental model improvement needed",
+      "Increase training data significantly",
+      "Review model architecture",
+      "Implement better data augmentation",
+      "Add more diverse real samples"
+    ],
+    "dataset_needs": [
+      "More natural real videos with varied backgrounds",
+      "More videos with consistent lighting",
+      "Low-light video samples",
+      "Overexposed video samples",
+      "Mixed lighting condition videos",
+      "Simple background videos (solid colors, minimal texture)",
+      "Complex background videos (detailed scenes, patterns)",
+      "Background replacement samples",
+      "Green screen artifacts",
+      "Outdoor vs indoor lighting scenarios"
+    ],
+    "architecture_improvements": [
+      "Enhance lighting detection module",
+      "Improve shadow analysis components",
+      "Add color temperature analysis",
+      "Implement multi-scale texture analysis",
+      "Consider attention mechanisms for background focus"
+    ],
+    "data_augmentation": [
+      "Lighting condition variations",
+      "Shadow manipulation augmentation",
+      "Background replacement simulation",
+      "Color temperature shifts",
+      "Texture pattern modifications"
+    ]
+  },
+  "sample_results": [
+    {
+      "video": "801.mp4",
+      "true_label": "REAL",
+      "bg_metadata": [
+        {
+          "frame_idx": "0",
+          "lighting": {
+            "brightness": 99.67289713541666,
+            "brightness_std": 79.70942808470639,
+            "contrast": 79.70942808470639,
+            "histogram_peaks": 57,
+            "shadow_ratio": 0.20924479166666668,
+            "highlight_ratio": 0.23429361979166666,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 1806.3560422364874,
+            "edge_density": 0.11826822916666667,
+            "avg_gradient": 98.4895252466408,
+            "pattern_score": 18.15624346139372,
+            "complexity": "high",
+            "is_textured": "True",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "63",
+          "lighting": {
+            "brightness": 103.14864583333333,
+            "brightness_std": 79.31766770161973,
+            "contrast": 79.31766770161973,
+            "histogram_peaks": 55,
+            "shadow_ratio": 0.17968424479166667,
+            "highlight_ratio": 0.23234049479166666,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 1969.8202786171805,
+            "edge_density": 0.125693359375,
+            "avg_gradient": 102.19752981051286,
+            "pattern_score": 19.087862686578692,
+            "complexity": "high",
+            "is_textured": "True",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "126",
+          "lighting": {
+            "brightness": 102.36334309895834,
+            "brightness_std": 79.14231242044916,
+            "contrast": 79.14231242044916,
+            "histogram_peaks": 47,
+            "shadow_ratio": 0.17632161458333334,
+            "highlight_ratio": 0.23172526041666666,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 1964.4178286128995,
+            "edge_density": 0.124853515625,
+            "avg_gradient": 102.58530880907445,
+            "pattern_score": 18.964251313221062,
+            "complexity": "high",
+            "is_textured": "True",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "189",
+          "lighting": {
+            "brightness": 101.13711588541666,
+            "brightness_std": 80.34055116486039,
+            "contrast": 80.34055116486039,
+            "histogram_peaks": 52,
+            "shadow_ratio": 0.20865559895833333,
+            "highlight_ratio": 0.23656575520833334,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 1801.6786487268978,
+            "edge_density": 0.12225260416666667,
+            "avg_gradient": 102.24173018144779,
+            "pattern_score": 17.451069887732796,
+            "complexity": "high",
+            "is_textured": "True",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "253",
+          "lighting": {
+            "brightness": 102.04646809895833,
+            "brightness_std": 80.93483726451478,
+            "contrast": 80.93483726451478,
+            "histogram_peaks": 64,
+            "shadow_ratio": 0.2080078125,
+            "highlight_ratio": 0.23768880208333334,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 1822.0822759180598,
+            "edge_density": 0.12486653645833333,
+            "avg_gradient": 102.13555859336525,
+            "pattern_score": 17.66686776868124,
+            "complexity": "high",
+            "is_textured": "True",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "316",
+          "lighting": {
+            "brightness": 101.47328776041667,
+            "brightness_std": 80.51970140158251,
+            "contrast": 80.51970140158251,
+            "histogram_peaks": 60,
+            "shadow_ratio": 0.2071875,
+            "highlight_ratio": 0.23517903645833332,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 1786.1918604653256,
+            "edge_density": 0.12313151041666667,
+            "avg_gradient": 101.9556268823467,
+            "pattern_score": 17.34914267975377,
+            "complexity": "high",
+            "is_textured": "True",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "379",
+          "lighting": {
+            "brightness": 102.29954427083334,
+            "brightness_std": 81.08453985784823,
+            "contrast": 81.08453985784823,
+            "histogram_peaks": 60,
+            "shadow_ratio": 0.20713541666666666,
+            "highlight_ratio": 0.23975260416666666,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 1818.1768726785872,
+            "edge_density": 0.12384440104166666,
+            "avg_gradient": 102.18927501398407,
+            "pattern_score": 17.619824079897743,
+            "complexity": "high",
+            "is_textured": "True",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "443",
+          "lighting": {
+            "brightness": 100.94390625,
+            "brightness_std": 80.54322660651935,
+            "contrast": 80.54322660651935,
+            "histogram_peaks": 55,
+            "shadow_ratio": 0.21074869791666667,
+            "highlight_ratio": 0.23549479166666668,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 1793.0742124048872,
+            "edge_density": 0.12164713541666666,
+            "avg_gradient": 101.23808107659696,
+            "pattern_score": 17.53822248543097,
+            "complexity": "high",
+            "is_textured": "True",
+            "has_patterns": "False"
+          }
+        }
+      ],
+      "analysis": {
+        "prediction": "FAKE",
+        "fake_probability": 0.5055957436561584,
+        "confidence": 0.5055957436561584,
+        "frame_predictions": [
+          0.5061912536621094,
+          0.5047823786735535,
+          0.5051014423370361,
+          0.5063078999519348
+        ],
+        "prediction_variance": 4.41923816651979e-07,
+        "frame_consistency": 0.9999995580761833,
+        "lighting_assessment": {
+          "lighting_consistency": 0.9902360982351515,
+          "contrast_consistency": 0.9916245751060507,
+          "avg_brightness": 101.63565104166666,
+          "brightness_variance": 1.0042533418205093,
+          "has_low_light": false,
+          "has_overexposure": false,
+          "inconsistent_lighting": "False",
+          "lighting_manipulation_likelihood": 0.3,
+          "recommendation": [
+            "Possible lighting inconsistencies"
+          ]
+        },
+        "background_assessment": {
+          "texture_consistency": 0.9614090162844086,
+          "edge_consistency": 0.9980178563914165,
+          "avg_texture_variance": 1845.2247524575405,
+          "avg_edge_density": 0.12306966145833334,
+          "background_complexity": "high",
+          "has_patterns": false,
+          "background_replacement_likelihood": 0.2,
+          "recommendation": [
+            "Train on complex background scenarios"
+          ]
+        },
+        "shadow_assessment": {
+          "shadow_consistency": 0.9867244804877102,
+          "highlight_consistency": 0.9975078686727479,
+          "avg_shadow_ratio": 0.20087320963541666,
+          "avg_highlight_ratio": 0.23538004557291664,
+          "has_shadows": true,
+          "has_highlights": true,
+          "shadow_manipulation_likelihood": 0.25,
+          "recommendation": []
+        },
+        "texture_assessment": {
+          "pattern_consistency": 0.9660171338233531,
+          "avg_pattern_score": 17.97918554533625,
+          "is_textured": true,
+          "texture_manipulation_likelihood": 0.2,
+          "recommendation": []
+        }
+      }
+    },
+    {
+      "video": "802.mp4",
+      "true_label": "REAL",
+      "bg_metadata": [
+        {
+          "frame_idx": "0",
+          "lighting": {
+            "brightness": 99.19388338414635,
+            "brightness_std": 58.77167708491562,
+            "contrast": 58.77167708491562,
+            "histogram_peaks": 57,
+            "shadow_ratio": 0.056573932926829266,
+            "highlight_ratio": 0.14885035569105692,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "False",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 356.5711681913373,
+            "edge_density": 0.047452997967479676,
+            "avg_gradient": 36.36007641610863,
+            "pattern_score": 9.544176629081884,
+            "complexity": "medium",
+            "is_textured": "True",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "50",
+          "lighting": {
+            "brightness": 99.47881097560976,
+            "brightness_std": 59.208018154892855,
+            "contrast": 59.208018154892855,
+            "histogram_peaks": 58,
+            "shadow_ratio": 0.06283663617886179,
+            "highlight_ratio": 0.1480564024390244,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "False",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 344.057738562942,
+            "edge_density": 0.04798971036585366,
+            "avg_gradient": 36.883924300227115,
+            "pattern_score": 9.081892779541832,
+            "complexity": "medium",
+            "is_textured": "True",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "100",
+          "lighting": {
+            "brightness": 99.0889449949187,
+            "brightness_std": 59.087862879158976,
+            "contrast": 59.087862879158976,
+            "histogram_peaks": 52,
+            "shadow_ratio": 0.06188389227642276,
+            "highlight_ratio": 0.14960619918699186,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "False",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 348.6024145752191,
+            "edge_density": 0.04642403455284553,
+            "avg_gradient": 36.96188549444678,
+            "pattern_score": 9.182958381406372,
+            "complexity": "medium",
+            "is_textured": "True",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "150",
+          "lighting": {
+            "brightness": 98.97931275406503,
+            "brightness_std": 59.206170198454345,
+            "contrast": 59.206170198454345,
+            "histogram_peaks": 52,
+            "shadow_ratio": 0.062137957317073174,
+            "highlight_ratio": 0.15025406504065042,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "False",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 347.72205617988,
+            "edge_density": 0.047221163617886176,
+            "avg_gradient": 37.11056874807888,
+            "pattern_score": 9.124032193757495,
+            "complexity": "medium",
+            "is_textured": "True",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "200",
+          "lighting": {
+            "brightness": 98.93896087398375,
+            "brightness_std": 59.33510295277283,
+            "contrast": 59.33510295277283,
+            "histogram_peaks": 57,
+            "shadow_ratio": 0.06539951727642276,
+            "highlight_ratio": 0.1504668445121951,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "False",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 350.2632504355367,
+            "edge_density": 0.04761496443089431,
+            "avg_gradient": 37.327408551893825,
+            "pattern_score": 9.138714660587967,
+            "complexity": "medium",
+            "is_textured": "True",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "250",
+          "lighting": {
+            "brightness": 98.85658028455285,
+            "brightness_std": 59.52920473903928,
+            "contrast": 59.52920473903928,
+            "histogram_peaks": 60,
+            "shadow_ratio": 0.0626365599593496,
+            "highlight_ratio": 0.1524707825203252,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "False",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 385.7099811068072,
+            "edge_density": 0.04698932926829268,
+            "avg_gradient": 37.55946961547208,
+            "pattern_score": 10.002989796105497,
+            "complexity": "medium",
+            "is_textured": "True",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "300",
+          "lighting": {
+            "brightness": 98.29276549796748,
+            "brightness_std": 59.411130243826975,
+            "contrast": 59.411130243826975,
+            "histogram_peaks": 58,
+            "shadow_ratio": 0.06501841971544715,
+            "highlight_ratio": 0.15191501524390244,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "False",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 377.41442837169194,
+            "edge_density": 0.04751969004065041,
+            "avg_gradient": 37.92777611484185,
+            "pattern_score": 9.69524761081321,
+            "complexity": "medium",
+            "is_textured": "True",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "350",
+          "lighting": {
+            "brightness": 98.22659108231707,
+            "brightness_std": 59.4029322924532,
+            "contrast": 59.4029322924532,
+            "histogram_peaks": 56,
+            "shadow_ratio": 0.06557101117886178,
+            "highlight_ratio": 0.15457634654471544,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "False",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 371.15725985028104,
+            "edge_density": 0.04771023882113821,
+            "avg_gradient": 37.73462660267119,
+            "pattern_score": 9.582053382300723,
+            "complexity": "medium",
+            "is_textured": "True",
+            "has_patterns": "False"
+          }
+        }
+      ],
+      "analysis": {
+        "prediction": "FAKE",
+        "fake_probability": 0.5493648052215576,
+        "confidence": 0.5493648052215576,
+        "frame_predictions": [
+          0.5497268438339233,
+          0.5512869358062744,
+          0.5487660765647888,
+          0.5476793646812439
+        ],
+        "prediction_variance": 1.7562109633217915e-06,
+        "frame_consistency": 0.9999982437890367,
+        "lighting_assessment": {
+          "lighting_consistency": 0.9959852752175989,
+          "contrast_consistency": 0.9963208091698615,
+          "avg_brightness": 98.88198123094513,
+          "brightness_variance": 0.1607999296230605,
+          "has_low_light": false,
+          "has_overexposure": false,
+          "inconsistent_lighting": "False",
+          "lighting_manipulation_likelihood": 0.3,
+          "recommendation": [
+            "Possible lighting inconsistencies"
+          ]
+        },
+        "background_assessment": {
+          "texture_consistency": 0.959287722801987,
+          "edge_consistency": 0.9995662800441962,
+          "avg_texture_variance": 360.1872871592119,
+          "avg_edge_density": 0.04736526613313008,
+          "background_complexity": "medium",
+          "has_patterns": false,
+          "background_replacement_likelihood": 0.2,
+          "recommendation": []
+        },
+        "shadow_assessment": {
+          "shadow_consistency": 0.9972748332107869,
+          "highlight_consistency": 0.9980171673208429,
+          "avg_shadow_ratio": 0.06275724085365854,
+          "avg_highlight_ratio": 0.1507745013973577,
+          "has_shadows": false,
+          "has_highlights": true,
+          "shadow_manipulation_likelihood": 0.25,
+          "recommendation": []
+        },
+        "texture_assessment": {
+          "pattern_consistency": 0.9697527981769598,
+          "avg_pattern_score": 9.419008179199373,
+          "is_textured": true,
+          "texture_manipulation_likelihood": 0.2,
+          "recommendation": []
+        }
+      }
+    },
+    {
+      "video": "803.mp4",
+      "true_label": "REAL",
+      "bg_metadata": [
+        {
+          "frame_idx": "0",
+          "lighting": {
+            "brightness": 162.13371145589383,
+            "brightness_std": 73.16551302630695,
+            "contrast": 73.16551302630695,
+            "histogram_peaks": 55,
+            "shadow_ratio": 0.12540983606557377,
+            "highlight_ratio": 0.0,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "False"
+          },
+          "background": {
+            "texture_variance": 78.4361603822049,
+            "edge_density": 0.024334016393442622,
+            "avg_gradient": 21.893604713839068,
+            "pattern_score": 3.4261166540885823,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "42",
+          "lighting": {
+            "brightness": 162.48362363387977,
+            "brightness_std": 73.37408176240855,
+            "contrast": 73.37408176240855,
+            "histogram_peaks": 55,
+            "shadow_ratio": 0.1272370218579235,
+            "highlight_ratio": 0.0,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "False"
+          },
+          "background": {
+            "texture_variance": 76.32391470321524,
+            "edge_density": 0.02419252537080406,
+            "avg_gradient": 21.894193508240544,
+            "pattern_score": 3.3337673447961023,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "84",
+          "lighting": {
+            "brightness": 163.46757416081186,
+            "brightness_std": 72.76385143874404,
+            "contrast": 72.76385143874404,
+            "histogram_peaks": 54,
+            "shadow_ratio": 0.12394857533177206,
+            "highlight_ratio": 0.0,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "False"
+          },
+          "background": {
+            "texture_variance": 76.44689024253904,
+            "edge_density": 0.02500731850117096,
+            "avg_gradient": 22.342131853449477,
+            "pattern_score": 3.2750603382116443,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "126",
+          "lighting": {
+            "brightness": 163.45097092115535,
+            "brightness_std": 72.693772762812,
+            "contrast": 72.693772762812,
+            "histogram_peaks": 55,
+            "shadow_ratio": 0.12461699843871975,
+            "highlight_ratio": 0.0,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "False"
+          },
+          "background": {
+            "texture_variance": 73.49936111283819,
+            "edge_density": 0.0249756049960968,
+            "avg_gradient": 22.138343485707757,
+            "pattern_score": 3.1765178504778335,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "169",
+          "lighting": {
+            "brightness": 162.8022199453552,
+            "brightness_std": 73.08471391361745,
+            "contrast": 73.08471391361745,
+            "histogram_peaks": 56,
+            "shadow_ratio": 0.12052351678376269,
+            "highlight_ratio": 0.0,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "False"
+          },
+          "background": {
+            "texture_variance": 77.10065930487914,
+            "edge_density": 0.02530493754879001,
+            "avg_gradient": 21.409245362871506,
+            "pattern_score": 3.440573658612461,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "211",
+          "lighting": {
+            "brightness": 164.6261343676815,
+            "brightness_std": 72.11283112130948,
+            "contrast": 72.11283112130948,
+            "histogram_peaks": 43,
+            "shadow_ratio": 0.1187865925058548,
+            "highlight_ratio": 0.0,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "False"
+          },
+          "background": {
+            "texture_variance": 77.71939123246129,
+            "edge_density": 0.026339285714285714,
+            "avg_gradient": 22.297256470824745,
+            "pattern_score": 3.335988996377733,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "253",
+          "lighting": {
+            "brightness": 163.1402200429352,
+            "brightness_std": 72.88520870358944,
+            "contrast": 72.88520870358944,
+            "histogram_peaks": 53,
+            "shadow_ratio": 0.11852068696330992,
+            "highlight_ratio": 0.0,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "False"
+          },
+          "background": {
+            "texture_variance": 68.26250066914272,
+            "edge_density": 0.0226166081186573,
+            "avg_gradient": 21.102621797470185,
+            "pattern_score": 3.088434543858317,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "296",
+          "lighting": {
+            "brightness": 158.39300839188135,
+            "brightness_std": 75.42755834746524,
+            "contrast": 75.42755834746524,
+            "histogram_peaks": 52,
+            "shadow_ratio": 0.13796594457455114,
+            "highlight_ratio": 0.0,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "False"
+          },
+          "background": {
+            "texture_variance": 69.99593796689842,
+            "edge_density": 0.020935792349726777,
+            "avg_gradient": 19.48868508641458,
+            "pattern_score": 3.4163216268725116,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        }
+      ],
+      "analysis": {
+        "prediction": "FAKE",
+        "fake_probability": 0.5158184170722961,
+        "confidence": 0.5158184170722961,
+        "frame_predictions": [
+          0.5118065476417542,
+          0.5144315361976624,
+          0.5213271975517273,
+          0.5157085061073303
+        ],
+        "prediction_variance": 1.2094319572497625e-05,
+        "frame_consistency": 0.9999879056804275,
+        "lighting_assessment": {
+          "lighting_consistency": 0.989447331026593,
+          "contrast_consistency": 0.9876339431582785,
+          "avg_brightness": 162.56218286494925,
+          "brightness_variance": 2.9791366600322466,
+          "has_low_light": false,
+          "has_overexposure": false,
+          "inconsistent_lighting": "False",
+          "lighting_manipulation_likelihood": 0.3,
+          "recommendation": [
+            "Possible lighting inconsistencies"
+          ]
+        },
+        "background_assessment": {
+          "texture_consistency": 0.9534185349523244,
+          "edge_consistency": 0.9984474067427228,
+          "avg_texture_variance": 74.72310195177238,
+          "avg_edge_density": 0.02421326112412178,
+          "background_complexity": "low",
+          "has_patterns": false,
+          "background_replacement_likelihood": 0.2,
+          "recommendation": [
+            "Train on simple background scenarios"
+          ]
+        },
+        "shadow_assessment": {
+          "shadow_consistency": 0.9941471285240929,
+          "highlight_consistency": 1.0,
+          "avg_shadow_ratio": 0.12462614656518345,
+          "avg_highlight_ratio": 0.0,
+          "has_shadows": true,
+          "has_highlights": false,
+          "shadow_manipulation_likelihood": 0.25,
+          "recommendation": []
+        },
+        "texture_assessment": {
+          "pattern_consistency": 0.9726572408312664,
+          "avg_pattern_score": 3.3115976266618983,
+          "is_textured": false,
+          "texture_manipulation_likelihood": 0.2,
+          "recommendation": [
+            "Train on more textured backgrounds"
+          ]
+        }
+      }
+    },
+    {
+      "video": "804.mp4",
+      "true_label": "REAL",
+      "bg_metadata": [
+        {
+          "frame_idx": "0",
+          "lighting": {
+            "brightness": 86.23022784933646,
+            "brightness_std": 65.86356155972562,
+            "contrast": 65.86356155972562,
+            "histogram_peaks": 56,
+            "shadow_ratio": 0.17897394613583137,
+            "highlight_ratio": 0.20980679156908666,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 32.6998166436228,
+            "edge_density": 0.03350165886026542,
+            "avg_gradient": 29.360315444836967,
+            "pattern_score": 1.077057868619204,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "51",
+          "lighting": {
+            "brightness": 85.18788056206088,
+            "brightness_std": 64.37570433799586,
+            "contrast": 64.37570433799586,
+            "histogram_peaks": 46,
+            "shadow_ratio": 0.19110314207650272,
+            "highlight_ratio": 0.20796984777517563,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 35.81613087424814,
+            "edge_density": 0.036146077283372366,
+            "avg_gradient": 30.964545013721278,
+            "pattern_score": 1.1204955634085674,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "102",
+          "lighting": {
+            "brightness": 85.62461699843873,
+            "brightness_std": 65.60962961129216,
+            "contrast": 65.60962961129216,
+            "histogram_peaks": 52,
+            "shadow_ratio": 0.1875731850117096,
+            "highlight_ratio": 0.21320257611241217,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 28.463413796640165,
+            "edge_density": 0.0342774199843872,
+            "avg_gradient": 30.449750267011257,
+            "pattern_score": 0.905044191288744,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "153",
+          "lighting": {
+            "brightness": 85.04532591725214,
+            "brightness_std": 64.57440718913496,
+            "contrast": 64.57440718913496,
+            "histogram_peaks": 55,
+            "shadow_ratio": 0.18256976971116315,
+            "highlight_ratio": 0.2099116900858704,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 25.36593496042486,
+            "edge_density": 0.03282591725214676,
+            "avg_gradient": 29.96944258378799,
+            "pattern_score": 0.819063336119053,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "204",
+          "lighting": {
+            "brightness": 83.57196282201406,
+            "brightness_std": 62.73764167689877,
+            "contrast": 62.73764167689877,
+            "histogram_peaks": 56,
+            "shadow_ratio": 0.17913739266198284,
+            "highlight_ratio": 0.194977068696331,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 41.33074892259684,
+            "edge_density": 0.03277468774395004,
+            "avg_gradient": 30.105260608751642,
+            "pattern_score": 1.3287382299239827,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "255",
+          "lighting": {
+            "brightness": 83.77580259562842,
+            "brightness_std": 63.0587802317011,
+            "contrast": 63.0587802317011,
+            "histogram_peaks": 50,
+            "shadow_ratio": 0.1795106362217018,
+            "highlight_ratio": 0.19706284153005466,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 50.86354717538968,
+            "edge_density": 0.0334748243559719,
+            "avg_gradient": 30.344995237638425,
+            "pattern_score": 1.6227007466351049,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "306",
+          "lighting": {
+            "brightness": 84.8853825136612,
+            "brightness_std": 62.81527155233242,
+            "contrast": 62.81527155233242,
+            "histogram_peaks": 56,
+            "shadow_ratio": 0.17681986729117877,
+            "highlight_ratio": 0.20174180327868851,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 24.38696824747434,
+            "edge_density": 0.030383977361436377,
+            "avg_gradient": 29.034594254842954,
+            "pattern_score": 0.8119626335069281,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "358",
+          "lighting": {
+            "brightness": 89.33302839578454,
+            "brightness_std": 68.34904054737316,
+            "contrast": 68.34904054737316,
+            "histogram_peaks": 59,
+            "shadow_ratio": 0.20279322794691648,
+            "highlight_ratio": 0.23243071818891492,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "True",
+            "has_highlights": "True"
+          },
+          "background": {
+            "texture_variance": 29.901908779742627,
+            "edge_density": 0.03187939110070258,
+            "avg_gradient": 29.13510606671492,
+            "pattern_score": 0.9922616072279279,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        }
+      ],
+      "analysis": {
+        "prediction": "REAL",
+        "fake_probability": 0.4848364293575287,
+        "confidence": 0.5151635706424713,
+        "frame_predictions": [
+          0.484124094247818,
+          0.48541590571403503,
+          0.48505717515945435,
+          0.484748512506485
+        ],
+        "prediction_variance": 2.2491805395929987e-07,
+        "frame_consistency": 0.999999775081946,
+        "lighting_assessment": {
+          "lighting_consistency": 0.9805602330825531,
+          "contrast_consistency": 0.972703496163205,
+          "avg_brightness": 85.45677845677204,
+          "brightness_variance": 2.8247512181572656,
+          "has_low_light": false,
+          "has_overexposure": false,
+          "inconsistent_lighting": "False",
+          "lighting_manipulation_likelihood": 0.3,
+          "recommendation": []
+        },
+        "background_assessment": {
+          "texture_consistency": 0.7590251783748139,
+          "edge_consistency": 0.9984700867544033,
+          "avg_texture_variance": 33.60355867501743,
+          "avg_edge_density": 0.03315799424277908,
+          "background_complexity": "low",
+          "has_patterns": false,
+          "background_replacement_likelihood": 0.2,
+          "recommendation": [
+            "Train on simple background scenarios"
+          ]
+        },
+        "shadow_assessment": {
+          "shadow_consistency": 0.9918313294881631,
+          "highlight_consistency": 0.9890568165227402,
+          "avg_shadow_ratio": 0.18481014588212336,
+          "avg_highlight_ratio": 0.20838791715456673,
+          "has_shadows": true,
+          "has_highlights": true,
+          "shadow_manipulation_likelihood": 0.25,
+          "recommendation": []
+        },
+        "texture_assessment": {
+          "pattern_consistency": 0.8758218828136742,
+          "avg_pattern_score": 1.084665522091189,
+          "is_textured": false,
+          "texture_manipulation_likelihood": 0.2,
+          "recommendation": [
+            "Train on more textured backgrounds"
+          ]
+        }
+      }
+    },
+    {
+      "video": "805.mp4",
+      "true_label": "REAL",
+      "bg_metadata": [
+        {
+          "frame_idx": "0",
+          "lighting": {
+            "brightness": 155.59368055555555,
+            "brightness_std": 52.55356208684632,
+            "contrast": 52.55356208684632,
+            "histogram_peaks": 63,
+            "shadow_ratio": 0.016333550347222222,
+            "highlight_ratio": 0.0,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "False",
+            "has_highlights": "False"
+          },
+          "background": {
+            "texture_variance": 38.166511227525326,
+            "edge_density": 0.03760416666666667,
+            "avg_gradient": 26.72345388272928,
+            "pattern_score": 1.3766867356776817,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "58",
+          "lighting": {
+            "brightness": 154.494443359375,
+            "brightness_std": 52.43729064759687,
+            "contrast": 52.43729064759687,
+            "histogram_peaks": 59,
+            "shadow_ratio": 0.018829210069444446,
+            "highlight_ratio": 0.0,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "False",
+            "has_highlights": "False"
+          },
+          "background": {
+            "texture_variance": 29.086761865911367,
+            "edge_density": 0.03694010416666667,
+            "avg_gradient": 27.628286136594372,
+            "pattern_score": 1.0160147808754414,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "117",
+          "lighting": {
+            "brightness": 154.38052083333332,
+            "brightness_std": 52.44521571072056,
+            "contrast": 52.44521571072056,
+            "histogram_peaks": 53,
+            "shadow_ratio": 0.01888888888888889,
+            "highlight_ratio": 0.0,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "False",
+            "has_highlights": "False"
+          },
+          "background": {
+            "texture_variance": 30.15174353976309,
+            "edge_density": 0.03759874131944444,
+            "avg_gradient": 28.198859407523795,
+            "pattern_score": 1.0326342929680932,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "175",
+          "lighting": {
+            "brightness": 153.05035264756944,
+            "brightness_std": 52.5649086636133,
+            "contrast": 52.5649086636133,
+            "histogram_peaks": 54,
+            "shadow_ratio": 0.018806423611111112,
+            "highlight_ratio": 0.0,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "False",
+            "has_highlights": "False"
+          },
+          "background": {
+            "texture_variance": 31.454126200734827,
+            "edge_density": 0.035553385416666666,
+            "avg_gradient": 27.371717144403632,
+            "pattern_score": 1.1086437257442912,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "234",
+          "lighting": {
+            "brightness": 155.13184461805557,
+            "brightness_std": 52.58710818529413,
+            "contrast": 52.58710818529413,
+            "histogram_peaks": 61,
+            "shadow_ratio": 0.018077256944444446,
+            "highlight_ratio": 0.0,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "False",
+            "has_highlights": "False"
+          },
+          "background": {
+            "texture_variance": 31.154765259202318,
+            "edge_density": 0.03551432291666667,
+            "avg_gradient": 27.033998438518925,
+            "pattern_score": 1.1113207888459977,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "292",
+          "lighting": {
+            "brightness": 153.93958875868054,
+            "brightness_std": 51.093474064878194,
+            "contrast": 51.093474064878194,
+            "histogram_peaks": 56,
+            "shadow_ratio": 0.01697265625,
+            "highlight_ratio": 0.0,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "False",
+            "has_highlights": "False"
+          },
+          "background": {
+            "texture_variance": 26.705315022615743,
+            "edge_density": 0.03326822916666667,
+            "avg_gradient": 26.454149267611587,
+            "pattern_score": 0.9727241868725736,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "351",
+          "lighting": {
+            "brightness": 154.87096354166667,
+            "brightness_std": 52.658419537653536,
+            "contrast": 52.658419537653536,
+            "histogram_peaks": 58,
+            "shadow_ratio": 0.01879665798611111,
+            "highlight_ratio": 0.0,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "False",
+            "has_highlights": "False"
+          },
+          "background": {
+            "texture_variance": 30.549849282694446,
+            "edge_density": 0.036705729166666666,
+            "avg_gradient": 27.531619294954766,
+            "pattern_score": 1.0707366086332353,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        },
+        {
+          "frame_idx": "410",
+          "lighting": {
+            "brightness": 153.4380685763889,
+            "brightness_std": 52.53971250581044,
+            "contrast": 52.53971250581044,
+            "histogram_peaks": 54,
+            "shadow_ratio": 0.019588758680555554,
+            "highlight_ratio": 0.0,
+            "lighting_quality": "good",
+            "is_low_light": "False",
+            "is_overexposed": "False",
+            "has_shadows": "False",
+            "has_highlights": "False"
+          },
+          "background": {
+            "texture_variance": 30.6200012441376,
+            "edge_density": 0.037447916666666664,
+            "avg_gradient": 27.80455245846905,
+            "pattern_score": 1.0630264534846046,
+            "complexity": "low",
+            "is_textured": "False",
+            "has_patterns": "False"
+          }
+        }
+      ],
+      "analysis": {
+        "prediction": "FAKE",
+        "fake_probability": 0.5773683786392212,
+        "confidence": 0.5773683786392212,
+        "frame_predictions": [
+          0.5799679160118103,
+          0.5760509371757507,
+          0.5777539610862732,
+          0.5757008194923401
+        ],
+        "prediction_variance": 2.8556687539094128e-06,
+        "frame_consistency": 0.9999971443312461,
+        "lighting_assessment": {
+          "lighting_consistency": 0.9948411425404708,
+          "contrast_consistency": 0.9909400418486508,
+          "avg_brightness": 154.3624328613281,
+          "brightness_variance": 0.6423904611067833,
+          "has_low_light": false,
+          "has_overexposure": false,
+          "inconsistent_lighting": "False",
+          "lighting_manipulation_likelihood": 0.3,
+          "recommendation": [
+            "Possible lighting inconsistencies"
+          ]
+        },
+        "background_assessment": {
+          "texture_consistency": 0.9044293135455626,
+          "edge_consistency": 0.9986508349456643,
+          "avg_texture_variance": 30.98613420532309,
+          "avg_edge_density": 0.036329074435763886,
+          "background_complexity": "low",
+          "has_patterns": false,
+          "background_replacement_likelihood": 0.2,
+          "recommendation": [
+            "Train on simple background scenarios"
+          ]
+        },
+        "shadow_assessment": {
+          "shadow_consistency": 0.9989711750542353,
+          "highlight_consistency": 1.0,
+          "avg_shadow_ratio": 0.018286675347222225,
+          "avg_highlight_ratio": 0.0,
+          "has_shadows": false,
+          "has_highlights": false,
+          "shadow_manipulation_likelihood": 0.25,
+          "recommendation": [
+            "Train on videos with more shadow content"
+          ]
+        },
+        "texture_assessment": {
+          "pattern_consistency": 0.9449037512074943,
+          "avg_pattern_score": 1.0939734466377398,
+          "is_textured": false,
+          "texture_manipulation_likelihood": 0.2,
+          "recommendation": [
+            "Train on more textured backgrounds"
+          ]
+        }
+      }
+    }
+  ]
+}

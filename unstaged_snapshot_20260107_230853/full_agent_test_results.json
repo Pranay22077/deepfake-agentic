@@ -1,0 +1,34 @@
+{
+  "test_info": {
+    "total_videos": 100,
+    "real_videos": 50,
+    "fake_videos": 50,
+    "agent_version": "full_agentic_system"
+  },
+  "performance": {
+    "overall_accuracy": 0.5,
+    "real_accuracy": 1.0,
+    "fake_accuracy": 0.0,
+    "bias": 1.0,
+    "avg_confidence": 0.5310259783267974,
+    "avg_processing_time": 2.543532817363739
+  },
+  "confusion_matrix": [
+    [
+      50,
+      0
+    ],
+    [
+      50,
+      0
+    ]
+  ],
+  "model_usage": {
+    "student": 100
+  },
+  "specialist_usage": {
+    "tm": 100
+  },
+  "new_models_used": 0,
+  "old_models_used": 0
+}

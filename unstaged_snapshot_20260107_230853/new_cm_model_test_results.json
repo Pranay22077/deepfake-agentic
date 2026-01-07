@@ -1,0 +1,34 @@
+{
+  "model_info": {
+    "file": "cm_stage2_final.pt",
+    "parameters": 801,
+    "model_loaded": true,
+    "architecture": "CM Specialist (EfficientNet-B4 + Compression Module)"
+  },
+  "test_results": {
+    "total_videos": 100,
+    "overall_accuracy": 0.7,
+    "real_accuracy": 0.82,
+    "fake_accuracy": 0.58,
+    "bias": 0.24,
+    "average_confidence": 0.83865827023983,
+    "correctly_classified": 70,
+    "incorrectly_classified": 30
+  },
+  "predictions": {
+    "real_as_real": 41,
+    "real_as_fake": 9,
+    "fake_as_real": 21,
+    "fake_as_fake": 29
+  },
+  "confusion_matrix": [
+    [
+      41,
+      9
+    ],
+    [
+      21,
+      29
+    ]
+  ]
+}

@@ -1,0 +1,2339 @@
+{
+  "bg": {
+    "model_name": "Background/Lighting Specialist",
+    "specialization": "Background artifacts, lighting inconsistencies, shadow detection",
+    "summary": {
+      "total_videos": 50,
+      "real_videos": 25,
+      "fake_videos": 25,
+      "overall_accuracy": 0.56,
+      "real_accuracy": 0.32,
+      "fake_accuracy": 0.8,
+      "bias": -0.48000000000000004,
+      "avg_confidence": 0.5316656756401063,
+      "confidence_std": 0.0274828398857221
+    },
+    "recommendations": {
+      "model_name": "Background/Lighting Specialist",
+      "current_performance": {
+        "overall_accuracy": 0.56,
+        "real_accuracy": 0.32,
+        "fake_accuracy": 0.8,
+        "bias": -0.48000000000000004,
+        "avg_confidence": 0.5316656756401063,
+        "confidence_variance": 0.0007553064881842374
+      },
+      "performance_assessment": [
+        "POOR_ACCURACY: Model needs significant improvement",
+        "FAKE_BIAS: Model over-predicts FAKE videos",
+        "LOW_CONFIDENCE: Model is uncertain about predictions"
+      ],
+      "training_recommendations": [
+        "INCREASE_TRAINING_DATA: Add more diverse training samples",
+        "ADJUST_LEARNING_RATE: Try lower learning rate for better convergence",
+        "AUGMENTATION: Increase data augmentation diversity",
+        "ARCHITECTURE_REVIEW: Consider model architecture improvements",
+        "REAL_SAMPLE_DIVERSITY: Add more diverse real samples",
+        "REDUCE_OVERFITTING: Add regularization or dropout",
+        "REAL_AUGMENTATION: Increase real sample augmentation",
+        "LIGHTING_DIVERSITY: Train on varied lighting conditions",
+        "BACKGROUND_COMPLEXITY: Include complex background scenarios",
+        "SHADOW_DETECTION: Focus on shadow manipulation detection"
+      ],
+      "dataset_recommendations": {
+        "primary_datasets": [
+          "FaceForensics++",
+          "CelebDF",
+          "DFDC"
+        ],
+        "additional_datasets": [
+          "WildDeepfake",
+          "DeeperForensics",
+          "FaceSwapper"
+        ],
+        "data_balance": {
+          "increase_real_samples": true
+        },
+        "specific_needs": [
+          "Outdoor lighting variations",
+          "Indoor/studio lighting",
+          "Mixed lighting scenarios",
+          "Shadow manipulation samples"
+        ]
+      },
+      "architecture_recommendations": [
+        "INCREASE_MODEL_CAPACITY: Add more layers or parameters",
+        "ATTENTION_MECHANISM: Add attention layers for better feature focus",
+        "ENSEMBLE_COMPONENTS: Consider ensemble within the model",
+        "SPATIAL_ATTENTION: Add spatial attention for background focus",
+        "MULTI_SCALE_FEATURES: Use multiple scales for lighting analysis",
+        "COLOR_SPACE_ANALYSIS: Include multiple color space processing"
+      ]
+    },
+    "sample_results": [
+      {
+        "video": "801.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 25.0,
+          "resolution": [
+            640,
+            480
+          ],
+          "total_frames": 444,
+          "duration": 17.76,
+          "file_size": 929511,
+          "bitrate": 418698.64864864864,
+          "avg_brightness": 101.63565104166666,
+          "avg_contrast": 80.19903306276257,
+          "avg_blur_score": 1845.2247524575405,
+          "brightness_std": 1.0021244143421062,
+          "contrast_std": 0.680076402878471,
+          "blur_std": 71.24762935741079,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "False",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "FAKE",
+          "fake_probability": 0.5055957436561584,
+          "confidence": 0.5055957436561584,
+          "frame_predictions": [
+            0.5061912536621094,
+            0.5047823786735535,
+            0.5051014423370361,
+            0.5063078999519348
+          ],
+          "prediction_variance": 4.419237864539127e-07,
+          "prediction_consistency": 0.9999995580762135,
+          "logits_raw": [
+            [
+              -0.1413419097661972,
+              -0.11657559126615524
+            ],
+            [
+              -0.12864510715007782,
+              -0.10951509326696396
+            ],
+            [
+              -0.1315484642982483,
+              -0.11114182323217392
+            ],
+            [
+              -0.14179109036922455,
+              -0.11655794829130173
+            ]
+          ],
+          "specialization": "Background artifacts, lighting inconsistencies, shadow detection",
+          "expected_strengths": [
+            "Lighting manipulation",
+            "Background replacement",
+            "Shadow artifacts"
+          ],
+          "lighting_assessment": "normal",
+          "brightness_factor": 101.63565104166666,
+          "contrast_factor": 80.19903306276257,
+          "shadow_likelihood": "0.50559574"
+        }
+      },
+      {
+        "video": "802.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 25.0,
+          "resolution": [
+            656,
+            480
+          ],
+          "total_frames": 351,
+          "duration": 14.04,
+          "file_size": 421940,
+          "bitrate": 240421.65242165243,
+          "avg_brightness": 98.88198123094513,
+          "avg_contrast": 59.24401231818926,
+          "avg_blur_score": 360.1872871592119,
+          "brightness_std": 0.40099866536319106,
+          "contrast_std": 0.22164921769183207,
+          "blur_std": 14.704756955224147,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "False",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "FAKE",
+          "fake_probability": 0.5493648052215576,
+          "confidence": 0.5493648052215576,
+          "frame_predictions": [
+            0.5497268438339233,
+            0.5512869358062744,
+            0.5487660765647888,
+            0.5476793646812439
+          ],
+          "prediction_variance": 1.7562109402291526e-06,
+          "prediction_consistency": 0.9999982437890598,
+          "logits_raw": [
+            [
+              -0.43616944551467896,
+              -0.23660250008106232
+            ],
+            [
+              -0.45352280139923096,
+              -0.24765099585056305
+            ],
+            [
+              -0.42562323808670044,
+              -0.22993701696395874
+            ],
+            [
+              -0.4254518747329712,
+              -0.2341531366109848
+            ]
+          ],
+          "specialization": "Background artifacts, lighting inconsistencies, shadow detection",
+          "expected_strengths": [
+            "Lighting manipulation",
+            "Background replacement",
+            "Shadow artifacts"
+          ],
+          "lighting_assessment": "normal",
+          "brightness_factor": 98.88198123094513,
+          "contrast_factor": 59.24401231818926,
+          "shadow_likelihood": "0.5493648"
+        }
+      },
+      {
+        "video": "803.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 25.0,
+          "resolution": [
+            854,
+            480
+          ],
+          "total_frames": 297,
+          "duration": 11.88,
+          "file_size": 668462,
+          "bitrate": 450142.7609427609,
+          "avg_brightness": 162.56218286494925,
+          "avg_contrast": 73.18844138453164,
+          "avg_blur_score": 74.72310195177238,
+          "brightness_std": 1.7260175723416742,
+          "contrast_std": 0.9174184831598488,
+          "blur_std": 3.527293026868061,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "True",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "FAKE",
+          "fake_probability": 0.5158184170722961,
+          "confidence": 0.5158184170722961,
+          "frame_predictions": [
+            0.5118065476417542,
+            0.5144315361976624,
+            0.5213271975517273,
+            0.5157085061073303
+          ],
+          "prediction_variance": 1.2094319418842758e-05,
+          "prediction_consistency": 0.9999879056805812,
+          "logits_raw": [
+            [
+              -0.15687258541584015,
+              -0.109637551009655
+            ],
+            [
+              -0.17457982897758484,
+              -0.1168375238776207
+            ],
+            [
+              -0.23484839498996735,
+              -0.14948783814907074
+            ],
+            [
+              -0.18485979735851288,
+              -0.1220051571726799
+            ]
+          ],
+          "specialization": "Background artifacts, lighting inconsistencies, shadow detection",
+          "expected_strengths": [
+            "Lighting manipulation",
+            "Background replacement",
+            "Shadow artifacts"
+          ],
+          "lighting_assessment": "normal",
+          "brightness_factor": 162.56218286494925,
+          "contrast_factor": 73.18844138453164,
+          "shadow_likelihood": "0.5158184"
+        }
+      },
+      {
+        "video": "804.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 30.0,
+          "resolution": [
+            854,
+            480
+          ],
+          "total_frames": 359,
+          "duration": 11.966666666666667,
+          "file_size": 666536,
+          "bitrate": 445595.0974930362,
+          "avg_brightness": 85.45677845677204,
+          "avg_contrast": 64.67300458830675,
+          "avg_blur_score": 33.60355867501743,
+          "brightness_std": 1.680699621632987,
+          "contrast_std": 1.7926434217185774,
+          "blur_std": 8.338586379308989,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "True",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.4848364293575287,
+          "confidence": 0.5151635706424713,
+          "frame_predictions": [
+            0.484124094247818,
+            0.48541590571403503,
+            0.48505717515945435,
+            0.484748512506485
+          ],
+          "prediction_variance": 2.2491805945490384e-07,
+          "prediction_consistency": 0.9999997750819405,
+          "logits_raw": [
+            [
+              -0.18564586341381073,
+              -0.24917076528072357
+            ],
+            [
+              -0.15948550403118134,
+              -0.21783843636512756
+            ],
+            [
+              -0.1668998748064041,
+              -0.22668896615505219
+            ],
+            [
+              -0.17794127762317657,
+              -0.23896606266498566
+            ]
+          ],
+          "specialization": "Background artifacts, lighting inconsistencies, shadow detection",
+          "expected_strengths": [
+            "Lighting manipulation",
+            "Background replacement",
+            "Shadow artifacts"
+          ],
+          "lighting_assessment": "normal",
+          "brightness_factor": 85.45677845677204,
+          "contrast_factor": 64.67300458830675,
+          "shadow_likelihood": "0.48483643"
+        }
+      },
+      {
+        "video": "805.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 24.0,
+          "resolution": [
+            1280,
+            720
+          ],
+          "total_frames": 411,
+          "duration": 17.125,
+          "file_size": 2276697,
+          "bitrate": 1063566.4817518247,
+          "avg_brightness": 154.3624328613281,
+          "avg_contrast": 52.35996142530166,
+          "avg_blur_score": 30.98613420532309,
+          "brightness_std": 0.8014926456972536,
+          "contrast_std": 0.483439017470839,
+          "blur_std": 3.056936803026489,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "True",
+          "is_compressed": false,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "FAKE",
+          "fake_probability": 0.5773683786392212,
+          "confidence": 0.5773683786392212,
+          "frame_predictions": [
+            0.5799679160118103,
+            0.5760509371757507,
+            0.5777539610862732,
+            0.5757008194923401
+          ],
+          "prediction_variance": 2.8556684723568537e-06,
+          "prediction_consistency": 0.9999971443315276,
+          "logits_raw": [
+            [
+              -0.5963647365570068,
+              -0.27372321486473083
+            ],
+            [
+              -0.5575547814369202,
+              -0.25097203254699707
+            ],
+            [
+              -0.5706853270530701,
+              -0.2571253478527069
+            ],
+            [
+              -0.5529926419258118,
+              -0.2478434294462204
+            ]
+          ],
+          "specialization": "Background artifacts, lighting inconsistencies, shadow detection",
+          "expected_strengths": [
+            "Lighting manipulation",
+            "Background replacement",
+            "Shadow artifacts"
+          ],
+          "lighting_assessment": "normal",
+          "brightness_factor": 154.3624328613281,
+          "contrast_factor": 52.35996142530166,
+          "shadow_likelihood": "0.5773684"
+        }
+      }
+    ]
+  },
+  "av": {
+    "model_name": "Audio-Visual Specialist",
+    "specialization": "Lip-sync detection, audio-visual correlation",
+    "summary": {
+      "total_videos": 50,
+      "real_videos": 25,
+      "fake_videos": 25,
+      "overall_accuracy": 0.54,
+      "real_accuracy": 0.24,
+      "fake_accuracy": 0.84,
+      "bias": -0.6,
+      "avg_confidence": 0.5331835758686065,
+      "confidence_std": 0.02739461904541342
+    },
+    "recommendations": {
+      "model_name": "Audio-Visual Specialist",
+      "current_performance": {
+        "overall_accuracy": 0.54,
+        "real_accuracy": 0.24,
+        "fake_accuracy": 0.84,
+        "bias": -0.6,
+        "avg_confidence": 0.5331835758686065,
+        "confidence_variance": 0.0007504651526433277
+      },
+      "performance_assessment": [
+        "POOR_ACCURACY: Model needs significant improvement",
+        "FAKE_BIAS: Model over-predicts FAKE videos",
+        "LOW_CONFIDENCE: Model is uncertain about predictions"
+      ],
+      "training_recommendations": [
+        "INCREASE_TRAINING_DATA: Add more diverse training samples",
+        "ADJUST_LEARNING_RATE: Try lower learning rate for better convergence",
+        "AUGMENTATION: Increase data augmentation diversity",
+        "ARCHITECTURE_REVIEW: Consider model architecture improvements",
+        "REAL_SAMPLE_DIVERSITY: Add more diverse real samples",
+        "REDUCE_OVERFITTING: Add regularization or dropout",
+        "REAL_AUGMENTATION: Increase real sample augmentation",
+        "LIPSYNC_SAMPLES: Increase lip-sync mismatch samples",
+        "AUDIO_QUALITY: Train on varied audio quality levels",
+        "TEMPORAL_CONSISTENCY: Focus on frame-to-frame consistency"
+      ],
+      "dataset_recommendations": {
+        "primary_datasets": [
+          "FaceForensics++",
+          "CelebDF",
+          "DFDC"
+        ],
+        "additional_datasets": [
+          "WildDeepfake",
+          "DeeperForensics",
+          "FaceSwapper"
+        ],
+        "data_balance": {
+          "increase_real_samples": true
+        },
+        "specific_needs": [
+          "Multi-language lip-sync samples",
+          "Various audio qualities",
+          "Silent video samples",
+          "Audio-visual desync samples"
+        ]
+      },
+      "architecture_recommendations": [
+        "INCREASE_MODEL_CAPACITY: Add more layers or parameters",
+        "ATTENTION_MECHANISM: Add attention layers for better feature focus",
+        "ENSEMBLE_COMPONENTS: Consider ensemble within the model",
+        "TEMPORAL_FUSION: Better temporal feature fusion",
+        "CROSS_MODAL_ATTENTION: Audio-visual cross-attention",
+        "SEQUENCE_MODELING: LSTM/Transformer for temporal modeling"
+      ]
+    },
+    "sample_results": [
+      {
+        "video": "801.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 25.0,
+          "resolution": [
+            640,
+            480
+          ],
+          "total_frames": 444,
+          "duration": 17.76,
+          "file_size": 929511,
+          "bitrate": 418698.64864864864,
+          "avg_brightness": 101.63565104166666,
+          "avg_contrast": 80.19903306276257,
+          "avg_blur_score": 1845.2247524575405,
+          "brightness_std": 1.0021244143421062,
+          "contrast_std": 0.680076402878471,
+          "blur_std": 71.24762935741079,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "False",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "FAKE",
+          "fake_probability": 0.5105403661727905,
+          "confidence": 0.5105403661727905,
+          "frame_predictions": [
+            0.5107811093330383,
+            0.5139191150665283,
+            0.5099842548370361,
+            0.5074771046638489
+          ],
+          "prediction_variance": 5.29168306062644e-06,
+          "prediction_consistency": 0.9999947083169394,
+          "logits_raw": [
+            [
+              0.08884268254041672,
+              0.1319737583398819
+            ],
+            [
+              0.08341234922409058,
+              0.1391032338142395
+            ],
+            [
+              0.09375816583633423,
+              0.1337004452943802
+            ],
+            [
+              0.09750629216432571,
+              0.1274169683456421
+            ]
+          ],
+          "specialization": "Lip-sync detection, audio-visual correlation",
+          "expected_strengths": [
+            "Lip-sync mismatch",
+            "Audio-visual desync",
+            "Facial motion"
+          ],
+          "lip_sync_assessment": "synchronized",
+          "motion_consistency": 0.2875237064258921,
+          "temporal_stability": 0.4894596338272095
+        }
+      },
+      {
+        "video": "802.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 25.0,
+          "resolution": [
+            656,
+            480
+          ],
+          "total_frames": 351,
+          "duration": 14.04,
+          "file_size": 421940,
+          "bitrate": 240421.65242165243,
+          "avg_brightness": 98.88198123094513,
+          "avg_contrast": 59.24401231818926,
+          "avg_blur_score": 360.1872871592119,
+          "brightness_std": 0.40099866536319106,
+          "contrast_std": 0.22164921769183207,
+          "blur_std": 14.704756955224147,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "False",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "FAKE",
+          "fake_probability": 0.5662682056427002,
+          "confidence": 0.5662682056427002,
+          "frame_predictions": [
+            0.5617852210998535,
+            0.5671986937522888,
+            0.5675470232963562,
+            0.5685416460037231
+          ],
+          "prediction_variance": 6.9417160464269045e-06,
+          "prediction_consistency": 0.9999930582839536,
+          "logits_raw": [
+            [
+              0.09817950427532196,
+              0.3465898334980011
+            ],
+            [
+              0.22652436792850494,
+              0.49695536494255066
+            ],
+            [
+              0.1609705090522766,
+              0.432820588350296
+            ],
+            [
+              0.15459764003753662,
+              0.4305012822151184
+            ]
+          ],
+          "specialization": "Lip-sync detection, audio-visual correlation",
+          "expected_strengths": [
+            "Lip-sync mismatch",
+            "Audio-visual desync",
+            "Facial motion"
+          ],
+          "lip_sync_assessment": "synchronized",
+          "motion_consistency": 0.8529524304477585,
+          "temporal_stability": 0.4337317943572998
+        }
+      },
+      {
+        "video": "803.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 25.0,
+          "resolution": [
+            854,
+            480
+          ],
+          "total_frames": 297,
+          "duration": 11.88,
+          "file_size": 668462,
+          "bitrate": 450142.7609427609,
+          "avg_brightness": 162.56218286494925,
+          "avg_contrast": 73.18844138453164,
+          "avg_blur_score": 74.72310195177238,
+          "brightness_std": 1.7260175723416742,
+          "contrast_std": 0.9174184831598488,
+          "blur_std": 3.527293026868061,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "True",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "FAKE",
+          "fake_probability": 0.5950511693954468,
+          "confidence": 0.5950511693954468,
+          "frame_predictions": [
+            0.5951141119003296,
+            0.5936614871025085,
+            0.5961732864379883,
+            0.5952559113502502
+          ],
+          "prediction_variance": 8.090611389732771e-07,
+          "prediction_consistency": 0.999999190938861,
+          "logits_raw": [
+            [
+              0.4406415820121765,
+              0.8257893323898315
+            ],
+            [
+              0.42910677194595337,
+              0.8082294464111328
+            ],
+            [
+              0.36928069591522217,
+              0.7588263750076294
+            ],
+            [
+              0.3961740732192993,
+              0.7819105982780457
+            ]
+          ],
+          "specialization": "Lip-sync detection, audio-visual correlation",
+          "expected_strengths": [
+            "Lip-sync mismatch",
+            "Audio-visual desync",
+            "Facial motion"
+          ],
+          "lip_sync_assessment": "synchronized",
+          "motion_consistency": 0.9647270697313194,
+          "temporal_stability": 0.4049488306045532
+        }
+      },
+      {
+        "video": "804.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 30.0,
+          "resolution": [
+            854,
+            480
+          ],
+          "total_frames": 359,
+          "duration": 11.966666666666667,
+          "file_size": 666536,
+          "bitrate": 445595.0974930362,
+          "avg_brightness": 85.45677845677204,
+          "avg_contrast": 64.67300458830675,
+          "avg_blur_score": 33.60355867501743,
+          "brightness_std": 1.680699621632987,
+          "contrast_std": 1.7926434217185774,
+          "blur_std": 8.338586379308989,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "True",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "FAKE",
+          "fake_probability": 0.5367611646652222,
+          "confidence": 0.5367611646652222,
+          "frame_predictions": [
+            0.5154522061347961,
+            0.5422523021697998,
+            0.5431730151176453,
+            0.546167254447937
+          ],
+          "prediction_variance": 0.00015345266399169333,
+          "prediction_consistency": 0.9998465473360083,
+          "logits_raw": [
+            [
+              0.10355030000209808,
+              0.1653786450624466
+            ],
+            [
+              -0.019313842058181763,
+              0.15009941160678864
+            ],
+            [
+              -0.08956699073314667,
+              0.08355610072612762
+            ],
+            [
+              -0.07489466667175293,
+              0.11030185222625732
+            ]
+          ],
+          "specialization": "Lip-sync detection, audio-visual correlation",
+          "expected_strengths": [
+            "Lip-sync mismatch",
+            "Audio-visual desync",
+            "Facial motion"
+          ],
+          "lip_sync_assessment": "synchronized",
+          "motion_consistency": 0.9166141362069101,
+          "temporal_stability": 0.46323883533477783
+        }
+      },
+      {
+        "video": "805.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 24.0,
+          "resolution": [
+            1280,
+            720
+          ],
+          "total_frames": 411,
+          "duration": 17.125,
+          "file_size": 2276697,
+          "bitrate": 1063566.4817518247,
+          "avg_brightness": 154.3624328613281,
+          "avg_contrast": 52.35996142530166,
+          "avg_blur_score": 30.98613420532309,
+          "brightness_std": 0.8014926456972536,
+          "contrast_std": 0.483439017470839,
+          "blur_std": 3.056936803026489,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "True",
+          "is_compressed": false,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.4888412058353424,
+          "confidence": 0.5111587941646576,
+          "frame_predictions": [
+            0.48456019163131714,
+            0.4881746768951416,
+            0.4937328100204468,
+            0.4888971745967865
+          ],
+          "prediction_variance": 1.067556686223936e-05,
+          "prediction_consistency": 0.9999893244331377,
+          "logits_raw": [
+            [
+              2.3640198707580566,
+              2.302241086959839
+            ],
+            [
+              2.2608768939971924,
+              2.213566780090332
+            ],
+            [
+              2.1250200271606445,
+              2.099949836730957
+            ],
+            [
+              2.2156763076782227,
+              2.171257495880127
+            ]
+          ],
+          "specialization": "Lip-sync detection, audio-visual correlation",
+          "expected_strengths": [
+            "Lip-sync mismatch",
+            "Audio-visual desync",
+            "Facial motion"
+          ],
+          "lip_sync_assessment": "synchronized",
+          "motion_consistency": 0.9694306319697351,
+          "temporal_stability": "0.4888412"
+        }
+      }
+    ]
+  },
+  "cm": {
+    "model_name": "Compression Specialist",
+    "specialization": "Compression artifacts, DCT analysis, quantization patterns",
+    "summary": {
+      "total_videos": 50,
+      "real_videos": 25,
+      "fake_videos": 25,
+      "overall_accuracy": 0.66,
+      "real_accuracy": 1.0,
+      "fake_accuracy": 0.32,
+      "bias": 0.6799999999999999,
+      "avg_confidence": 0.8583656725101173,
+      "confidence_std": 0.10975630329847225
+    },
+    "recommendations": {
+      "model_name": "Compression Specialist",
+      "current_performance": {
+        "overall_accuracy": 0.66,
+        "real_accuracy": 1.0,
+        "fake_accuracy": 0.32,
+        "bias": 0.6799999999999999,
+        "avg_confidence": 0.8583656725101173,
+        "confidence_variance": 0.01204644611374623
+      },
+      "performance_assessment": [
+        "MODERATE_ACCURACY: Model needs refinement",
+        "REAL_BIAS: Model over-predicts REAL videos",
+        "GOOD_CONFIDENCE: Appropriate confidence levels"
+      ],
+      "training_recommendations": [
+        "BALANCE_DATASET: Add more challenging fake samples",
+        "HARD_NEGATIVE_MINING: Focus on hard-to-detect fake samples",
+        "FAKE_AUGMENTATION: Increase fake sample augmentation",
+        "COMPRESSION_LEVELS: Train on multiple compression levels",
+        "ARTIFACT_DETECTION: Focus on JPEG/video compression artifacts",
+        "QUALITY_DEGRADATION: Include quality-degraded samples"
+      ],
+      "dataset_recommendations": {
+        "primary_datasets": [
+          "FaceForensics++",
+          "CelebDF",
+          "DFDC"
+        ],
+        "additional_datasets": [],
+        "data_balance": {
+          "increase_fake_samples": true
+        },
+        "specific_needs": [
+          "Multiple compression standards (H.264, H.265, VP9)",
+          "Various bitrate levels",
+          "Compression artifact samples",
+          "Uncompressed reference videos"
+        ]
+      },
+      "architecture_recommendations": [
+        "FREQUENCY_ANALYSIS: Add DCT/FFT analysis layers",
+        "MULTI_RESOLUTION: Process multiple resolution levels",
+        "ARTIFACT_DETECTION: Specialized artifact detection modules"
+      ]
+    },
+    "sample_results": [
+      {
+        "video": "801.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 25.0,
+          "resolution": [
+            640,
+            480
+          ],
+          "total_frames": 444,
+          "duration": 17.76,
+          "file_size": 929511,
+          "bitrate": 418698.64864864864,
+          "avg_brightness": 101.63565104166666,
+          "avg_contrast": 80.19903306276257,
+          "avg_blur_score": 1845.2247524575405,
+          "brightness_std": 1.0021244143421062,
+          "contrast_std": 0.680076402878471,
+          "blur_std": 71.24762935741079,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "False",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.08832567185163498,
+          "confidence": 0.911674328148365,
+          "frame_predictions": [
+            0.06423774361610413,
+            0.06531509757041931,
+            0.09180266410112381,
+            0.13194718956947327
+          ],
+          "prediction_variance": 0.0007561602746355249,
+          "prediction_consistency": 0.9992438397253645,
+          "logits_raw": [
+            [
+              1.3520787954330444,
+              -1.3266916275024414
+            ],
+            [
+              1.341615080833435,
+              -1.3193711042404175
+            ],
+            [
+              1.1162354946136475,
+              -1.1755847930908203
+            ],
+            [
+              0.8776729702949524,
+              -1.0061777830123901
+            ]
+          ],
+          "specialization": "Compression artifacts, DCT analysis, quantization patterns",
+          "expected_strengths": [
+            "JPEG artifacts",
+            "Video compression",
+            "Quantization noise"
+          ],
+          "compression_assessment": "clean",
+          "bitrate_factor": 418698.64864864864,
+          "quality_degradation": "0.08832567"
+        }
+      },
+      {
+        "video": "802.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 25.0,
+          "resolution": [
+            656,
+            480
+          ],
+          "total_frames": 351,
+          "duration": 14.04,
+          "file_size": 421940,
+          "bitrate": 240421.65242165243,
+          "avg_brightness": 98.88198123094513,
+          "avg_contrast": 59.24401231818926,
+          "avg_blur_score": 360.1872871592119,
+          "brightness_std": 0.40099866536319106,
+          "contrast_std": 0.22164921769183207,
+          "blur_std": 14.704756955224147,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "False",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.3537555932998657,
+          "confidence": 0.6462444067001343,
+          "frame_predictions": [
+            0.6790016889572144,
+            0.35782673954963684,
+            0.12224739789962769,
+            0.25594666600227356
+          ],
+          "prediction_variance": 0.04224105694217828,
+          "prediction_consistency": 0.9577589430578217,
+          "logits_raw": [
+            [
+              -0.48246297240257263,
+              0.26672470569610596
+            ],
+            [
+              0.26973316073417664,
+              -0.3150761127471924
+            ],
+            [
+              0.9251374006271362,
+              -1.0461804866790771
+            ],
+            [
+              0.4809497594833374,
+              -0.5861939787864685
+            ]
+          ],
+          "specialization": "Compression artifacts, DCT analysis, quantization patterns",
+          "expected_strengths": [
+            "JPEG artifacts",
+            "Video compression",
+            "Quantization noise"
+          ],
+          "compression_assessment": "clean",
+          "bitrate_factor": 240421.65242165243,
+          "quality_degradation": "0.3537556"
+        }
+      },
+      {
+        "video": "803.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 25.0,
+          "resolution": [
+            854,
+            480
+          ],
+          "total_frames": 297,
+          "duration": 11.88,
+          "file_size": 668462,
+          "bitrate": 450142.7609427609,
+          "avg_brightness": 162.56218286494925,
+          "avg_contrast": 73.18844138453164,
+          "avg_blur_score": 74.72310195177238,
+          "brightness_std": 1.7260175723416742,
+          "contrast_std": 0.9174184831598488,
+          "blur_std": 3.527293026868061,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "True",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.012933630496263504,
+          "confidence": 0.9870663695037365,
+          "frame_predictions": [
+            0.01219520065933466,
+            0.01351527776569128,
+            0.007961941882967949,
+            0.018062099814414978
+          ],
+          "prediction_variance": 1.2975619346223101e-05,
+          "prediction_consistency": 0.9999870243806538,
+          "logits_raw": [
+            [
+              2.293829917907715,
+              -2.1006126403808594
+            ],
+            [
+              2.237516164779663,
+              -2.0528109073638916
+            ],
+            [
+              2.5232555866241455,
+              -2.301832914352417
+            ],
+            [
+              2.077178716659546,
+              -1.9185336828231812
+            ]
+          ],
+          "specialization": "Compression artifacts, DCT analysis, quantization patterns",
+          "expected_strengths": [
+            "JPEG artifacts",
+            "Video compression",
+            "Quantization noise"
+          ],
+          "compression_assessment": "clean",
+          "bitrate_factor": 450142.7609427609,
+          "quality_degradation": "0.0129336305"
+        }
+      },
+      {
+        "video": "804.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 30.0,
+          "resolution": [
+            854,
+            480
+          ],
+          "total_frames": 359,
+          "duration": 11.966666666666667,
+          "file_size": 666536,
+          "bitrate": 445595.0974930362,
+          "avg_brightness": 85.45677845677204,
+          "avg_contrast": 64.67300458830675,
+          "avg_blur_score": 33.60355867501743,
+          "brightness_std": 1.680699621632987,
+          "contrast_std": 1.7926434217185774,
+          "blur_std": 8.338586379308989,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "True",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.19831454753875732,
+          "confidence": 0.8016854524612427,
+          "frame_predictions": [
+            0.5934204459190369,
+            0.05368647351861,
+            0.06259694695472717,
+            0.08355429768562317
+          ],
+          "prediction_variance": 0.05215378319607625,
+          "prediction_consistency": 0.9478462168039238,
+          "logits_raw": [
+            [
+              -0.2521316111087799,
+              0.12599197030067444
+            ],
+            [
+              1.4571374654769897,
+              -1.4122754335403442
+            ],
+            [
+              1.36508047580719,
+              -1.3413163423538208
+            ],
+            [
+              1.1837440729141235,
+              -1.2112621068954468
+            ]
+          ],
+          "specialization": "Compression artifacts, DCT analysis, quantization patterns",
+          "expected_strengths": [
+            "JPEG artifacts",
+            "Video compression",
+            "Quantization noise"
+          ],
+          "compression_assessment": "clean",
+          "bitrate_factor": 445595.0974930362,
+          "quality_degradation": "0.19831455"
+        }
+      },
+      {
+        "video": "805.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 24.0,
+          "resolution": [
+            1280,
+            720
+          ],
+          "total_frames": 411,
+          "duration": 17.125,
+          "file_size": 2276697,
+          "bitrate": 1063566.4817518247,
+          "avg_brightness": 154.3624328613281,
+          "avg_contrast": 52.35996142530166,
+          "avg_blur_score": 30.98613420532309,
+          "brightness_std": 0.8014926456972536,
+          "contrast_std": 0.483439017470839,
+          "blur_std": 3.056936803026489,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "True",
+          "is_compressed": false,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.015633156523108482,
+          "confidence": 0.9843668434768915,
+          "frame_predictions": [
+            0.009399154223501682,
+            0.0279884971678257,
+            0.009078707545995712,
+            0.01606626808643341
+          ],
+          "prediction_variance": 5.8666403534591075e-05,
+          "prediction_consistency": 0.9999413335964654,
+          "logits_raw": [
+            [
+              2.4367332458496094,
+              -2.2209584712982178
+            ],
+            [
+              1.8363924026489258,
+              -1.7111815214157104
+            ],
+            [
+              2.4540412425994873,
+              -2.2386622428894043
+            ],
+            [
+              2.144824504852295,
+              -1.9700120687484741
+            ]
+          ],
+          "specialization": "Compression artifacts, DCT analysis, quantization patterns",
+          "expected_strengths": [
+            "JPEG artifacts",
+            "Video compression",
+            "Quantization noise"
+          ],
+          "compression_assessment": "clean",
+          "bitrate_factor": 1063566.4817518247,
+          "quality_degradation": 0.3
+        }
+      }
+    ]
+  },
+  "rr": {
+    "model_name": "Resolution/Re-recording Specialist",
+    "specialization": "Resolution artifacts, upscaling detection, re-recording patterns",
+    "summary": {
+      "total_videos": 50,
+      "real_videos": 25,
+      "fake_videos": 25,
+      "overall_accuracy": 0.6,
+      "real_accuracy": 1.0,
+      "fake_accuracy": 0.2,
+      "bias": 0.8,
+      "avg_confidence": 0.5850618135929108,
+      "confidence_std": 0.06431968820740631
+    },
+    "recommendations": {
+      "model_name": "Resolution/Re-recording Specialist",
+      "current_performance": {
+        "overall_accuracy": 0.6,
+        "real_accuracy": 1.0,
+        "fake_accuracy": 0.2,
+        "bias": 0.8,
+        "avg_confidence": 0.5850618135929108,
+        "confidence_variance": 0.004137022291097962
+      },
+      "performance_assessment": [
+        "MODERATE_ACCURACY: Model needs refinement",
+        "REAL_BIAS: Model over-predicts REAL videos",
+        "LOW_CONFIDENCE: Model is uncertain about predictions"
+      ],
+      "training_recommendations": [
+        "BALANCE_DATASET: Add more challenging fake samples",
+        "HARD_NEGATIVE_MINING: Focus on hard-to-detect fake samples",
+        "FAKE_AUGMENTATION: Increase fake sample augmentation",
+        "RESOLUTION_VARIETY: Train on multiple resolution levels",
+        "UPSCALING_DETECTION: Focus on upscaling artifact detection",
+        "RERECORDING_PATTERNS: Include re-recorded video samples"
+      ],
+      "dataset_recommendations": {
+        "primary_datasets": [
+          "FaceForensics++",
+          "CelebDF",
+          "DFDC"
+        ],
+        "additional_datasets": [],
+        "data_balance": {
+          "increase_fake_samples": true
+        },
+        "specific_needs": [
+          "Multiple resolution levels",
+          "Upscaled video samples",
+          "Re-recorded video samples",
+          "Screen recording artifacts"
+        ]
+      },
+      "architecture_recommendations": [
+        "INCREASE_MODEL_CAPACITY: Add more layers or parameters",
+        "ATTENTION_MECHANISM: Add attention layers for better feature focus",
+        "ENSEMBLE_COMPONENTS: Consider ensemble within the model",
+        "RESOLUTION_PYRAMID: Multi-resolution processing",
+        "EDGE_DETECTION: Enhanced edge analysis modules",
+        "QUALITY_ASSESSMENT: Built-in quality assessment"
+      ]
+    },
+    "sample_results": [
+      {
+        "video": "801.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 25.0,
+          "resolution": [
+            640,
+            480
+          ],
+          "total_frames": 444,
+          "duration": 17.76,
+          "file_size": 929511,
+          "bitrate": 418698.64864864864,
+          "avg_brightness": 101.63565104166666,
+          "avg_contrast": 80.19903306276257,
+          "avg_blur_score": 1845.2247524575405,
+          "brightness_std": 1.0021244143421062,
+          "contrast_std": 0.680076402878471,
+          "blur_std": 71.24762935741079,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "False",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.4104720950126648,
+          "confidence": 0.5895279049873352,
+          "frame_predictions": [
+            0.41830095648765564,
+            0.40962040424346924,
+            0.3970800042152405,
+            0.416887104511261
+          ],
+          "prediction_variance": 7.062922298811669e-05,
+          "prediction_consistency": 0.9999293707770118,
+          "logits_raw": [
+            [
+              -0.015019197016954422,
+              -0.34477129578590393
+            ],
+            [
+              0.004476319998502731,
+              -0.3610585033893585
+            ],
+            [
+              0.07407011091709137,
+              -0.34357666969299316
+            ],
+            [
+              0.003195103257894516,
+              -0.3323703110218048
+            ]
+          ],
+          "specialization": "Resolution artifacts, upscaling detection, re-recording patterns",
+          "expected_strengths": [
+            "Resolution mismatch",
+            "Upscaling artifacts",
+            "Re-recording detection"
+          ],
+          "resolution_assessment": "native",
+          "rerecording_likelihood": 0.4,
+          "quality_consistency": 1845.2247524575405
+        }
+      },
+      {
+        "video": "802.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 25.0,
+          "resolution": [
+            656,
+            480
+          ],
+          "total_frames": 351,
+          "duration": 14.04,
+          "file_size": 421940,
+          "bitrate": 240421.65242165243,
+          "avg_brightness": 98.88198123094513,
+          "avg_contrast": 59.24401231818926,
+          "avg_blur_score": 360.1872871592119,
+          "brightness_std": 0.40099866536319106,
+          "contrast_std": 0.22164921769183207,
+          "blur_std": 14.704756955224147,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "False",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.29206815361976624,
+          "confidence": 0.7079318463802338,
+          "frame_predictions": [
+            0.2740796208381653,
+            0.30471155047416687,
+            0.3217756748199463,
+            0.2677057683467865
+          ],
+          "prediction_variance": 0.0004898763569252118,
+          "prediction_consistency": 0.9995101236430748,
+          "logits_raw": [
+            [
+              0.29324325919151306,
+              -0.680778443813324
+            ],
+            [
+              0.2293313592672348,
+              -0.595629870891571
+            ],
+            [
+              0.18854019045829773,
+              -0.5570833086967468
+            ],
+            [
+              0.3038630187511444,
+              -0.7024309039115906
+            ]
+          ],
+          "specialization": "Resolution artifacts, upscaling detection, re-recording patterns",
+          "expected_strengths": [
+            "Resolution mismatch",
+            "Upscaling artifacts",
+            "Re-recording detection"
+          ],
+          "resolution_assessment": "native",
+          "rerecording_likelihood": 0.4,
+          "quality_consistency": 360.1872871592119
+        }
+      },
+      {
+        "video": "803.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 25.0,
+          "resolution": [
+            854,
+            480
+          ],
+          "total_frames": 297,
+          "duration": 11.88,
+          "file_size": 668462,
+          "bitrate": 450142.7609427609,
+          "avg_brightness": 162.56218286494925,
+          "avg_contrast": 73.18844138453164,
+          "avg_blur_score": 74.72310195177238,
+          "brightness_std": 1.7260175723416742,
+          "contrast_std": 0.9174184831598488,
+          "blur_std": 3.527293026868061,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "True",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.4560003876686096,
+          "confidence": 0.5439996123313904,
+          "frame_predictions": [
+            0.44785377383232117,
+            0.4729814827442169,
+            0.43079131841659546,
+            0.47237488627433777
+          ],
+          "prediction_variance": 0.00031458657102606535,
+          "prediction_consistency": 0.9996854134289739,
+          "logits_raw": [
+            [
+              -0.013583991676568985,
+              -0.22293004393577576
+            ],
+            [
+              -0.04863966628909111,
+              -0.15681907534599304
+            ],
+            [
+              0.04089009389281273,
+              -0.23773327469825745
+            ],
+            [
+              -0.04692209139466286,
+              -0.15753524005413055
+            ]
+          ],
+          "specialization": "Resolution artifacts, upscaling detection, re-recording patterns",
+          "expected_strengths": [
+            "Resolution mismatch",
+            "Upscaling artifacts",
+            "Re-recording detection"
+          ],
+          "resolution_assessment": "native",
+          "rerecording_likelihood": "0.4560004",
+          "quality_consistency": 74.72310195177238
+        }
+      },
+      {
+        "video": "804.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 30.0,
+          "resolution": [
+            854,
+            480
+          ],
+          "total_frames": 359,
+          "duration": 11.966666666666667,
+          "file_size": 666536,
+          "bitrate": 445595.0974930362,
+          "avg_brightness": 85.45677845677204,
+          "avg_contrast": 64.67300458830675,
+          "avg_blur_score": 33.60355867501743,
+          "brightness_std": 1.680699621632987,
+          "contrast_std": 1.7926434217185774,
+          "blur_std": 8.338586379308989,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "True",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.4238821864128113,
+          "confidence": 0.5761178135871887,
+          "frame_predictions": [
+            0.49093952775001526,
+            0.38155052065849304,
+            0.3737208843231201,
+            0.4493178427219391
+          ],
+          "prediction_variance": 0.002362946447989678,
+          "prediction_consistency": 0.9976370535520103,
+          "logits_raw": [
+            [
+              -0.32013362646102905,
+              -0.3563796579837799
+            ],
+            [
+              0.0778672993183136,
+              -0.40510499477386475
+            ],
+            [
+              0.1038530170917511,
+              -0.4124338924884796
+            ],
+            [
+              0.0029061101377010345,
+              -0.20052112638950348
+            ]
+          ],
+          "specialization": "Resolution artifacts, upscaling detection, re-recording patterns",
+          "expected_strengths": [
+            "Resolution mismatch",
+            "Upscaling artifacts",
+            "Re-recording detection"
+          ],
+          "resolution_assessment": "native",
+          "rerecording_likelihood": "0.4238822",
+          "quality_consistency": 33.60355867501743
+        }
+      },
+      {
+        "video": "805.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 24.0,
+          "resolution": [
+            1280,
+            720
+          ],
+          "total_frames": 411,
+          "duration": 17.125,
+          "file_size": 2276697,
+          "bitrate": 1063566.4817518247,
+          "avg_brightness": 154.3624328613281,
+          "avg_contrast": 52.35996142530166,
+          "avg_blur_score": 30.98613420532309,
+          "brightness_std": 0.8014926456972536,
+          "contrast_std": 0.483439017470839,
+          "blur_std": 3.056936803026489,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "True",
+          "is_compressed": false,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.31895872950553894,
+          "confidence": 0.6810412704944611,
+          "frame_predictions": [
+            0.3299266993999481,
+            0.3456648886203766,
+            0.23618283867835999,
+            0.36406055092811584
+          ],
+          "prediction_variance": 0.0024298844240344675,
+          "prediction_consistency": 0.9975701155759655,
+          "logits_raw": [
+            [
+              0.16720201075077057,
+              -0.5413146615028381
+            ],
+            [
+              0.1495334655046463,
+              -0.48861613869667053
+            ],
+            [
+              0.3684721887111664,
+              -0.8052499890327454
+            ],
+            [
+              0.09662966430187225,
+              -0.46115347743034363
+            ]
+          ],
+          "specialization": "Resolution artifacts, upscaling detection, re-recording patterns",
+          "expected_strengths": [
+            "Resolution mismatch",
+            "Upscaling artifacts",
+            "Re-recording detection"
+          ],
+          "resolution_assessment": "native",
+          "rerecording_likelihood": "0.31895873",
+          "quality_consistency": 30.98613420532309
+        }
+      }
+    ]
+  },
+  "ll": {
+    "model_name": "Low-Light Specialist",
+    "specialization": "Low-light enhancement artifacts, noise patterns",
+    "summary": {
+      "total_videos": 50,
+      "real_videos": 25,
+      "fake_videos": 25,
+      "overall_accuracy": 0.56,
+      "real_accuracy": 0.76,
+      "fake_accuracy": 0.36,
+      "bias": 0.4,
+      "avg_confidence": 0.5989715427160263,
+      "confidence_std": 0.060196855293202775
+    },
+    "recommendations": {
+      "model_name": "Low-Light Specialist",
+      "current_performance": {
+        "overall_accuracy": 0.56,
+        "real_accuracy": 0.76,
+        "fake_accuracy": 0.36,
+        "bias": 0.4,
+        "avg_confidence": 0.5989715427160263,
+        "confidence_variance": 0.0036236613871907953
+      },
+      "performance_assessment": [
+        "POOR_ACCURACY: Model needs significant improvement",
+        "REAL_BIAS: Model over-predicts REAL videos",
+        "LOW_CONFIDENCE: Model is uncertain about predictions"
+      ],
+      "training_recommendations": [
+        "INCREASE_TRAINING_DATA: Add more diverse training samples",
+        "ADJUST_LEARNING_RATE: Try lower learning rate for better convergence",
+        "AUGMENTATION: Increase data augmentation diversity",
+        "ARCHITECTURE_REVIEW: Consider model architecture improvements",
+        "BALANCE_DATASET: Add more challenging fake samples",
+        "HARD_NEGATIVE_MINING: Focus on hard-to-detect fake samples",
+        "FAKE_AUGMENTATION: Increase fake sample augmentation",
+        "LOWLIGHT_CONDITIONS: Train on low-light scenarios",
+        "NOISE_PATTERNS: Include various noise types",
+        "ENHANCEMENT_ARTIFACTS: Focus on enhancement artifact detection"
+      ],
+      "dataset_recommendations": {
+        "primary_datasets": [
+          "FaceForensics++",
+          "CelebDF",
+          "DFDC"
+        ],
+        "additional_datasets": [
+          "WildDeepfake",
+          "DeeperForensics",
+          "FaceSwapper"
+        ],
+        "data_balance": {
+          "increase_fake_samples": true
+        },
+        "specific_needs": [
+          "Low-light video samples",
+          "Night vision footage",
+          "Enhanced low-light videos",
+          "Various noise patterns"
+        ]
+      },
+      "architecture_recommendations": [
+        "INCREASE_MODEL_CAPACITY: Add more layers or parameters",
+        "ATTENTION_MECHANISM: Add attention layers for better feature focus",
+        "ENSEMBLE_COMPONENTS: Consider ensemble within the model",
+        "NOISE_MODELING: Explicit noise modeling layers",
+        "LUMINANCE_ANALYSIS: Specialized luminance processing",
+        "ENHANCEMENT_DETECTION: Enhancement artifact detection"
+      ]
+    },
+    "sample_results": [
+      {
+        "video": "801.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 25.0,
+          "resolution": [
+            640,
+            480
+          ],
+          "total_frames": 444,
+          "duration": 17.76,
+          "file_size": 929511,
+          "bitrate": 418698.64864864864,
+          "avg_brightness": 101.63565104166666,
+          "avg_contrast": 80.19903306276257,
+          "avg_blur_score": 1845.2247524575405,
+          "brightness_std": 1.0021244143421062,
+          "contrast_std": 0.680076402878471,
+          "blur_std": 71.24762935741079,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "False",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "FAKE",
+          "fake_probability": 0.5677263736724854,
+          "confidence": 0.5677263736724854,
+          "frame_predictions": [
+            0.6355224251747131,
+            0.5559644103050232,
+            0.5645144581794739,
+            0.514904260635376
+          ],
+          "prediction_variance": 0.0018837851020971907,
+          "prediction_consistency": 0.9981162148979028,
+          "logits_raw": [
+            [
+              -0.1195405125617981,
+              0.4364418089389801
+            ],
+            [
+              0.05092155560851097,
+              0.2757212221622467
+            ],
+            [
+              0.034692030400037766,
+              0.2941964566707611
+            ],
+            [
+              0.13478797674179077,
+              0.19442275166511536
+            ]
+          ],
+          "specialization": "Low-light enhancement artifacts, noise patterns",
+          "expected_strengths": [
+            "Low-light enhancement",
+            "Noise artifacts",
+            "Luminance manipulation"
+          ],
+          "lowlight_assessment": "natural",
+          "noise_level": 1845.2247524575405,
+          "luminance_manipulation": 0.3
+        }
+      },
+      {
+        "video": "802.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 25.0,
+          "resolution": [
+            656,
+            480
+          ],
+          "total_frames": 351,
+          "duration": 14.04,
+          "file_size": 421940,
+          "bitrate": 240421.65242165243,
+          "avg_brightness": 98.88198123094513,
+          "avg_contrast": 59.24401231818926,
+          "avg_blur_score": 360.1872871592119,
+          "brightness_std": 0.40099866536319106,
+          "contrast_std": 0.22164921769183207,
+          "blur_std": 14.704756955224147,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "False",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.47087836265563965,
+          "confidence": 0.5291216373443604,
+          "frame_predictions": [
+            0.4884665608406067,
+            0.4617110788822174,
+            0.5021978616714478,
+            0.43113794922828674
+          ],
+          "prediction_variance": 0.0007383988212885662,
+          "prediction_consistency": 0.9992616011787114,
+          "logits_raw": [
+            [
+              0.16639137268066406,
+              0.120249442756176
+            ],
+            [
+              0.20097357034683228,
+              0.047517385333776474
+            ],
+            [
+              0.1395193338394165,
+              0.14831092953681946
+            ],
+            [
+              0.2076980024576187,
+              -0.0695120319724083
+            ]
+          ],
+          "specialization": "Low-light enhancement artifacts, noise patterns",
+          "expected_strengths": [
+            "Low-light enhancement",
+            "Noise artifacts",
+            "Luminance manipulation"
+          ],
+          "lowlight_assessment": "natural",
+          "noise_level": 360.1872871592119,
+          "luminance_manipulation": 0.3
+        }
+      },
+      {
+        "video": "803.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 25.0,
+          "resolution": [
+            854,
+            480
+          ],
+          "total_frames": 297,
+          "duration": 11.88,
+          "file_size": 668462,
+          "bitrate": 450142.7609427609,
+          "avg_brightness": 162.56218286494925,
+          "avg_contrast": 73.18844138453164,
+          "avg_blur_score": 74.72310195177238,
+          "brightness_std": 1.7260175723416742,
+          "contrast_std": 0.9174184831598488,
+          "blur_std": 3.527293026868061,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "True",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.35992494225502014,
+          "confidence": 0.6400750577449799,
+          "frame_predictions": [
+            0.40792182087898254,
+            0.37233200669288635,
+            0.3040255904197693,
+            0.35542032122612
+          ],
+          "prediction_variance": 0.0014006661879559235,
+          "prediction_consistency": 0.998599333812044,
+          "logits_raw": [
+            [
+              0.17599913477897644,
+              -0.1965639740228653
+            ],
+            [
+              0.1015423834323883,
+              -0.4206829369068146
+            ],
+            [
+              -0.09237289428710938,
+              -0.9205739498138428
+            ],
+            [
+              0.05120869353413582,
+              -0.5440886616706848
+            ]
+          ],
+          "specialization": "Low-light enhancement artifacts, noise patterns",
+          "expected_strengths": [
+            "Low-light enhancement",
+            "Noise artifacts",
+            "Luminance manipulation"
+          ],
+          "lowlight_assessment": "natural",
+          "noise_level": 74.72310195177238,
+          "luminance_manipulation": 0.3
+        }
+      },
+      {
+        "video": "804.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 30.0,
+          "resolution": [
+            854,
+            480
+          ],
+          "total_frames": 359,
+          "duration": 11.966666666666667,
+          "file_size": 666536,
+          "bitrate": 445595.0974930362,
+          "avg_brightness": 85.45677845677204,
+          "avg_contrast": 64.67300458830675,
+          "avg_blur_score": 33.60355867501743,
+          "brightness_std": 1.680699621632987,
+          "contrast_std": 1.7926434217185774,
+          "blur_std": 8.338586379308989,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "True",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.395473450422287,
+          "confidence": 0.604526549577713,
+          "frame_predictions": [
+            0.5385602116584778,
+            0.39248570799827576,
+            0.3289908468723297,
+            0.3218570947647095
+          ],
+          "prediction_variance": 0.0075805130602344395,
+          "prediction_consistency": 0.9924194869397656,
+          "logits_raw": [
+            [
+              0.08859075605869293,
+              0.24313847720623016
+            ],
+            [
+              0.0994899719953537,
+              -0.3373856544494629
+            ],
+            [
+              -0.029752861708402634,
+              -0.7425057291984558
+            ],
+            [
+              -0.03244030103087425,
+              -0.7776907086372375
+            ]
+          ],
+          "specialization": "Low-light enhancement artifacts, noise patterns",
+          "expected_strengths": [
+            "Low-light enhancement",
+            "Noise artifacts",
+            "Luminance manipulation"
+          ],
+          "lowlight_assessment": "natural",
+          "noise_level": 33.60355867501743,
+          "luminance_manipulation": 0.3
+        }
+      },
+      {
+        "video": "805.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 24.0,
+          "resolution": [
+            1280,
+            720
+          ],
+          "total_frames": 411,
+          "duration": 17.125,
+          "file_size": 2276697,
+          "bitrate": 1063566.4817518247,
+          "avg_brightness": 154.3624328613281,
+          "avg_contrast": 52.35996142530166,
+          "avg_blur_score": 30.98613420532309,
+          "brightness_std": 0.8014926456972536,
+          "contrast_std": 0.483439017470839,
+          "blur_std": 3.056936803026489,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "True",
+          "is_compressed": false,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.3252938389778137,
+          "confidence": 0.6747061610221863,
+          "frame_predictions": [
+            0.3170625567436218,
+            0.3461373746395111,
+            0.2696351110935211,
+            0.36834031343460083
+          ],
+          "prediction_variance": 0.0013632749847389825,
+          "prediction_consistency": 0.998636725015261,
+          "logits_raw": [
+            [
+              -0.23462770879268646,
+              -1.00193190574646
+            ],
+            [
+              -0.20163322985172272,
+              -0.8376947641372681
+            ],
+            [
+              -0.40879160165786743,
+              -1.4052661657333374
+            ],
+            [
+              -0.14525169134140015,
+              -0.6845952272415161
+            ]
+          ],
+          "specialization": "Low-light enhancement artifacts, noise patterns",
+          "expected_strengths": [
+            "Low-light enhancement",
+            "Noise artifacts",
+            "Luminance manipulation"
+          ],
+          "lowlight_assessment": "natural",
+          "noise_level": 30.98613420532309,
+          "luminance_manipulation": 0.3
+        }
+      }
+    ]
+  },
+  "tm": {
+    "model_name": "Temporal Specialist",
+    "specialization": "Temporal consistency, frame-to-frame analysis",
+    "summary": {
+      "total_videos": 50,
+      "real_videos": 25,
+      "fake_videos": 25,
+      "overall_accuracy": 0.5,
+      "real_accuracy": 1.0,
+      "fake_accuracy": 0.0,
+      "bias": 1.0,
+      "avg_confidence": 0.5153793036937714,
+      "confidence_std": 0.0028803726919294564
+    },
+    "recommendations": {
+      "model_name": "Temporal Specialist",
+      "current_performance": {
+        "overall_accuracy": 0.5,
+        "real_accuracy": 1.0,
+        "fake_accuracy": 0.0,
+        "bias": 1.0,
+        "avg_confidence": 0.5153793036937714,
+        "confidence_variance": 8.296546844412942e-06
+      },
+      "performance_assessment": [
+        "POOR_ACCURACY: Model needs significant improvement",
+        "REAL_BIAS: Model over-predicts REAL videos",
+        "LOW_CONFIDENCE: Model is uncertain about predictions"
+      ],
+      "training_recommendations": [
+        "INCREASE_TRAINING_DATA: Add more diverse training samples",
+        "ADJUST_LEARNING_RATE: Try lower learning rate for better convergence",
+        "AUGMENTATION: Increase data augmentation diversity",
+        "ARCHITECTURE_REVIEW: Consider model architecture improvements",
+        "BALANCE_DATASET: Add more challenging fake samples",
+        "HARD_NEGATIVE_MINING: Focus on hard-to-detect fake samples",
+        "FAKE_AUGMENTATION: Increase fake sample augmentation",
+        "TEMPORAL_CONSISTENCY: Fix temporal analysis architecture",
+        "FRAME_SEQUENCE: Improve frame sequence processing",
+        "MOTION_ANALYSIS: Better motion pattern detection",
+        "ARCHITECTURE_FIX: Model appears broken - needs complete review"
+      ],
+      "dataset_recommendations": {
+        "primary_datasets": [
+          "FaceForensics++",
+          "CelebDF",
+          "DFDC"
+        ],
+        "additional_datasets": [
+          "WildDeepfake",
+          "DeeperForensics",
+          "FaceSwapper"
+        ],
+        "data_balance": {
+          "increase_fake_samples": true
+        },
+        "specific_needs": []
+      },
+      "architecture_recommendations": [
+        "INCREASE_MODEL_CAPACITY: Add more layers or parameters",
+        "ATTENTION_MECHANISM: Add attention layers for better feature focus",
+        "ENSEMBLE_COMPONENTS: Consider ensemble within the model",
+        "COMPLETE_REDESIGN: Model needs fundamental architecture review",
+        "TEMPORAL_MODELING: Proper temporal sequence processing",
+        "FRAME_CONSISTENCY: Frame-to-frame consistency analysis",
+        "MOTION_ANALYSIS: Optical flow or motion analysis integration"
+      ]
+    },
+    "sample_results": [
+      {
+        "video": "801.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 25.0,
+          "resolution": [
+            640,
+            480
+          ],
+          "total_frames": 444,
+          "duration": 17.76,
+          "file_size": 929511,
+          "bitrate": 418698.64864864864,
+          "avg_brightness": 101.63565104166666,
+          "avg_contrast": 80.19903306276257,
+          "avg_blur_score": 1845.2247524575405,
+          "brightness_std": 1.0021244143421062,
+          "contrast_std": 0.680076402878471,
+          "blur_std": 71.24762935741079,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "False",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.4807746410369873,
+          "confidence": 0.5192253589630127,
+          "frame_predictions": [
+            0.4807746410369873
+          ],
+          "prediction_variance": 0.0,
+          "prediction_consistency": 1.0,
+          "logits_raw": [
+            [
+              -0.009414415806531906,
+              -0.08635393530130386
+            ]
+          ],
+          "specialization": "Temporal consistency, frame-to-frame analysis",
+          "expected_strengths": [
+            "Temporal artifacts",
+            "Frame consistency",
+            "Motion blur"
+          ],
+          "temporal_assessment": "consistent",
+          "frame_stability": 0.5192253589630127,
+          "motion_artifacts": 0.4807746410369873,
+          "note": "Model appears broken - predicts all REAL"
+        }
+      },
+      {
+        "video": "802.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 25.0,
+          "resolution": [
+            656,
+            480
+          ],
+          "total_frames": 351,
+          "duration": 14.04,
+          "file_size": 421940,
+          "bitrate": 240421.65242165243,
+          "avg_brightness": 98.88198123094513,
+          "avg_contrast": 59.24401231818926,
+          "avg_blur_score": 360.1872871592119,
+          "brightness_std": 0.40099866536319106,
+          "contrast_std": 0.22164921769183207,
+          "blur_std": 14.704756955224147,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "False",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.48205476999282837,
+          "confidence": 0.5179452300071716,
+          "frame_predictions": [
+            0.48205476999282837
+          ],
+          "prediction_variance": 0.0,
+          "prediction_consistency": 1.0,
+          "logits_raw": [
+            [
+              -0.01384027674794197,
+              -0.08565204590559006
+            ]
+          ],
+          "specialization": "Temporal consistency, frame-to-frame analysis",
+          "expected_strengths": [
+            "Temporal artifacts",
+            "Frame consistency",
+            "Motion blur"
+          ],
+          "temporal_assessment": "consistent",
+          "frame_stability": 0.5179452300071716,
+          "motion_artifacts": 0.2,
+          "note": "Model appears broken - predicts all REAL"
+        }
+      },
+      {
+        "video": "803.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 25.0,
+          "resolution": [
+            854,
+            480
+          ],
+          "total_frames": 297,
+          "duration": 11.88,
+          "file_size": 668462,
+          "bitrate": 450142.7609427609,
+          "avg_brightness": 162.56218286494925,
+          "avg_contrast": 73.18844138453164,
+          "avg_blur_score": 74.72310195177238,
+          "brightness_std": 1.7260175723416742,
+          "contrast_std": 0.9174184831598488,
+          "blur_std": 3.527293026868061,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "True",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.4806215763092041,
+          "confidence": 0.5193784236907959,
+          "frame_predictions": [
+            0.4806215763092041
+          ],
+          "prediction_variance": 0.0,
+          "prediction_consistency": 1.0,
+          "logits_raw": [
+            [
+              -0.0206354521214962,
+              -0.09818802773952484
+            ]
+          ],
+          "specialization": "Temporal consistency, frame-to-frame analysis",
+          "expected_strengths": [
+            "Temporal artifacts",
+            "Frame consistency",
+            "Motion blur"
+          ],
+          "temporal_assessment": "consistent",
+          "frame_stability": 0.5193784236907959,
+          "motion_artifacts": 0.2,
+          "note": "Model appears broken - predicts all REAL"
+        }
+      },
+      {
+        "video": "804.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 30.0,
+          "resolution": [
+            854,
+            480
+          ],
+          "total_frames": 359,
+          "duration": 11.966666666666667,
+          "file_size": 666536,
+          "bitrate": 445595.0974930362,
+          "avg_brightness": 85.45677845677204,
+          "avg_contrast": 64.67300458830675,
+          "avg_blur_score": 33.60355867501743,
+          "brightness_std": 1.680699621632987,
+          "contrast_std": 1.7926434217185774,
+          "blur_std": 8.338586379308989,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "True",
+          "is_compressed": true,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.4824804961681366,
+          "confidence": 0.5175195038318634,
+          "frame_predictions": [
+            0.4824804961681366
+          ],
+          "prediction_variance": 0.0,
+          "prediction_consistency": 1.0,
+          "logits_raw": [
+            [
+              -0.02274993062019348,
+              -0.09285662323236465
+            ]
+          ],
+          "specialization": "Temporal consistency, frame-to-frame analysis",
+          "expected_strengths": [
+            "Temporal artifacts",
+            "Frame consistency",
+            "Motion blur"
+          ],
+          "temporal_assessment": "consistent",
+          "frame_stability": 0.5175195038318634,
+          "motion_artifacts": 0.2,
+          "note": "Model appears broken - predicts all REAL"
+        }
+      },
+      {
+        "video": "805.mp4",
+        "true_label": "REAL",
+        "metadata": {
+          "fps": 24.0,
+          "resolution": [
+            1280,
+            720
+          ],
+          "total_frames": 411,
+          "duration": 17.125,
+          "file_size": 2276697,
+          "bitrate": 1063566.4817518247,
+          "avg_brightness": 154.3624328613281,
+          "avg_contrast": 52.35996142530166,
+          "avg_blur_score": 30.98613420532309,
+          "brightness_std": 0.8014926456972536,
+          "contrast_std": 0.483439017470839,
+          "blur_std": 3.056936803026489,
+          "is_low_light": "False",
+          "is_low_contrast": "False",
+          "is_blurry": "True",
+          "is_compressed": false,
+          "is_low_resolution": false
+        },
+        "analysis": {
+          "prediction": "REAL",
+          "fake_probability": 0.4870806932449341,
+          "confidence": 0.5129193067550659,
+          "frame_predictions": [
+            0.4870806932449341
+          ],
+          "prediction_variance": 0.0,
+          "prediction_consistency": 1.0,
+          "logits_raw": [
+            [
+              -0.012699630111455917,
+              -0.0643882006406784
+            ]
+          ],
+          "specialization": "Temporal consistency, frame-to-frame analysis",
+          "expected_strengths": [
+            "Temporal artifacts",
+            "Frame consistency",
+            "Motion blur"
+          ],
+          "temporal_assessment": "consistent",
+          "frame_stability": 0.5129193067550659,
+          "motion_artifacts": 0.2,
+          "note": "Model appears broken - predicts all REAL"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "analysis_timestamp": "2026-01-07T17:03:12.327467",
+  "analyses_completed": [
+    {
+      "name": "Comprehensive Multi-Model Analysis",
+      "script": "detailed_model_analysis.py",
+      "execution_time": 560.8851635456085,
+      "status": "success"
+    },
+    {
+      "name": "BG Model Detailed Analysis",
+      "script": "test_bg_model_detailed.py",
+      "execution_time": 167.45961546897888,
+      "status": "success"
+    },
+    {
+      "name": "CM Model Detailed Analysis",
+      "script": "test_cm_model_detailed.py",
+      "execution_time": 209.27768468856812,
+      "status": "success"
+    }
+  ],
+  "analyses_failed": [],
+  "overall_recommendations": [
+    "PRIORITIZE: cm is the best performer (66.0%) - use as ensemble leader",
+    "URGENT FIX: tm needs immediate attention (50.0%)",
+    "ENSEMBLE NOT READY: Only 1 models performing adequately",
+    "Implement model-specific training pipelines based on individual analyses",
+    "Focus on dataset diversity for models with high bias",
+    "Consider architecture improvements for low-confidence models",
+    "Establish continuous monitoring for model performance degradation",
+    "Create specialized datasets for each model's weaknesses"
+  ],
+  "model_performances": {
+    "bg": 0.56,
+    "av": 0.54,
+    "cm": 0.66,
+    "rr": 0.6,
+    "ll": 0.56,
+    "tm": 0.5
+  },
+  "critical_issues": [
+    "Background/Lighting Specialist has poor accuracy (56.0%)",
+    "Background/Lighting Specialist has high bias (-48.0%)",
+    "Audio-Visual Specialist has poor accuracy (54.0%)",
+    "Audio-Visual Specialist has high bias (-60.0%)",
+    "Compression Specialist has high bias (+68.0%)",
+    "Resolution/Re-recording Specialist has high bias (+80.0%)",
+    "Low-Light Specialist has poor accuracy (56.0%)",
+    "Low-Light Specialist has high bias (+40.0%)",
+    "Temporal Specialist has poor accuracy (50.0%)",
+    "Temporal Specialist has high bias (+100.0%)",
+    "Background/Lighting Specialist needs urgent training improvements"
+  ],
+  "training_priorities": [
+    [
+      "Background/Lighting Specialist",
+      "HIGH"
+    ],
+    [
+      "Compression Specialist Model",
+      "MEDIUM"
+    ]
+  ]
+}

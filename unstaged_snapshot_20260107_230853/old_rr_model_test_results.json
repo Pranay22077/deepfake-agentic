@@ -1,0 +1,33 @@
+{
+  "model_info": {
+    "file": "rr_model_student.pt",
+    "location": "rr_model_student.pt",
+    "parameters": 131,
+    "model_loaded": true
+  },
+  "test_results": {
+    "total_videos": 100,
+    "overall_accuracy": 0.51,
+    "real_accuracy": 0.02,
+    "fake_accuracy": 1.0,
+    "bias": 0.98,
+    "correctly_classified": 51,
+    "incorrectly_classified": 49
+  },
+  "confusion_matrix": [
+    [
+      1,
+      49
+    ],
+    [
+      0,
+      50
+    ]
+  ],
+  "detailed_breakdown": {
+    "real_as_real": 1,
+    "real_as_fake": 49,
+    "fake_as_real": 0,
+    "fake_as_fake": 50
+  }
+}

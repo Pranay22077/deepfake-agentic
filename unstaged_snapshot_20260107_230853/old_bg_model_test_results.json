@@ -1,0 +1,25 @@
+{
+  "model_info": {
+    "file": "baseline_student.pt",
+    "location": "_archive/models/",
+    "parameters": 244,
+    "model_loaded": true
+  },
+  "test_results": {
+    "total_videos": 100,
+    "overall_accuracy": 0.5,
+    "real_accuracy": 1.0,
+    "fake_accuracy": 0.0,
+    "bias": 1.0
+  },
+  "confusion_matrix": [
+    [
+      50,
+      0
+    ],
+    [
+      50,
+      0
+    ]
+  ]
+}

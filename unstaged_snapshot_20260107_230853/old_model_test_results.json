@@ -1,0 +1,35 @@
+{
+  "model_info": {
+    "file": "ll_model_student (1).pt",
+    "epoch": 9,
+    "reported_best_acc": 93.41666666666667,
+    "parameters": 131,
+    "model_loaded": true
+  },
+  "test_results": {
+    "total_videos": 100,
+    "real_videos": 50,
+    "fake_videos": 50,
+    "overall_accuracy": 0.49,
+    "real_accuracy": 0.0,
+    "fake_accuracy": 0.98,
+    "bias": 0.98,
+    "average_confidence": 0.6218831378221512
+  },
+  "predictions": {
+    "real_as_real": 0,
+    "real_as_fake": 50,
+    "fake_as_real": 1,
+    "fake_as_fake": 49
+  },
+  "confusion_matrix": [
+    [
+      0,
+      50
+    ],
+    [
+      1,
+      49
+    ]
+  ]
+}

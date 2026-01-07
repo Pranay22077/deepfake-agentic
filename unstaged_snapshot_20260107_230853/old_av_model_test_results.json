@@ -1,0 +1,33 @@
+{
+  "model_info": {
+    "file": "av_model_student.pt",
+    "location": "av_model_student.pt",
+    "parameters": 205,
+    "model_loaded": false
+  },
+  "test_results": {
+    "total_videos": 100,
+    "overall_accuracy": 0.5,
+    "real_accuracy": 0.0,
+    "fake_accuracy": 1.0,
+    "bias": 1.0,
+    "correctly_classified": 50,
+    "incorrectly_classified": 50
+  },
+  "confusion_matrix": [
+    [
+      0,
+      50
+    ],
+    [
+      0,
+      50
+    ]
+  ],
+  "detailed_breakdown": {
+    "real_as_real": 0,
+    "real_as_fake": 50,
+    "fake_as_real": 0,
+    "fake_as_fake": 50
+  }
+}

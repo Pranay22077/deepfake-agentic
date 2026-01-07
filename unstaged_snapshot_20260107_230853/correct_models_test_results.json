@@ -1,0 +1,56 @@
+{
+  "bg": {
+    "accuracy": 0.54,
+    "real_acc": 0.3,
+    "fake_acc": 0.78,
+    "real_correct": 15,
+    "real_total": 50,
+    "fake_correct": 39,
+    "fake_total": 50
+  },
+  "av": {
+    "accuracy": 0.53,
+    "real_acc": 0.24,
+    "fake_acc": 0.82,
+    "real_correct": 12,
+    "real_total": 50,
+    "fake_correct": 41,
+    "fake_total": 50
+  },
+  "cm": {
+    "accuracy": 0.7,
+    "real_acc": 0.92,
+    "fake_acc": 0.48,
+    "real_correct": 46,
+    "real_total": 50,
+    "fake_correct": 24,
+    "fake_total": 50
+  },
+  "rr": {
+    "accuracy": 0.56,
+    "real_acc": 0.88,
+    "fake_acc": 0.24,
+    "real_correct": 44,
+    "real_total": 50,
+    "fake_correct": 12,
+    "fake_total": 50
+  },
+  "ll": {
+    "accuracy": 0.56,
+    "real_acc": 0.62,
+    "fake_acc": 0.5,
+    "real_correct": 31,
+    "real_total": 50,
+    "fake_correct": 25,
+    "fake_total": 50
+  },
+  "tm": {
+    "accuracy": 0.5,
+    "real_acc": 1.0,
+    "fake_acc": 0.0,
+    "real_correct": 50,
+    "real_total": 50,
+    "fake_correct": 0,
+    "fake_total": 50
+  }
+}

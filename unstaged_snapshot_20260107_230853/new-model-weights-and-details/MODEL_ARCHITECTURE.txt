@@ -1,0 +1,37 @@
+🏗️ INTERCEPTOR LL-MODEL ARCHITECTURE
+============================================================
+
+BASE ARCHITECTURE:
+- Backbone: EfficientNet-B4
+- Backbone Features: 1792
+- Pretrained: ImageNet weights
+
+SPECIALIST MODULE:
+- Type: Enhanced Low-Light Analysis
+- Luminance Analyzer: Multi-scale (3, 5, 7 kernels)
+- Noise Detector: 5x5 convolutions
+- Shadow Detector: 7x7 convolutions
+- Specialist Features: 3332 (68 * 7 * 7)
+
+ATTENTION MECHANISM:
+- Type: Multi-head Attention
+- Heads: 8
+- Embed Dim: Adjusted for divisibility
+
+CLASSIFIER:
+- Input Features: ~5128 (backbone + specialist)
+- Hidden Layers: 1024 → 512 → 256
+- Output Classes: 2 (Real/Fake)
+- Dropout: Progressive (0.3 → 0.2 → 0.1)
+- Batch Normalization: Yes
+
+TRAINING CONFIGURATION:
+- Optimizer: AdamW
+- Learning Rates: Stage-adaptive (1e-4 → 1e-5)
+- Loss Functions: CE → Focal → Weighted
+- Mixed Precision: Enabled
+- Batch Size: 8
+
+TOTAL PARAMETERS: ~47M
+MODEL SIZE: ~1.2GB
+SPECIALIZATION: Low-light deepfake detection

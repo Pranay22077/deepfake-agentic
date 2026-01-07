@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-01-06T04:51:13.112310",
+  "test_dataset": {
+    "total_videos": 100,
+    "real_videos": 50,
+    "fake_videos": 50
+  },
+  "old_model": {
+    "name": "Original LL-Model",
+    "file": "ll_model_student (1).pt",
+    "accuracy": 0.51,
+    "real_accuracy": 0.46,
+    "fake_accuracy": 0.56,
+    "f1_score": 0.5087719298245613,
+    "bias": 0.10000000000000003
+  },
+  "new_model": {
+    "name": "Enhanced LL-Model (Stage 2)",
+    "file": "stage2_full_celebdf_best_epoch3.pt",
+    "accuracy": 0.46,
+    "real_accuracy": 0.54,
+    "fake_accuracy": 0.38,
+    "f1_score": 0.45652173913043476,
+    "bias": 0.16000000000000003
+  },
+  "improvements": {
+    "accuracy_improvement": -4.999999999999999,
+    "real_detection_improvement": 8.000000000000002,
+    "fake_detection_change": -18.000000000000004,
+    "bias_reduction": -6.0,
+    "agreement_rate": 49.0
+  }
+}

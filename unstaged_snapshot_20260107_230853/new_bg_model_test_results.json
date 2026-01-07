@@ -1,0 +1,32 @@
+{
+  "model_info": {
+    "file": "bg_stage2_final_20260106_143158.pt",
+    "parameters": 801,
+    "model_loaded": true,
+    "architecture": "BG Specialist (EfficientNet-B4 + Background/Lighting Module)"
+  },
+  "test_results": {
+    "total_videos": 100,
+    "overall_accuracy": 0.55,
+    "real_accuracy": 0.3,
+    "fake_accuracy": 0.8,
+    "bias": 0.5,
+    "average_confidence": 0.535651798248291
+  },
+  "predictions": {
+    "real_as_real": 15,
+    "real_as_fake": 35,
+    "fake_as_real": 10,
+    "fake_as_fake": 40
+  },
+  "confusion_matrix": [
+    [
+      15,
+      35
+    ],
+    [
+      10,
+      40
+    ]
+  ]
+}

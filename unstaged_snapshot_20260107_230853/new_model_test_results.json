@@ -1,0 +1,38 @@
+{
+  "model_info": {
+    "file": "stage2_full_celebdf_best_epoch_newwwww.pt",
+    "epoch": 3,
+    "training_accuracy": 0.7884497549019608,
+    "stage": "unknown",
+    "parameters": 811,
+    "model_loaded": true
+  },
+  "test_results": {
+    "total_videos": 100,
+    "real_videos": 50,
+    "fake_videos": 50,
+    "overall_accuracy": 0.61,
+    "real_accuracy": 0.86,
+    "fake_accuracy": 0.36,
+    "bias": 0.5,
+    "average_confidence": 0.6160042804479599,
+    "avg_prob_real_for_reals": 0.6224150061607361,
+    "avg_prob_fake_for_fakes": 0.4539913833141327
+  },
+  "predictions": {
+    "real_as_real": 43,
+    "real_as_fake": 7,
+    "fake_as_real": 32,
+    "fake_as_fake": 18
+  },
+  "confusion_matrix": [
+    [
+      43,
+      7
+    ],
+    [
+      32,
+      18
+    ]
+  ]
+}

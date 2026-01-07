@@ -1,0 +1,3516 @@
+{
+  "summary": {
+    "total": 100,
+    "correct": 72,
+    "accuracy": 0.72,
+    "real_correct": 44,
+    "real_total": 50,
+    "fake_correct": 28,
+    "fake_total": 50,
+    "real_accuracy": 0.88,
+    "fake_accuracy": 0.56,
+    "bias": 0.31999999999999995
+  },
+  "results": [
+    {
+      "video": "801.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.911674328148365,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47451451420783997,
+          "confidence": 0.52548548579216
+        },
+        "av": {
+          "prediction": 0.5105403661727905,
+          "confidence": 0.5105403661727905
+        },
+        "cm": {
+          "prediction": 0.08832567185163498,
+          "confidence": 0.911674328148365
+        },
+        "rr": {
+          "prediction": 0.4104720950126648,
+          "confidence": 0.5895279049873352
+        },
+        "ll": {
+          "prediction": 0.5677263736724854,
+          "confidence": 0.5677263736724854
+        }
+      }
+    },
+    {
+      "video": "802.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.6462444067001343,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4716014564037323,
+          "confidence": 0.5283985435962677
+        },
+        "av": {
+          "prediction": 0.5662682056427002,
+          "confidence": 0.5662682056427002
+        },
+        "cm": {
+          "prediction": 0.3537555932998657,
+          "confidence": 0.6462444067001343
+        },
+        "rr": {
+          "prediction": 0.29206815361976624,
+          "confidence": 0.7079318463802338
+        },
+        "ll": {
+          "prediction": 0.47087836265563965,
+          "confidence": 0.5291216373443604
+        }
+      }
+    },
+    {
+      "video": "803.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9870663695037365,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4733836352825165,
+          "confidence": 0.5266163647174835
+        },
+        "av": {
+          "prediction": 0.5950511693954468,
+          "confidence": 0.5950511693954468
+        },
+        "cm": {
+          "prediction": 0.012933630496263504,
+          "confidence": 0.9870663695037365
+        },
+        "rr": {
+          "prediction": 0.4560003876686096,
+          "confidence": 0.5439996123313904
+        },
+        "ll": {
+          "prediction": 0.35992494225502014,
+          "confidence": 0.6400750577449799
+        }
+      }
+    },
+    {
+      "video": "804.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.8016854524612427,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47283631563186646,
+          "confidence": 0.5271636843681335
+        },
+        "av": {
+          "prediction": 0.5367611646652222,
+          "confidence": 0.5367611646652222
+        },
+        "cm": {
+          "prediction": 0.19831454753875732,
+          "confidence": 0.8016854524612427
+        },
+        "rr": {
+          "prediction": 0.4238821864128113,
+          "confidence": 0.5761178135871887
+        },
+        "ll": {
+          "prediction": 0.395473450422287,
+          "confidence": 0.604526549577713
+        }
+      }
+    },
+    {
+      "video": "805.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9843668434768915,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47249728441238403,
+          "confidence": 0.527502715587616
+        },
+        "av": {
+          "prediction": 0.4888412058353424,
+          "confidence": 0.5111587941646576
+        },
+        "cm": {
+          "prediction": 0.015633156523108482,
+          "confidence": 0.9843668434768915
+        },
+        "rr": {
+          "prediction": 0.31895872950553894,
+          "confidence": 0.6810412704944611
+        },
+        "ll": {
+          "prediction": 0.3252938389778137,
+          "confidence": 0.6747061610221863
+        }
+      }
+    },
+    {
+      "video": "806.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.8647059053182602,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4706490635871887,
+          "confidence": 0.5293509364128113
+        },
+        "av": {
+          "prediction": 0.5000352263450623,
+          "confidence": 0.5000352263450623
+        },
+        "cm": {
+          "prediction": 0.1352940946817398,
+          "confidence": 0.8647059053182602
+        },
+        "rr": {
+          "prediction": 0.4587855935096741,
+          "confidence": 0.5412144064903259
+        },
+        "ll": {
+          "prediction": 0.534287691116333,
+          "confidence": 0.534287691116333
+        }
+      }
+    },
+    {
+      "video": "807.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.74406498670578,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4723513126373291,
+          "confidence": 0.5276486873626709
+        },
+        "av": {
+          "prediction": 0.5025100111961365,
+          "confidence": 0.5025100111961365
+        },
+        "cm": {
+          "prediction": 0.25593501329421997,
+          "confidence": 0.74406498670578
+        },
+        "rr": {
+          "prediction": 0.4898167848587036,
+          "confidence": 0.5101832151412964
+        },
+        "ll": {
+          "prediction": 0.6106424331665039,
+          "confidence": 0.6106424331665039
+        }
+      }
+    },
+    {
+      "video": "808.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.8238604217767715,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4731476604938507,
+          "confidence": 0.5268523395061493
+        },
+        "av": {
+          "prediction": 0.498714804649353,
+          "confidence": 0.501285195350647
+        },
+        "cm": {
+          "prediction": 0.17613957822322845,
+          "confidence": 0.8238604217767715
+        },
+        "rr": {
+          "prediction": 0.4212631583213806,
+          "confidence": 0.5787368416786194
+        },
+        "ll": {
+          "prediction": 0.40446993708610535,
+          "confidence": 0.5955300629138947
+        }
+      }
+    },
+    {
+      "video": "809.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9403754137456417,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47299179434776306,
+          "confidence": 0.5270082056522369
+        },
+        "av": {
+          "prediction": 0.5368439555168152,
+          "confidence": 0.5368439555168152
+        },
+        "cm": {
+          "prediction": 0.05962458625435829,
+          "confidence": 0.9403754137456417
+        },
+        "rr": {
+          "prediction": 0.4863174557685852,
+          "confidence": 0.5136825442314148
+        },
+        "ll": {
+          "prediction": 0.5474953055381775,
+          "confidence": 0.5474953055381775
+        }
+      }
+    },
+    {
+      "video": "810.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9805354662239552,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4727146029472351,
+          "confidence": 0.5272853970527649
+        },
+        "av": {
+          "prediction": 0.5327647924423218,
+          "confidence": 0.5327647924423218
+        },
+        "cm": {
+          "prediction": 0.019464533776044846,
+          "confidence": 0.9805354662239552
+        },
+        "rr": {
+          "prediction": 0.42545732855796814,
+          "confidence": 0.5745426714420319
+        },
+        "ll": {
+          "prediction": 0.4193655252456665,
+          "confidence": 0.5806344747543335
+        }
+      }
+    },
+    {
+      "video": "811.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9552871286869049,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4727770686149597,
+          "confidence": 0.5272229313850403
+        },
+        "av": {
+          "prediction": 0.49989184737205505,
+          "confidence": 0.500108152627945
+        },
+        "cm": {
+          "prediction": 0.04471287131309509,
+          "confidence": 0.9552871286869049
+        },
+        "rr": {
+          "prediction": 0.36112773418426514,
+          "confidence": 0.6388722658157349
+        },
+        "ll": {
+          "prediction": 0.3283023238182068,
+          "confidence": 0.6716976761817932
+        }
+      }
+    },
+    {
+      "video": "812.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.8822107389569283,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.46913519501686096,
+          "confidence": 0.530864804983139
+        },
+        "av": {
+          "prediction": 0.5132558345794678,
+          "confidence": 0.5132558345794678
+        },
+        "cm": {
+          "prediction": 0.11778926104307175,
+          "confidence": 0.8822107389569283
+        },
+        "rr": {
+          "prediction": 0.46255427598953247,
+          "confidence": 0.5374457240104675
+        },
+        "ll": {
+          "prediction": 0.3940676748752594,
+          "confidence": 0.6059323251247406
+        }
+      }
+    },
+    {
+      "video": "813.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9890259206295013,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47159281373023987,
+          "confidence": 0.5284071862697601
+        },
+        "av": {
+          "prediction": 0.5184961557388306,
+          "confidence": 0.5184961557388306
+        },
+        "cm": {
+          "prediction": 0.010974079370498657,
+          "confidence": 0.9890259206295013
+        },
+        "rr": {
+          "prediction": 0.4251892566680908,
+          "confidence": 0.5748107433319092
+        },
+        "ll": {
+          "prediction": 0.4171503484249115,
+          "confidence": 0.5828496515750885
+        }
+      }
+    },
+    {
+      "video": "814.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9187960177659988,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4724769592285156,
+          "confidence": 0.5275230407714844
+        },
+        "av": {
+          "prediction": 0.5036961436271667,
+          "confidence": 0.5036961436271667
+        },
+        "cm": {
+          "prediction": 0.08120398223400116,
+          "confidence": 0.9187960177659988
+        },
+        "rr": {
+          "prediction": 0.264693021774292,
+          "confidence": 0.735306978225708
+        },
+        "ll": {
+          "prediction": 0.39967072010040283,
+          "confidence": 0.6003292798995972
+        }
+      }
+    },
+    {
+      "video": "815.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.8756108805537224,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4714004099369049,
+          "confidence": 0.5285995900630951
+        },
+        "av": {
+          "prediction": 0.4817742109298706,
+          "confidence": 0.5182257890701294
+        },
+        "cm": {
+          "prediction": 0.12438911944627762,
+          "confidence": 0.8756108805537224
+        },
+        "rr": {
+          "prediction": 0.44028615951538086,
+          "confidence": 0.5597138404846191
+        },
+        "ll": {
+          "prediction": 0.46130913496017456,
+          "confidence": 0.5386908650398254
+        }
+      }
+    },
+    {
+      "video": "816.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9680130258202553,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47483202815055847,
+          "confidence": 0.5251679718494415
+        },
+        "av": {
+          "prediction": 0.5364192724227905,
+          "confidence": 0.5364192724227905
+        },
+        "cm": {
+          "prediction": 0.03198697417974472,
+          "confidence": 0.9680130258202553
+        },
+        "rr": {
+          "prediction": 0.46628281474113464,
+          "confidence": 0.5337171852588654
+        },
+        "ll": {
+          "prediction": 0.5892684459686279,
+          "confidence": 0.5892684459686279
+        }
+      }
+    },
+    {
+      "video": "817.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.8465087562799454,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47186118364334106,
+          "confidence": 0.5281388163566589
+        },
+        "av": {
+          "prediction": 0.5142662525177002,
+          "confidence": 0.5142662525177002
+        },
+        "cm": {
+          "prediction": 0.15349124372005463,
+          "confidence": 0.8465087562799454
+        },
+        "rr": {
+          "prediction": 0.42350101470947266,
+          "confidence": 0.5764989852905273
+        },
+        "ll": {
+          "prediction": 0.42307791113853455,
+          "confidence": 0.5769220888614655
+        }
+      }
+    },
+    {
+      "video": "818.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.8245840072631836,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47225093841552734,
+          "confidence": 0.5277490615844727
+        },
+        "av": {
+          "prediction": 0.46682924032211304,
+          "confidence": 0.533170759677887
+        },
+        "cm": {
+          "prediction": 0.1754159927368164,
+          "confidence": 0.8245840072631836
+        },
+        "rr": {
+          "prediction": 0.49623069167137146,
+          "confidence": 0.5037693083286285
+        },
+        "ll": {
+          "prediction": 0.6250717639923096,
+          "confidence": 0.6250717639923096
+        }
+      }
+    },
+    {
+      "video": "819.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.7525934725999832,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47396668791770935,
+          "confidence": 0.5260333120822906
+        },
+        "av": {
+          "prediction": 0.5204939842224121,
+          "confidence": 0.5204939842224121
+        },
+        "cm": {
+          "prediction": 0.24740652740001678,
+          "confidence": 0.7525934725999832
+        },
+        "rr": {
+          "prediction": 0.46247267723083496,
+          "confidence": 0.537527322769165
+        },
+        "ll": {
+          "prediction": 0.4862317442893982,
+          "confidence": 0.5137682557106018
+        }
+      }
+    },
+    {
+      "video": "820.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9926849957555532,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47136712074279785,
+          "confidence": 0.5286328792572021
+        },
+        "av": {
+          "prediction": 0.5501956343650818,
+          "confidence": 0.5501956343650818
+        },
+        "cm": {
+          "prediction": 0.0073150042444467545,
+          "confidence": 0.9926849957555532
+        },
+        "rr": {
+          "prediction": 0.24930402636528015,
+          "confidence": 0.7506959736347198
+        },
+        "ll": {
+          "prediction": 0.4194066524505615,
+          "confidence": 0.5805933475494385
+        }
+      }
+    },
+    {
+      "video": "821.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9727739579975605,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4741237759590149,
+          "confidence": 0.5258762240409851
+        },
+        "av": {
+          "prediction": 0.5441654920578003,
+          "confidence": 0.5441654920578003
+        },
+        "cm": {
+          "prediction": 0.0272260420024395,
+          "confidence": 0.9727739579975605
+        },
+        "rr": {
+          "prediction": 0.3796582818031311,
+          "confidence": 0.6203417181968689
+        },
+        "ll": {
+          "prediction": 0.4502270221710205,
+          "confidence": 0.5497729778289795
+        }
+      }
+    },
+    {
+      "video": "822.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.5414955317974091,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47000691294670105,
+          "confidence": 0.529993087053299
+        },
+        "av": {
+          "prediction": 0.52712482213974,
+          "confidence": 0.52712482213974
+        },
+        "cm": {
+          "prediction": 0.45850446820259094,
+          "confidence": 0.5414955317974091
+        },
+        "rr": {
+          "prediction": 0.3631752133369446,
+          "confidence": 0.6368247866630554
+        },
+        "ll": {
+          "prediction": 0.4375039339065552,
+          "confidence": 0.5624960660934448
+        }
+      }
+    },
+    {
+      "video": "823.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.7400951385498047,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4719316065311432,
+          "confidence": 0.5280683934688568
+        },
+        "av": {
+          "prediction": 0.5094261169433594,
+          "confidence": 0.5094261169433594
+        },
+        "cm": {
+          "prediction": 0.2599048614501953,
+          "confidence": 0.7400951385498047
+        },
+        "rr": {
+          "prediction": 0.39894798398017883,
+          "confidence": 0.6010520160198212
+        },
+        "ll": {
+          "prediction": 0.43180814385414124,
+          "confidence": 0.5681918561458588
+        }
+      }
+    },
+    {
+      "video": "824.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.7878094911575317,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.469461053609848,
+          "confidence": 0.530538946390152
+        },
+        "av": {
+          "prediction": 0.5370779037475586,
+          "confidence": 0.5370779037475586
+        },
+        "cm": {
+          "prediction": 0.21219050884246826,
+          "confidence": 0.7878094911575317
+        },
+        "rr": {
+          "prediction": 0.387305349111557,
+          "confidence": 0.612694650888443
+        },
+        "ll": {
+          "prediction": 0.4338648021221161,
+          "confidence": 0.5661351978778839
+        }
+      }
+    },
+    {
+      "video": "825.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9867784194648266,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47347620129585266,
+          "confidence": 0.5265237987041473
+        },
+        "av": {
+          "prediction": 0.4916408360004425,
+          "confidence": 0.5083591639995575
+        },
+        "cm": {
+          "prediction": 0.013221580535173416,
+          "confidence": 0.9867784194648266
+        },
+        "rr": {
+          "prediction": 0.4042278826236725,
+          "confidence": 0.5957721173763275
+        },
+        "ll": {
+          "prediction": 0.24030879139900208,
+          "confidence": 0.7596912086009979
+        }
+      }
+    },
+    {
+      "video": "826.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9220382124185562,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4704990088939667,
+          "confidence": 0.5295009911060333
+        },
+        "av": {
+          "prediction": 0.5196565389633179,
+          "confidence": 0.5196565389633179
+        },
+        "cm": {
+          "prediction": 0.07796178758144379,
+          "confidence": 0.9220382124185562
+        },
+        "rr": {
+          "prediction": 0.3071175813674927,
+          "confidence": 0.6928824186325073
+        },
+        "ll": {
+          "prediction": 0.3650943636894226,
+          "confidence": 0.6349056363105774
+        }
+      }
+    },
+    {
+      "video": "827.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.87099489569664,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4701818525791168,
+          "confidence": 0.5298181474208832
+        },
+        "av": {
+          "prediction": 0.5700994729995728,
+          "confidence": 0.5700994729995728
+        },
+        "cm": {
+          "prediction": 0.12900510430335999,
+          "confidence": 0.87099489569664
+        },
+        "rr": {
+          "prediction": 0.5003141164779663,
+          "confidence": 0.5003141164779663
+        },
+        "ll": {
+          "prediction": 0.5817053318023682,
+          "confidence": 0.5817053318023682
+        }
+      }
+    },
+    {
+      "video": "828.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.8851004838943481,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4736080765724182,
+          "confidence": 0.5263919234275818
+        },
+        "av": {
+          "prediction": 0.5246394872665405,
+          "confidence": 0.5246394872665405
+        },
+        "cm": {
+          "prediction": 0.11489951610565186,
+          "confidence": 0.8851004838943481
+        },
+        "rr": {
+          "prediction": 0.5024631023406982,
+          "confidence": 0.5024631023406982
+        },
+        "ll": {
+          "prediction": 0.5884581804275513,
+          "confidence": 0.5884581804275513
+        }
+      }
+    },
+    {
+      "video": "829.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.7715828120708466,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4713837206363678,
+          "confidence": 0.5286162793636322
+        },
+        "av": {
+          "prediction": 0.40036261081695557,
+          "confidence": 0.5996373891830444
+        },
+        "cm": {
+          "prediction": 0.22841718792915344,
+          "confidence": 0.7715828120708466
+        },
+        "rr": {
+          "prediction": 0.3568374216556549,
+          "confidence": 0.6431625783443451
+        },
+        "ll": {
+          "prediction": 0.40672287344932556,
+          "confidence": 0.5932771265506744
+        }
+      }
+    },
+    {
+      "video": "830.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9433162212371826,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47273722290992737,
+          "confidence": 0.5272627770900726
+        },
+        "av": {
+          "prediction": 0.5177556276321411,
+          "confidence": 0.5177556276321411
+        },
+        "cm": {
+          "prediction": 0.05668377876281738,
+          "confidence": 0.9433162212371826
+        },
+        "rr": {
+          "prediction": 0.4219040870666504,
+          "confidence": 0.5780959129333496
+        },
+        "ll": {
+          "prediction": 0.531177282333374,
+          "confidence": 0.531177282333374
+        }
+      }
+    },
+    {
+      "video": "831.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9693965464830399,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4745098352432251,
+          "confidence": 0.5254901647567749
+        },
+        "av": {
+          "prediction": 0.5442074537277222,
+          "confidence": 0.5442074537277222
+        },
+        "cm": {
+          "prediction": 0.030603453516960144,
+          "confidence": 0.9693965464830399
+        },
+        "rr": {
+          "prediction": 0.34178778529167175,
+          "confidence": 0.6582122147083282
+        },
+        "ll": {
+          "prediction": 0.4760013222694397,
+          "confidence": 0.5239986777305603
+        }
+      }
+    },
+    {
+      "video": "832.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9141575694084167,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.46801847219467163,
+          "confidence": 0.5319815278053284
+        },
+        "av": {
+          "prediction": 0.504277229309082,
+          "confidence": 0.504277229309082
+        },
+        "cm": {
+          "prediction": 0.08584243059158325,
+          "confidence": 0.9141575694084167
+        },
+        "rr": {
+          "prediction": 0.42424440383911133,
+          "confidence": 0.5757555961608887
+        },
+        "ll": {
+          "prediction": 0.517664909362793,
+          "confidence": 0.517664909362793
+        }
+      }
+    },
+    {
+      "video": "833.mp4",
+      "true": "REAL",
+      "pred": "FAKE",
+      "confidence": 0.5647271573543549,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4713019132614136,
+          "confidence": 0.5286980867385864
+        },
+        "av": {
+          "prediction": 0.4834855794906616,
+          "confidence": 0.5165144205093384
+        },
+        "cm": {
+          "prediction": 0.43527284264564514,
+          "confidence": 0.5647271573543549
+        },
+        "rr": {
+          "prediction": 0.48371919989585876,
+          "confidence": 0.5162808001041412
+        },
+        "ll": {
+          "prediction": 0.5176389813423157,
+          "confidence": 0.5176389813423157
+        }
+      }
+    },
+    {
+      "video": "834.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.8281868547201157,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4712057113647461,
+          "confidence": 0.5287942886352539
+        },
+        "av": {
+          "prediction": 0.5107362866401672,
+          "confidence": 0.5107362866401672
+        },
+        "cm": {
+          "prediction": 0.17181314527988434,
+          "confidence": 0.8281868547201157
+        },
+        "rr": {
+          "prediction": 0.47493627667427063,
+          "confidence": 0.5250637233257294
+        },
+        "ll": {
+          "prediction": 0.6235147714614868,
+          "confidence": 0.6235147714614868
+        }
+      }
+    },
+    {
+      "video": "835.mp4",
+      "true": "REAL",
+      "pred": "FAKE",
+      "confidence": 0.8540812730789185,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4697332978248596,
+          "confidence": 0.5302667021751404
+        },
+        "av": {
+          "prediction": 0.4857338070869446,
+          "confidence": 0.5142661929130554
+        },
+        "cm": {
+          "prediction": 0.8540812730789185,
+          "confidence": 0.8540812730789185
+        },
+        "rr": {
+          "prediction": 0.440557062625885,
+          "confidence": 0.559442937374115
+        },
+        "ll": {
+          "prediction": 0.5184860825538635,
+          "confidence": 0.5184860825538635
+        }
+      }
+    },
+    {
+      "video": "836.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9829104002565145,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4732295572757721,
+          "confidence": 0.5267704427242279
+        },
+        "av": {
+          "prediction": 0.5261961221694946,
+          "confidence": 0.5261961221694946
+        },
+        "cm": {
+          "prediction": 0.01708959974348545,
+          "confidence": 0.9829104002565145
+        },
+        "rr": {
+          "prediction": 0.30538225173950195,
+          "confidence": 0.694617748260498
+        },
+        "ll": {
+          "prediction": 0.38995081186294556,
+          "confidence": 0.6100491881370544
+        }
+      }
+    },
+    {
+      "video": "837.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9488018304109573,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47356685996055603,
+          "confidence": 0.526433140039444
+        },
+        "av": {
+          "prediction": 0.5368999242782593,
+          "confidence": 0.5368999242782593
+        },
+        "cm": {
+          "prediction": 0.051198169589042664,
+          "confidence": 0.9488018304109573
+        },
+        "rr": {
+          "prediction": 0.48585906624794006,
+          "confidence": 0.5141409337520599
+        },
+        "ll": {
+          "prediction": 0.49109622836112976,
+          "confidence": 0.5089037716388702
+        }
+      }
+    },
+    {
+      "video": "838.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9658043943345547,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4743745028972626,
+          "confidence": 0.5256254971027374
+        },
+        "av": {
+          "prediction": 0.5105897188186646,
+          "confidence": 0.5105897188186646
+        },
+        "cm": {
+          "prediction": 0.03419560566544533,
+          "confidence": 0.9658043943345547
+        },
+        "rr": {
+          "prediction": 0.49809789657592773,
+          "confidence": 0.5019021034240723
+        },
+        "ll": {
+          "prediction": 0.48547449707984924,
+          "confidence": 0.5145255029201508
+        }
+      }
+    },
+    {
+      "video": "839.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.774501383304596,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4705367386341095,
+          "confidence": 0.5294632613658905
+        },
+        "av": {
+          "prediction": 0.5205869674682617,
+          "confidence": 0.5205869674682617
+        },
+        "cm": {
+          "prediction": 0.22549861669540405,
+          "confidence": 0.774501383304596
+        },
+        "rr": {
+          "prediction": 0.4769555926322937,
+          "confidence": 0.5230444073677063
+        },
+        "ll": {
+          "prediction": 0.6175275444984436,
+          "confidence": 0.6175275444984436
+        }
+      }
+    },
+    {
+      "video": "840.mp4",
+      "true": "REAL",
+      "pred": "FAKE",
+      "confidence": 0.6917215585708618,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47262635827064514,
+          "confidence": 0.5273736417293549
+        },
+        "av": {
+          "prediction": 0.5543540716171265,
+          "confidence": 0.5543540716171265
+        },
+        "cm": {
+          "prediction": 0.6917215585708618,
+          "confidence": 0.6917215585708618
+        },
+        "rr": {
+          "prediction": 0.4940440058708191,
+          "confidence": 0.5059559941291809
+        },
+        "ll": {
+          "prediction": 0.6467427015304565,
+          "confidence": 0.6467427015304565
+        }
+      }
+    },
+    {
+      "video": "841.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9180736243724823,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47150322794914246,
+          "confidence": 0.5284967720508575
+        },
+        "av": {
+          "prediction": 0.5076056718826294,
+          "confidence": 0.5076056718826294
+        },
+        "cm": {
+          "prediction": 0.0819263756275177,
+          "confidence": 0.9180736243724823
+        },
+        "rr": {
+          "prediction": 0.5295665264129639,
+          "confidence": 0.5295665264129639
+        },
+        "ll": {
+          "prediction": 0.2665678858757019,
+          "confidence": 0.7334321141242981
+        }
+      }
+    },
+    {
+      "video": "842.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9945563431829214,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47149017453193665,
+          "confidence": 0.5285098254680634
+        },
+        "av": {
+          "prediction": 0.5584933757781982,
+          "confidence": 0.5584933757781982
+        },
+        "cm": {
+          "prediction": 0.00544365681707859,
+          "confidence": 0.9945563431829214
+        },
+        "rr": {
+          "prediction": 0.3705504536628723,
+          "confidence": 0.6294495463371277
+        },
+        "ll": {
+          "prediction": 0.26972588896751404,
+          "confidence": 0.730274111032486
+        }
+      }
+    },
+    {
+      "video": "843.mp4",
+      "true": "REAL",
+      "pred": "FAKE",
+      "confidence": 0.5903767645359039,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4700825810432434,
+          "confidence": 0.5299174189567566
+        },
+        "av": {
+          "prediction": 0.5084389448165894,
+          "confidence": 0.5084389448165894
+        },
+        "cm": {
+          "prediction": 0.40962323546409607,
+          "confidence": 0.5903767645359039
+        },
+        "rr": {
+          "prediction": 0.5321462750434875,
+          "confidence": 0.5321462750434875
+        },
+        "ll": {
+          "prediction": 0.5213514566421509,
+          "confidence": 0.5213514566421509
+        }
+      }
+    },
+    {
+      "video": "844.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.8100419342517853,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47138163447380066,
+          "confidence": 0.5286183655261993
+        },
+        "av": {
+          "prediction": 0.4893297255039215,
+          "confidence": 0.5106702744960785
+        },
+        "cm": {
+          "prediction": 0.18995806574821472,
+          "confidence": 0.8100419342517853
+        },
+        "rr": {
+          "prediction": 0.3906812369823456,
+          "confidence": 0.6093187630176544
+        },
+        "ll": {
+          "prediction": 0.44699206948280334,
+          "confidence": 0.5530079305171967
+        }
+      }
+    },
+    {
+      "video": "845.mp4",
+      "true": "REAL",
+      "pred": "FAKE",
+      "confidence": 0.5308449864387512,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4707094132900238,
+          "confidence": 0.5292905867099762
+        },
+        "av": {
+          "prediction": 0.4534560739994049,
+          "confidence": 0.5465439260005951
+        },
+        "cm": {
+          "prediction": 0.5308449864387512,
+          "confidence": 0.5308449864387512
+        },
+        "rr": {
+          "prediction": 0.5737985968589783,
+          "confidence": 0.5737985968589783
+        },
+        "ll": {
+          "prediction": 0.551394522190094,
+          "confidence": 0.551394522190094
+        }
+      }
+    },
+    {
+      "video": "846.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9611484706401825,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47154301404953003,
+          "confidence": 0.52845698595047
+        },
+        "av": {
+          "prediction": 0.46630024909973145,
+          "confidence": 0.5336997509002686
+        },
+        "cm": {
+          "prediction": 0.038851529359817505,
+          "confidence": 0.9611484706401825
+        },
+        "rr": {
+          "prediction": 0.4860999286174774,
+          "confidence": 0.5139000713825226
+        },
+        "ll": {
+          "prediction": 0.46809759736061096,
+          "confidence": 0.531902402639389
+        }
+      }
+    },
+    {
+      "video": "847.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9961931232828647,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4726402759552002,
+          "confidence": 0.5273597240447998
+        },
+        "av": {
+          "prediction": 0.5245488882064819,
+          "confidence": 0.5245488882064819
+        },
+        "cm": {
+          "prediction": 0.00380687671713531,
+          "confidence": 0.9961931232828647
+        },
+        "rr": {
+          "prediction": 0.3699379861354828,
+          "confidence": 0.6300620138645172
+        },
+        "ll": {
+          "prediction": 0.5092606544494629,
+          "confidence": 0.5092606544494629
+        }
+      }
+    },
+    {
+      "video": "848.mp4",
+      "true": "REAL",
+      "pred": "FAKE",
+      "confidence": 0.5833523869514465,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47206610441207886,
+          "confidence": 0.5279338955879211
+        },
+        "av": {
+          "prediction": 0.5427608489990234,
+          "confidence": 0.5427608489990234
+        },
+        "cm": {
+          "prediction": 0.5833523869514465,
+          "confidence": 0.5833523869514465
+        },
+        "rr": {
+          "prediction": 0.5763278007507324,
+          "confidence": 0.5763278007507324
+        },
+        "ll": {
+          "prediction": 0.6980709433555603,
+          "confidence": 0.6980709433555603
+        }
+      }
+    },
+    {
+      "video": "849.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9896621974185109,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47338396310806274,
+          "confidence": 0.5266160368919373
+        },
+        "av": {
+          "prediction": 0.5642784833908081,
+          "confidence": 0.5642784833908081
+        },
+        "cm": {
+          "prediction": 0.010337802581489086,
+          "confidence": 0.9896621974185109
+        },
+        "rr": {
+          "prediction": 0.3656497001647949,
+          "confidence": 0.6343502998352051
+        },
+        "ll": {
+          "prediction": 0.39621663093566895,
+          "confidence": 0.603783369064331
+        }
+      }
+    },
+    {
+      "video": "850.mp4",
+      "true": "REAL",
+      "pred": "REAL",
+      "confidence": 0.9554408565163612,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47506576776504517,
+          "confidence": 0.5249342322349548
+        },
+        "av": {
+          "prediction": 0.5192661881446838,
+          "confidence": 0.5192661881446838
+        },
+        "cm": {
+          "prediction": 0.04455914348363876,
+          "confidence": 0.9554408565163612
+        },
+        "rr": {
+          "prediction": 0.44521212577819824,
+          "confidence": 0.5547878742218018
+        },
+        "ll": {
+          "prediction": 0.47238656878471375,
+          "confidence": 0.5276134312152863
+        }
+      }
+    },
+    {
+      "video": "700_813.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.7712470293045044,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4740588366985321,
+          "confidence": 0.5259411633014679
+        },
+        "av": {
+          "prediction": 0.567874014377594,
+          "confidence": 0.567874014377594
+        },
+        "cm": {
+          "prediction": 0.2287529706954956,
+          "confidence": 0.7712470293045044
+        },
+        "rr": {
+          "prediction": 0.4492151737213135,
+          "confidence": 0.5507848262786865
+        },
+        "ll": {
+          "prediction": 0.6276285648345947,
+          "confidence": 0.6276285648345947
+        }
+      }
+    },
+    {
+      "video": "701_579.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.6505613923072815,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47111016511917114,
+          "confidence": 0.5288898348808289
+        },
+        "av": {
+          "prediction": 0.5787184238433838,
+          "confidence": 0.5787184238433838
+        },
+        "cm": {
+          "prediction": 0.3494386076927185,
+          "confidence": 0.6505613923072815
+        },
+        "rr": {
+          "prediction": 0.6039354205131531,
+          "confidence": 0.6039354205131531
+        },
+        "ll": {
+          "prediction": 0.5592710375785828,
+          "confidence": 0.5592710375785828
+        }
+      }
+    },
+    {
+      "video": "702_612.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.8979789018630981,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47190651297569275,
+          "confidence": 0.5280934870243073
+        },
+        "av": {
+          "prediction": 0.5908619165420532,
+          "confidence": 0.5908619165420532
+        },
+        "cm": {
+          "prediction": 0.8979789018630981,
+          "confidence": 0.8979789018630981
+        },
+        "rr": {
+          "prediction": 0.5012502670288086,
+          "confidence": 0.5012502670288086
+        },
+        "ll": {
+          "prediction": 0.681555986404419,
+          "confidence": 0.681555986404419
+        }
+      }
+    },
+    {
+      "video": "703_604.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.845772385597229,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4717690348625183,
+          "confidence": 0.5282309651374817
+        },
+        "av": {
+          "prediction": 0.5217037796974182,
+          "confidence": 0.5217037796974182
+        },
+        "cm": {
+          "prediction": 0.845772385597229,
+          "confidence": 0.845772385597229
+        },
+        "rr": {
+          "prediction": 0.4117952287197113,
+          "confidence": 0.5882047712802887
+        },
+        "ll": {
+          "prediction": 0.44713497161865234,
+          "confidence": 0.5528650283813477
+        }
+      }
+    },
+    {
+      "video": "704_723.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.821682870388031,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4704921543598175,
+          "confidence": 0.5295078456401825
+        },
+        "av": {
+          "prediction": 0.4891500473022461,
+          "confidence": 0.5108499526977539
+        },
+        "cm": {
+          "prediction": 0.821682870388031,
+          "confidence": 0.821682870388031
+        },
+        "rr": {
+          "prediction": 0.4682585597038269,
+          "confidence": 0.5317414402961731
+        },
+        "ll": {
+          "prediction": 0.6306112408638,
+          "confidence": 0.6306112408638
+        }
+      }
+    },
+    {
+      "video": "705_707.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.9598622918128967,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47269299626350403,
+          "confidence": 0.527307003736496
+        },
+        "av": {
+          "prediction": 0.5025949478149414,
+          "confidence": 0.5025949478149414
+        },
+        "cm": {
+          "prediction": 0.04013770818710327,
+          "confidence": 0.9598622918128967
+        },
+        "rr": {
+          "prediction": 0.505967378616333,
+          "confidence": 0.505967378616333
+        },
+        "ll": {
+          "prediction": 0.4834439158439636,
+          "confidence": 0.5165560841560364
+        }
+      }
+    },
+    {
+      "video": "706_479.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.9337402880191803,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4726359248161316,
+          "confidence": 0.5273640751838684
+        },
+        "av": {
+          "prediction": 0.5347191691398621,
+          "confidence": 0.5347191691398621
+        },
+        "cm": {
+          "prediction": 0.0662597119808197,
+          "confidence": 0.9337402880191803
+        },
+        "rr": {
+          "prediction": 0.3763962388038635,
+          "confidence": 0.6236037611961365
+        },
+        "ll": {
+          "prediction": 0.3321782946586609,
+          "confidence": 0.6678217053413391
+        }
+      }
+    },
+    {
+      "video": "707_705.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.9924844074994326,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.46925151348114014,
+          "confidence": 0.5307484865188599
+        },
+        "av": {
+          "prediction": 0.54660564661026,
+          "confidence": 0.54660564661026
+        },
+        "cm": {
+          "prediction": 0.007515592500567436,
+          "confidence": 0.9924844074994326
+        },
+        "rr": {
+          "prediction": 0.4279162883758545,
+          "confidence": 0.5720837116241455
+        },
+        "ll": {
+          "prediction": 0.4645814001560211,
+          "confidence": 0.5354185998439789
+        }
+      }
+    },
+    {
+      "video": "708_772.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.9487906843423843,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4708770215511322,
+          "confidence": 0.5291229784488678
+        },
+        "av": {
+          "prediction": 0.5142790079116821,
+          "confidence": 0.5142790079116821
+        },
+        "cm": {
+          "prediction": 0.05120931565761566,
+          "confidence": 0.9487906843423843
+        },
+        "rr": {
+          "prediction": 0.3765913248062134,
+          "confidence": 0.6234086751937866
+        },
+        "ll": {
+          "prediction": 0.35313963890075684,
+          "confidence": 0.6468603610992432
+        }
+      }
+    },
+    {
+      "video": "709_390.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.8120955973863602,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47329169511795044,
+          "confidence": 0.5267083048820496
+        },
+        "av": {
+          "prediction": 0.5312024354934692,
+          "confidence": 0.5312024354934692
+        },
+        "cm": {
+          "prediction": 0.18790440261363983,
+          "confidence": 0.8120955973863602
+        },
+        "rr": {
+          "prediction": 0.3631085753440857,
+          "confidence": 0.6368914246559143
+        },
+        "ll": {
+          "prediction": 0.38148611783981323,
+          "confidence": 0.6185138821601868
+        }
+      }
+    },
+    {
+      "video": "710_788.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.8207805156707764,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4736725986003876,
+          "confidence": 0.5263274013996124
+        },
+        "av": {
+          "prediction": 0.5099459886550903,
+          "confidence": 0.5099459886550903
+        },
+        "cm": {
+          "prediction": 0.8207805156707764,
+          "confidence": 0.8207805156707764
+        },
+        "rr": {
+          "prediction": 0.4322069585323334,
+          "confidence": 0.5677930414676666
+        },
+        "ll": {
+          "prediction": 0.4351673722267151,
+          "confidence": 0.5648326277732849
+        }
+      }
+    },
+    {
+      "video": "711_681.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.8401007652282715,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.46895813941955566,
+          "confidence": 0.5310418605804443
+        },
+        "av": {
+          "prediction": 0.5506990551948547,
+          "confidence": 0.5506990551948547
+        },
+        "cm": {
+          "prediction": 0.8401007652282715,
+          "confidence": 0.8401007652282715
+        },
+        "rr": {
+          "prediction": 0.45630431175231934,
+          "confidence": 0.5436956882476807
+        },
+        "ll": {
+          "prediction": 0.5489305853843689,
+          "confidence": 0.5489305853843689
+        }
+      }
+    },
+    {
+      "video": "712_716.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.8443074822425842,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4733608365058899,
+          "confidence": 0.5266391634941101
+        },
+        "av": {
+          "prediction": 0.48102515935897827,
+          "confidence": 0.5189748406410217
+        },
+        "cm": {
+          "prediction": 0.15569251775741577,
+          "confidence": 0.8443074822425842
+        },
+        "rr": {
+          "prediction": 0.3920978903770447,
+          "confidence": 0.6079021096229553
+        },
+        "ll": {
+          "prediction": 0.38662081956863403,
+          "confidence": 0.613379180431366
+        }
+      }
+    },
+    {
+      "video": "713_726.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.7900272905826569,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4753120243549347,
+          "confidence": 0.5246879756450653
+        },
+        "av": {
+          "prediction": 0.5871771574020386,
+          "confidence": 0.5871771574020386
+        },
+        "cm": {
+          "prediction": 0.20997270941734314,
+          "confidence": 0.7900272905826569
+        },
+        "rr": {
+          "prediction": 0.4697423577308655,
+          "confidence": 0.5302576422691345
+        },
+        "ll": {
+          "prediction": 0.42206627130508423,
+          "confidence": 0.5779337286949158
+        }
+      }
+    },
+    {
+      "video": "714_842.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.8766865730285645,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4747307300567627,
+          "confidence": 0.5252692699432373
+        },
+        "av": {
+          "prediction": 0.4756467044353485,
+          "confidence": 0.5243532955646515
+        },
+        "cm": {
+          "prediction": 0.12331342697143555,
+          "confidence": 0.8766865730285645
+        },
+        "rr": {
+          "prediction": 0.4243409335613251,
+          "confidence": 0.5756590664386749
+        },
+        "ll": {
+          "prediction": 0.44301140308380127,
+          "confidence": 0.5569885969161987
+        }
+      }
+    },
+    {
+      "video": "715_721.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.6496596932411194,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4707663953304291,
+          "confidence": 0.5292336046695709
+        },
+        "av": {
+          "prediction": 0.49227452278137207,
+          "confidence": 0.5077254772186279
+        },
+        "cm": {
+          "prediction": 0.3503403067588806,
+          "confidence": 0.6496596932411194
+        },
+        "rr": {
+          "prediction": 0.4723469614982605,
+          "confidence": 0.5276530385017395
+        },
+        "ll": {
+          "prediction": 0.5653848648071289,
+          "confidence": 0.5653848648071289
+        }
+      }
+    },
+    {
+      "video": "716_712.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.8931008577346802,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.471710205078125,
+          "confidence": 0.528289794921875
+        },
+        "av": {
+          "prediction": 0.5778071284294128,
+          "confidence": 0.5778071284294128
+        },
+        "cm": {
+          "prediction": 0.8931008577346802,
+          "confidence": 0.8931008577346802
+        },
+        "rr": {
+          "prediction": 0.5230444073677063,
+          "confidence": 0.5230444073677063
+        },
+        "ll": {
+          "prediction": 0.7284207344055176,
+          "confidence": 0.7284207344055176
+        }
+      }
+    },
+    {
+      "video": "717_684.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.878670908510685,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47364407777786255,
+          "confidence": 0.5263559222221375
+        },
+        "av": {
+          "prediction": 0.5024816989898682,
+          "confidence": 0.5024816989898682
+        },
+        "cm": {
+          "prediction": 0.12132909148931503,
+          "confidence": 0.878670908510685
+        },
+        "rr": {
+          "prediction": 0.49786514043807983,
+          "confidence": 0.5021348595619202
+        },
+        "ll": {
+          "prediction": 0.4991603493690491,
+          "confidence": 0.5008396506309509
+        }
+      }
+    },
+    {
+      "video": "718_972.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.9975736597552896,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4737825393676758,
+          "confidence": 0.5262174606323242
+        },
+        "av": {
+          "prediction": 0.5257498621940613,
+          "confidence": 0.5257498621940613
+        },
+        "cm": {
+          "prediction": 0.0024263402447104454,
+          "confidence": 0.9975736597552896
+        },
+        "rr": {
+          "prediction": 0.37364843487739563,
+          "confidence": 0.6263515651226044
+        },
+        "ll": {
+          "prediction": 0.2658118009567261,
+          "confidence": 0.7341881990432739
+        }
+      }
+    },
+    {
+      "video": "719_737.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.9564809948205948,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.470305472612381,
+          "confidence": 0.529694527387619
+        },
+        "av": {
+          "prediction": 0.5717688798904419,
+          "confidence": 0.5717688798904419
+        },
+        "cm": {
+          "prediction": 0.04351900517940521,
+          "confidence": 0.9564809948205948
+        },
+        "rr": {
+          "prediction": 0.24020442366600037,
+          "confidence": 0.7597955763339996
+        },
+        "ll": {
+          "prediction": 0.28245460987091064,
+          "confidence": 0.7175453901290894
+        }
+      }
+    },
+    {
+      "video": "720_672.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.9245731830596924,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47198906540870667,
+          "confidence": 0.5280109345912933
+        },
+        "av": {
+          "prediction": 0.566766083240509,
+          "confidence": 0.566766083240509
+        },
+        "cm": {
+          "prediction": 0.9245731830596924,
+          "confidence": 0.9245731830596924
+        },
+        "rr": {
+          "prediction": 0.4510863125324249,
+          "confidence": 0.5489136874675751
+        },
+        "ll": {
+          "prediction": 0.639554500579834,
+          "confidence": 0.639554500579834
+        }
+      }
+    },
+    {
+      "video": "721_715.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.6308097839355469,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47360825538635254,
+          "confidence": 0.5263917446136475
+        },
+        "av": {
+          "prediction": 0.502181887626648,
+          "confidence": 0.502181887626648
+        },
+        "cm": {
+          "prediction": 0.6308097839355469,
+          "confidence": 0.6308097839355469
+        },
+        "rr": {
+          "prediction": 0.3897974491119385,
+          "confidence": 0.6102025508880615
+        },
+        "ll": {
+          "prediction": 0.4803845286369324,
+          "confidence": 0.5196154713630676
+        }
+      }
+    },
+    {
+      "video": "722_458.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.8206816613674164,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4716995060443878,
+          "confidence": 0.5283004939556122
+        },
+        "av": {
+          "prediction": 0.5822362303733826,
+          "confidence": 0.5822362303733826
+        },
+        "cm": {
+          "prediction": 0.17931833863258362,
+          "confidence": 0.8206816613674164
+        },
+        "rr": {
+          "prediction": 0.31109684705734253,
+          "confidence": 0.6889031529426575
+        },
+        "ll": {
+          "prediction": 0.3772338926792145,
+          "confidence": 0.6227661073207855
+        }
+      }
+    },
+    {
+      "video": "723_704.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.7190131545066833,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47011786699295044,
+          "confidence": 0.5298821330070496
+        },
+        "av": {
+          "prediction": 0.5671877861022949,
+          "confidence": 0.5671877861022949
+        },
+        "cm": {
+          "prediction": 0.28098684549331665,
+          "confidence": 0.7190131545066833
+        },
+        "rr": {
+          "prediction": 0.42971476912498474,
+          "confidence": 0.5702852308750153
+        },
+        "ll": {
+          "prediction": 0.42604637145996094,
+          "confidence": 0.5739536285400391
+        }
+      }
+    },
+    {
+      "video": "724_725.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.9227541759610176,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47327306866645813,
+          "confidence": 0.5267269313335419
+        },
+        "av": {
+          "prediction": 0.5370137691497803,
+          "confidence": 0.5370137691497803
+        },
+        "cm": {
+          "prediction": 0.07724582403898239,
+          "confidence": 0.9227541759610176
+        },
+        "rr": {
+          "prediction": 0.5006056427955627,
+          "confidence": 0.5006056427955627
+        },
+        "ll": {
+          "prediction": 0.6709846258163452,
+          "confidence": 0.6709846258163452
+        }
+      }
+    },
+    {
+      "video": "725_724.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.8930463194847107,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4751810133457184,
+          "confidence": 0.5248189866542816
+        },
+        "av": {
+          "prediction": 0.547008752822876,
+          "confidence": 0.547008752822876
+        },
+        "cm": {
+          "prediction": 0.8930463194847107,
+          "confidence": 0.8930463194847107
+        },
+        "rr": {
+          "prediction": 0.43741944432258606,
+          "confidence": 0.5625805556774139
+        },
+        "ll": {
+          "prediction": 0.421730101108551,
+          "confidence": 0.578269898891449
+        }
+      }
+    },
+    {
+      "video": "726_713.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.5111047029495239,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4733084738254547,
+          "confidence": 0.5266915261745453
+        },
+        "av": {
+          "prediction": 0.5837432742118835,
+          "confidence": 0.5837432742118835
+        },
+        "cm": {
+          "prediction": 0.4888952970504761,
+          "confidence": 0.5111047029495239
+        },
+        "rr": {
+          "prediction": 0.329060822725296,
+          "confidence": 0.670939177274704
+        },
+        "ll": {
+          "prediction": 0.5319010019302368,
+          "confidence": 0.5319010019302368
+        }
+      }
+    },
+    {
+      "video": "727_729.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.6131340265274048,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47283998131752014,
+          "confidence": 0.5271600186824799
+        },
+        "av": {
+          "prediction": 0.50946044921875,
+          "confidence": 0.50946044921875
+        },
+        "cm": {
+          "prediction": 0.6131340265274048,
+          "confidence": 0.6131340265274048
+        },
+        "rr": {
+          "prediction": 0.5934680700302124,
+          "confidence": 0.5934680700302124
+        },
+        "ll": {
+          "prediction": 0.7297676801681519,
+          "confidence": 0.7297676801681519
+        }
+      }
+    },
+    {
+      "video": "728_673.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.8900793790817261,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4742186963558197,
+          "confidence": 0.5257813036441803
+        },
+        "av": {
+          "prediction": 0.5045266151428223,
+          "confidence": 0.5045266151428223
+        },
+        "cm": {
+          "prediction": 0.8900793790817261,
+          "confidence": 0.8900793790817261
+        },
+        "rr": {
+          "prediction": 0.5039744973182678,
+          "confidence": 0.5039744973182678
+        },
+        "ll": {
+          "prediction": 0.6355158090591431,
+          "confidence": 0.6355158090591431
+        }
+      }
+    },
+    {
+      "video": "729_727.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.6469392776489258,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4704136848449707,
+          "confidence": 0.5295863151550293
+        },
+        "av": {
+          "prediction": 0.5362356305122375,
+          "confidence": 0.5362356305122375
+        },
+        "cm": {
+          "prediction": 0.6469392776489258,
+          "confidence": 0.6469392776489258
+        },
+        "rr": {
+          "prediction": 0.5658069849014282,
+          "confidence": 0.5658069849014282
+        },
+        "ll": {
+          "prediction": 0.5993574857711792,
+          "confidence": 0.5993574857711792
+        }
+      }
+    },
+    {
+      "video": "730_815.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.8790654689073563,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4701344668865204,
+          "confidence": 0.5298655331134796
+        },
+        "av": {
+          "prediction": 0.5310488939285278,
+          "confidence": 0.5310488939285278
+        },
+        "cm": {
+          "prediction": 0.12093453109264374,
+          "confidence": 0.8790654689073563
+        },
+        "rr": {
+          "prediction": 0.3884153962135315,
+          "confidence": 0.6115846037864685
+        },
+        "ll": {
+          "prediction": 0.45043131709098816,
+          "confidence": 0.5495686829090118
+        }
+      }
+    },
+    {
+      "video": "731_741.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.7165026664733887,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47249656915664673,
+          "confidence": 0.5275034308433533
+        },
+        "av": {
+          "prediction": 0.5027449131011963,
+          "confidence": 0.5027449131011963
+        },
+        "cm": {
+          "prediction": 0.7165026664733887,
+          "confidence": 0.7165026664733887
+        },
+        "rr": {
+          "prediction": 0.5264837741851807,
+          "confidence": 0.5264837741851807
+        },
+        "ll": {
+          "prediction": 0.5526648163795471,
+          "confidence": 0.5526648163795471
+        }
+      }
+    },
+    {
+      "video": "732_691.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.7171922326087952,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4724600315093994,
+          "confidence": 0.5275399684906006
+        },
+        "av": {
+          "prediction": 0.5867531299591064,
+          "confidence": 0.5867531299591064
+        },
+        "cm": {
+          "prediction": 0.28280776739120483,
+          "confidence": 0.7171922326087952
+        },
+        "rr": {
+          "prediction": 0.443087100982666,
+          "confidence": 0.556912899017334
+        },
+        "ll": {
+          "prediction": 0.5877686738967896,
+          "confidence": 0.5877686738967896
+        }
+      }
+    },
+    {
+      "video": "733_935.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.9326364994049072,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4745243787765503,
+          "confidence": 0.5254756212234497
+        },
+        "av": {
+          "prediction": 0.5516425371170044,
+          "confidence": 0.5516425371170044
+        },
+        "cm": {
+          "prediction": 0.9326364994049072,
+          "confidence": 0.9326364994049072
+        },
+        "rr": {
+          "prediction": 0.43917182087898254,
+          "confidence": 0.5608281791210175
+        },
+        "ll": {
+          "prediction": 0.5823737382888794,
+          "confidence": 0.5823737382888794
+        }
+      }
+    },
+    {
+      "video": "734_699.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.586228758096695,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4710017144680023,
+          "confidence": 0.5289982855319977
+        },
+        "av": {
+          "prediction": 0.4679807424545288,
+          "confidence": 0.5320192575454712
+        },
+        "cm": {
+          "prediction": 0.41377124190330505,
+          "confidence": 0.586228758096695
+        },
+        "rr": {
+          "prediction": 0.41356268525123596,
+          "confidence": 0.586437314748764
+        },
+        "ll": {
+          "prediction": 0.458778440952301,
+          "confidence": 0.541221559047699
+        }
+      }
+    },
+    {
+      "video": "735_774.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.8008860349655151,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47265705466270447,
+          "confidence": 0.5273429453372955
+        },
+        "av": {
+          "prediction": 0.3976646959781647,
+          "confidence": 0.6023353040218353
+        },
+        "cm": {
+          "prediction": 0.8008860349655151,
+          "confidence": 0.8008860349655151
+        },
+        "rr": {
+          "prediction": 0.4925047755241394,
+          "confidence": 0.5074952244758606
+        },
+        "ll": {
+          "prediction": 0.5665928721427917,
+          "confidence": 0.5665928721427917
+        }
+      }
+    },
+    {
+      "video": "736_785.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.8715149760246277,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.46984967589378357,
+          "confidence": 0.5301503241062164
+        },
+        "av": {
+          "prediction": 0.5727271437644958,
+          "confidence": 0.5727271437644958
+        },
+        "cm": {
+          "prediction": 0.8715149760246277,
+          "confidence": 0.8715149760246277
+        },
+        "rr": {
+          "prediction": 0.4593139886856079,
+          "confidence": 0.5406860113143921
+        },
+        "ll": {
+          "prediction": 0.4410390257835388,
+          "confidence": 0.5589609742164612
+        }
+      }
+    },
+    {
+      "video": "737_719.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.7776381969451904,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47204554080963135,
+          "confidence": 0.5279544591903687
+        },
+        "av": {
+          "prediction": 0.48233991861343384,
+          "confidence": 0.5176600813865662
+        },
+        "cm": {
+          "prediction": 0.7776381969451904,
+          "confidence": 0.7776381969451904
+        },
+        "rr": {
+          "prediction": 0.5033940672874451,
+          "confidence": 0.5033940672874451
+        },
+        "ll": {
+          "prediction": 0.5159631967544556,
+          "confidence": 0.5159631967544556
+        }
+      }
+    },
+    {
+      "video": "738_804.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.8035603761672974,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47166603803634644,
+          "confidence": 0.5283339619636536
+        },
+        "av": {
+          "prediction": 0.5304896831512451,
+          "confidence": 0.5304896831512451
+        },
+        "cm": {
+          "prediction": 0.8035603761672974,
+          "confidence": 0.8035603761672974
+        },
+        "rr": {
+          "prediction": 0.5096848607063293,
+          "confidence": 0.5096848607063293
+        },
+        "ll": {
+          "prediction": 0.6396735906600952,
+          "confidence": 0.6396735906600952
+        }
+      }
+    },
+    {
+      "video": "739_865.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.936999499797821,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47256505489349365,
+          "confidence": 0.5274349451065063
+        },
+        "av": {
+          "prediction": 0.5725778341293335,
+          "confidence": 0.5725778341293335
+        },
+        "cm": {
+          "prediction": 0.936999499797821,
+          "confidence": 0.936999499797821
+        },
+        "rr": {
+          "prediction": 0.46537429094314575,
+          "confidence": 0.5346257090568542
+        },
+        "ll": {
+          "prediction": 0.6384831070899963,
+          "confidence": 0.6384831070899963
+        }
+      }
+    },
+    {
+      "video": "740_796.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.6891500949859619,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4745725393295288,
+          "confidence": 0.5254274606704712
+        },
+        "av": {
+          "prediction": 0.486936092376709,
+          "confidence": 0.513063907623291
+        },
+        "cm": {
+          "prediction": 0.6891500949859619,
+          "confidence": 0.6891500949859619
+        },
+        "rr": {
+          "prediction": 0.35535991191864014,
+          "confidence": 0.6446400880813599
+        },
+        "ll": {
+          "prediction": 0.45788824558258057,
+          "confidence": 0.5421117544174194
+        }
+      }
+    },
+    {
+      "video": "741_731.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.9121334552764893,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.46868598461151123,
+          "confidence": 0.5313140153884888
+        },
+        "av": {
+          "prediction": 0.5337272882461548,
+          "confidence": 0.5337272882461548
+        },
+        "cm": {
+          "prediction": 0.9121334552764893,
+          "confidence": 0.9121334552764893
+        },
+        "rr": {
+          "prediction": 0.48011747002601624,
+          "confidence": 0.5198825299739838
+        },
+        "ll": {
+          "prediction": 0.5757912397384644,
+          "confidence": 0.5757912397384644
+        }
+      }
+    },
+    {
+      "video": "742_775.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.5148555636405945,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47285595536231995,
+          "confidence": 0.52714404463768
+        },
+        "av": {
+          "prediction": 0.5094974637031555,
+          "confidence": 0.5094974637031555
+        },
+        "cm": {
+          "prediction": 0.4851444363594055,
+          "confidence": 0.5148555636405945
+        },
+        "rr": {
+          "prediction": 0.44881442189216614,
+          "confidence": 0.5511855781078339
+        },
+        "ll": {
+          "prediction": 0.5697447061538696,
+          "confidence": 0.5697447061538696
+        }
+      }
+    },
+    {
+      "video": "743_750.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.7909582853317261,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4728411138057709,
+          "confidence": 0.5271588861942291
+        },
+        "av": {
+          "prediction": 0.5389504432678223,
+          "confidence": 0.5389504432678223
+        },
+        "cm": {
+          "prediction": 0.7909582853317261,
+          "confidence": 0.7909582853317261
+        },
+        "rr": {
+          "prediction": 0.38269463181495667,
+          "confidence": 0.6173053681850433
+        },
+        "ll": {
+          "prediction": 0.4452430009841919,
+          "confidence": 0.5547569990158081
+        }
+      }
+    },
+    {
+      "video": "744_674.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.9143231585621834,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47020548582077026,
+          "confidence": 0.5297945141792297
+        },
+        "av": {
+          "prediction": 0.5556679368019104,
+          "confidence": 0.5556679368019104
+        },
+        "cm": {
+          "prediction": 0.08567684143781662,
+          "confidence": 0.9143231585621834
+        },
+        "rr": {
+          "prediction": 0.29217299818992615,
+          "confidence": 0.7078270018100739
+        },
+        "ll": {
+          "prediction": 0.45138803124427795,
+          "confidence": 0.548611968755722
+        }
+      }
+    },
+    {
+      "video": "745_777.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.5057955980300903,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.47307685017585754,
+          "confidence": 0.5269231498241425
+        },
+        "av": {
+          "prediction": 0.5181500911712646,
+          "confidence": 0.5181500911712646
+        },
+        "cm": {
+          "prediction": 0.5057955980300903,
+          "confidence": 0.5057955980300903
+        },
+        "rr": {
+          "prediction": 0.5620464086532593,
+          "confidence": 0.5620464086532593
+        },
+        "ll": {
+          "prediction": 0.6777797937393188,
+          "confidence": 0.6777797937393188
+        }
+      }
+    },
+    {
+      "video": "746_571.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.8959019407629967,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4704131484031677,
+          "confidence": 0.5295868515968323
+        },
+        "av": {
+          "prediction": 0.5174263119697571,
+          "confidence": 0.5174263119697571
+        },
+        "cm": {
+          "prediction": 0.10409805923700333,
+          "confidence": 0.8959019407629967
+        },
+        "rr": {
+          "prediction": 0.4039413034915924,
+          "confidence": 0.5960586965084076
+        },
+        "ll": {
+          "prediction": 0.42542240023612976,
+          "confidence": 0.5745775997638702
+        }
+      }
+    },
+    {
+      "video": "747_854.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.9970929783303291,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4722077548503876,
+          "confidence": 0.5277922451496124
+        },
+        "av": {
+          "prediction": 0.48218709230422974,
+          "confidence": 0.5178129076957703
+        },
+        "cm": {
+          "prediction": 0.0029070216696709394,
+          "confidence": 0.9970929783303291
+        },
+        "rr": {
+          "prediction": 0.18097682297229767,
+          "confidence": 0.8190231770277023
+        },
+        "ll": {
+          "prediction": 0.3168688416481018,
+          "confidence": 0.6831311583518982
+        }
+      }
+    },
+    {
+      "video": "748_355.mp4",
+      "true": "FAKE",
+      "pred": "FAKE",
+      "confidence": 0.6357443332672119,
+      "correct": true,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4747142195701599,
+          "confidence": 0.5252857804298401
+        },
+        "av": {
+          "prediction": 0.5023801326751709,
+          "confidence": 0.5023801326751709
+        },
+        "cm": {
+          "prediction": 0.6357443332672119,
+          "confidence": 0.6357443332672119
+        },
+        "rr": {
+          "prediction": 0.45020967721939087,
+          "confidence": 0.5497903227806091
+        },
+        "ll": {
+          "prediction": 0.5881509780883789,
+          "confidence": 0.5881509780883789
+        }
+      }
+    },
+    {
+      "video": "749_659.mp4",
+      "true": "FAKE",
+      "pred": "REAL",
+      "confidence": 0.9946026816032827,
+      "correct": false,
+      "specialists_used": [
+        "av",
+        "cm",
+        "rr",
+        "ll"
+      ],
+      "all_predictions": {
+        "student": {
+          "prediction": 0.4726580083370209,
+          "confidence": 0.5273419916629791
+        },
+        "av": {
+          "prediction": 0.547905445098877,
+          "confidence": 0.547905445098877
+        },
+        "cm": {
+          "prediction": 0.00539731839671731,
+          "confidence": 0.9946026816032827
+        },
+        "rr": {
+          "prediction": 0.40708303451538086,
+          "confidence": 0.5929169654846191
+        },
+        "ll": {
+          "prediction": 0.5831727385520935,
+          "confidence": 0.5831727385520935
+        }
+      }
+    }
+  ]
+}

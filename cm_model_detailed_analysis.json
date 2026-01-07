@@ -1,0 +1,1424 @@
+{
+  "model_info": {
+    "name": "Compression Specialist Model",
+    "specialization": "Compression artifacts, DCT analysis, quantization patterns",
+    "architecture": "EfficientNet-B4 + CM Specialist Module (40 channels)",
+    "specialist_components": [
+      "specialist_dct_analyzer (DCT coefficient analysis)",
+      "specialist_quant_detector (quantization artifact detection)",
+      "specialist_block_checker (block artifact detection)",
+      "specialist_compression_estimator (compression level estimation)"
+    ],
+    "expected_strengths": [
+      "JPEG compression artifacts",
+      "Video compression detection",
+      "Quantization noise patterns",
+      "Block artifacts",
+      "DCT coefficient anomalies",
+      "Compression level estimation"
+    ]
+  },
+  "test_summary": {
+    "total_videos": 50,
+    "real_videos": 25,
+    "fake_videos": 25
+  },
+  "recommendations": {
+    "priority": "MEDIUM",
+    "training_focus": [],
+    "dataset_needs": [
+      "Low bitrate compressed videos",
+      "High compression ratio samples",
+      "Block artifact examples",
+      "Quantization noise samples",
+      "DCT coefficient manipulation examples",
+      "Quality degradation sequences"
+    ],
+    "architecture_improvements": [
+      "Enhance DCT analysis module",
+      "Improve block artifact detection",
+      "Add frequency domain analysis",
+      "Implement compression level estimation",
+      "Add multi-scale compression analysis"
+    ],
+    "compression_specific": [
+      "Train on multiple compression standards (H.264, H.265, VP9, AV1)",
+      "Include various bitrate levels (100kbps to 10Mbps)",
+      "Add JPEG compression artifact samples",
+      "Include uncompressed reference videos",
+      "Train on re-compressed videos (multiple generations)",
+      "Add streaming compression artifacts"
+    ]
+  },
+  "sample_results": [
+    {
+      "video": "801.mp4",
+      "true_label": "REAL",
+      "compression_metadata": [
+        {
+          "frame_idx": "0",
+          "compression": {
+            "block_artifact_ratio": 0.7135807766573696,
+            "high_freq_noise": 42.501247537413384,
+            "high_freq_ratio": 0.8486258387565613,
+            "estimated_quality": 95.74987524625867,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 929511,
+            "bitrate": 418698.64864864864,
+            "compression_ratio": 440.2211485393933,
+            "resolution": [
+              640,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 17.76,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "63",
+          "compression": {
+            "block_artifact_ratio": 0.7409354215833512,
+            "high_freq_noise": 44.38265740823977,
+            "high_freq_ratio": 0.8520843982696533,
+            "estimated_quality": 95.56173425917602,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 929511,
+            "bitrate": 418698.64864864864,
+            "compression_ratio": 440.2211485393933,
+            "resolution": [
+              640,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 17.76,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "126",
+          "compression": {
+            "block_artifact_ratio": 0.7614245869984981,
+            "high_freq_noise": 44.321753446957615,
+            "high_freq_ratio": 0.8511520028114319,
+            "estimated_quality": 95.56782465530424,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 929511,
+            "bitrate": 418698.64864864864,
+            "compression_ratio": 440.2211485393933,
+            "resolution": [
+              640,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 17.76,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "189",
+          "compression": {
+            "block_artifact_ratio": 0.7837373954087106,
+            "high_freq_noise": 42.446185325973616,
+            "high_freq_ratio": 0.849648654460907,
+            "estimated_quality": 95.75538146740264,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 929511,
+            "bitrate": 418698.64864864864,
+            "compression_ratio": 440.2211485393933,
+            "resolution": [
+              640,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 17.76,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "253",
+          "compression": {
+            "block_artifact_ratio": 0.748229993563613,
+            "high_freq_noise": 42.68585568918655,
+            "high_freq_ratio": 0.8506549000740051,
+            "estimated_quality": 95.73141443108135,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 929511,
+            "bitrate": 418698.64864864864,
+            "compression_ratio": 440.2211485393933,
+            "resolution": [
+              640,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 17.76,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "316",
+          "compression": {
+            "block_artifact_ratio": 0.765608238575413,
+            "high_freq_noise": 42.26336309932429,
+            "high_freq_ratio": 0.8493881821632385,
+            "estimated_quality": 95.77366369006756,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 929511,
+            "bitrate": 418698.64864864864,
+            "compression_ratio": 440.2211485393933,
+            "resolution": [
+              640,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 17.76,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "379",
+          "compression": {
+            "block_artifact_ratio": 0.7784810126582279,
+            "high_freq_noise": 42.64008527991692,
+            "high_freq_ratio": 0.849257230758667,
+            "estimated_quality": 95.73599147200831,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 929511,
+            "bitrate": 418698.64864864864,
+            "compression_ratio": 440.2211485393933,
+            "resolution": [
+              640,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 17.76,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "443",
+          "compression": {
+            "block_artifact_ratio": 0.7631409568762069,
+            "high_freq_noise": 42.344707017582344,
+            "high_freq_ratio": 0.8494066596031189,
+            "estimated_quality": 95.76552929824176,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 929511,
+            "bitrate": 418698.64864864864,
+            "compression_ratio": 440.2211485393933,
+            "resolution": [
+              640,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 17.76,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        }
+      ],
+      "analysis": {
+        "prediction": "REAL",
+        "fake_probability": 0.08832567185163498,
+        "confidence": 0.911674328148365,
+        "frame_predictions": [
+          0.06423774361610413,
+          0.06531509757041931,
+          0.09180266410112381,
+          0.13194718956947327
+        ],
+        "prediction_variance": 0.000756160297896713,
+        "frame_consistency": 0.9992438397021033,
+        "compression_assessment": {
+          "video_bitrate": 418698.64864864864,
+          "compression_ratio": 440.2211485393933,
+          "avg_block_artifacts": 0.7568922977901738,
+          "block_consistency": 0.9790004995266353,
+          "avg_quality_score": 95.70517681494258,
+          "quality_consistency": 0.9991789437492747,
+          "is_highly_compressed": true,
+          "compression_manipulation_likelihood": 0.08832567185163498,
+          "recommendation": [
+            "Train on highly compressed videos",
+            "Focus on block artifact detection"
+          ]
+        },
+        "quality_assessment": {
+          "avg_noise_level": 42.94823185057432,
+          "noise_consistency": 0.9813176499678787,
+          "avg_high_freq_ratio": 0.8500272333621979,
+          "has_quantization_noise": false,
+          "quality_degradation_likelihood": 0.25,
+          "recommendation": []
+        },
+        "artifact_assessment": {
+          "severe_artifacts": 8,
+          "moderate_artifacts": 0,
+          "artifact_distribution": {
+            "severe": 1.0,
+            "moderate": 0.0,
+            "mild": 0.0
+          },
+          "artifact_manipulation_likelihood": 0.08832567185163498,
+          "recommendation": []
+        },
+        "dct_assessment": {
+          "avg_high_freq_energy": 0.8500272333621979,
+          "high_freq_consistency": 0.9989169123805348,
+          "dct_anomaly_likelihood": 0.2,
+          "recommendation": []
+        }
+      }
+    },
+    {
+      "video": "802.mp4",
+      "true_label": "REAL",
+      "compression_metadata": [
+        {
+          "frame_idx": "0",
+          "compression": {
+            "block_artifact_ratio": 0.606507637581084,
+            "high_freq_noise": 18.883092124737868,
+            "high_freq_ratio": 0.7917380928993225,
+            "estimated_quality": 98.11169078752621,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 421940,
+            "bitrate": 240421.65242165243,
+            "compression_ratio": 785.8194056026923,
+            "resolution": [
+              656,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 14.04,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "50",
+          "compression": {
+            "block_artifact_ratio": 0.6562042268256958,
+            "high_freq_noise": 18.548793453023894,
+            "high_freq_ratio": 0.7861842513084412,
+            "estimated_quality": 98.1451206546976,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 421940,
+            "bitrate": 240421.65242165243,
+            "compression_ratio": 785.8194056026923,
+            "resolution": [
+              656,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 14.04,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "100",
+          "compression": {
+            "block_artifact_ratio": 0.6673990374555346,
+            "high_freq_noise": 18.670897529985513,
+            "high_freq_ratio": 0.7890719175338745,
+            "estimated_quality": 98.13291024700145,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 421940,
+            "bitrate": 240421.65242165243,
+            "compression_ratio": 785.8194056026923,
+            "resolution": [
+              656,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 14.04,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "150",
+          "compression": {
+            "block_artifact_ratio": 0.6592383343795774,
+            "high_freq_noise": 18.647306941751133,
+            "high_freq_ratio": 0.7920100092887878,
+            "estimated_quality": 98.13526930582489,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 421940,
+            "bitrate": 240421.65242165243,
+            "compression_ratio": 785.8194056026923,
+            "resolution": [
+              656,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 14.04,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "200",
+          "compression": {
+            "block_artifact_ratio": 0.6806863360535677,
+            "high_freq_noise": 18.71532127524229,
+            "high_freq_ratio": 0.7935436964035034,
+            "estimated_quality": 98.12846787247577,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 421940,
+            "bitrate": 240421.65242165243,
+            "compression_ratio": 785.8194056026923,
+            "resolution": [
+              656,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 14.04,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "250",
+          "compression": {
+            "block_artifact_ratio": 0.6103787403222432,
+            "high_freq_noise": 19.639500530991292,
+            "high_freq_ratio": 0.7961560487747192,
+            "estimated_quality": 98.03604994690087,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 421940,
+            "bitrate": 240421.65242165243,
+            "compression_ratio": 785.8194056026923,
+            "resolution": [
+              656,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 14.04,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "300",
+          "compression": {
+            "block_artifact_ratio": 0.6533793680686336,
+            "high_freq_noise": 19.427156981187235,
+            "high_freq_ratio": 0.7942886352539062,
+            "estimated_quality": 98.05728430188128,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 421940,
+            "bitrate": 240421.65242165243,
+            "compression_ratio": 785.8194056026923,
+            "resolution": [
+              656,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 14.04,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "350",
+          "compression": {
+            "block_artifact_ratio": 0.6507637581083908,
+            "high_freq_noise": 19.26544211406219,
+            "high_freq_ratio": 0.7917463183403015,
+            "estimated_quality": 98.07345578859378,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 421940,
+            "bitrate": 240421.65242165243,
+            "compression_ratio": 785.8194056026923,
+            "resolution": [
+              656,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 14.04,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        }
+      ],
+      "analysis": {
+        "prediction": "REAL",
+        "fake_probability": 0.3537555932998657,
+        "confidence": 0.6462444067001343,
+        "frame_predictions": [
+          0.6790016889572144,
+          0.35782673954963684,
+          0.12224739789962769,
+          0.25594666600227356
+        ],
+        "prediction_variance": 0.04224105924367905,
+        "frame_consistency": 0.957758940756321,
+        "compression_assessment": {
+          "video_bitrate": 240421.65242165243,
+          "compression_ratio": 785.8194056026923,
+          "avg_block_artifacts": 0.6480696798493408,
+          "block_consistency": 0.9754749078683309,
+          "avg_quality_score": 98.10253111311272,
+          "quality_consistency": 0.9996146826130432,
+          "is_highly_compressed": true,
+          "compression_manipulation_likelihood": 0.3537555932998657,
+          "recommendation": [
+            "Train on highly compressed videos",
+            "Focus on block artifact detection"
+          ]
+        },
+        "quality_assessment": {
+          "avg_noise_level": 18.974688868872676,
+          "noise_consistency": 0.9807097177089299,
+          "avg_high_freq_ratio": 0.7918423712253571,
+          "has_quantization_noise": false,
+          "quality_degradation_likelihood": 0.25,
+          "recommendation": []
+        },
+        "artifact_assessment": {
+          "severe_artifacts": 8,
+          "moderate_artifacts": 0,
+          "artifact_distribution": {
+            "severe": 1.0,
+            "moderate": 0.0,
+            "mild": 0.0
+          },
+          "artifact_manipulation_likelihood": 0.3537555932998657,
+          "recommendation": []
+        },
+        "dct_assessment": {
+          "avg_high_freq_energy": 0.7918423712253571,
+          "high_freq_consistency": 0.9971011970928457,
+          "dct_anomaly_likelihood": 0.2,
+          "recommendation": []
+        }
+      }
+    },
+    {
+      "video": "803.mp4",
+      "true_label": "REAL",
+      "compression_metadata": [
+        {
+          "frame_idx": "0",
+          "compression": {
+            "block_artifact_ratio": 0.5506875599616246,
+            "high_freq_noise": 8.856419162517371,
+            "high_freq_ratio": 0.7650969624519348,
+            "estimated_quality": 99.11435808374826,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 668462,
+            "bitrate": 450142.7609427609,
+            "compression_ratio": 546.3866607226738,
+            "resolution": [
+              854,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 11.88,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "42",
+          "compression": {
+            "block_artifact_ratio": 0.5679565078349856,
+            "high_freq_noise": 8.73635591669749,
+            "high_freq_ratio": 0.7637609839439392,
+            "estimated_quality": 99.12636440833025,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 668462,
+            "bitrate": 450142.7609427609,
+            "compression_ratio": 546.3866607226738,
+            "resolution": [
+              854,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 11.88,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "84",
+          "compression": {
+            "block_artifact_ratio": 0.5751519027822194,
+            "high_freq_noise": 8.743391232384552,
+            "high_freq_ratio": 0.7650580406188965,
+            "estimated_quality": 99.12566087676154,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 668462,
+            "bitrate": 450142.7609427609,
+            "compression_ratio": 546.3866607226738,
+            "resolution": [
+              854,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 11.88,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "126",
+          "compression": {
+            "block_artifact_ratio": 0.5793092420850655,
+            "high_freq_noise": 8.573176839004208,
+            "high_freq_ratio": 0.7630679607391357,
+            "estimated_quality": 99.14268231609958,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 668462,
+            "bitrate": 450142.7609427609,
+            "compression_ratio": 546.3866607226738,
+            "resolution": [
+              854,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 11.88,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "169",
+          "compression": {
+            "block_artifact_ratio": 0.5966581387911737,
+            "high_freq_noise": 8.780698110337193,
+            "high_freq_ratio": 0.7600663304328918,
+            "estimated_quality": 99.12193018896627,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 668462,
+            "bitrate": 450142.7609427609,
+            "compression_ratio": 546.3866607226738,
+            "resolution": [
+              854,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 11.88,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "211",
+          "compression": {
+            "block_artifact_ratio": 0.5885033578509754,
+            "high_freq_noise": 8.815860209444185,
+            "high_freq_ratio": 0.7657447457313538,
+            "estimated_quality": 99.11841397905557,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 668462,
+            "bitrate": 450142.7609427609,
+            "compression_ratio": 546.3866607226738,
+            "resolution": [
+              854,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 11.88,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "253",
+          "compression": {
+            "block_artifact_ratio": 0.5349376399104573,
+            "high_freq_noise": 8.26211236120296,
+            "high_freq_ratio": 0.7533389925956726,
+            "estimated_quality": 99.1737887638797,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 668462,
+            "bitrate": 450142.7609427609,
+            "compression_ratio": 546.3866607226738,
+            "resolution": [
+              854,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 11.88,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "296",
+          "compression": {
+            "block_artifact_ratio": 0.5680364566677326,
+            "high_freq_noise": 8.36635750891022,
+            "high_freq_ratio": 0.7567092180252075,
+            "estimated_quality": 99.16336424910898,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 668462,
+            "bitrate": 450142.7609427609,
+            "compression_ratio": 546.3866607226738,
+            "resolution": [
+              854,
+              480
+            ],
+            "fps": 25.0,
+            "duration": 11.88,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        }
+      ],
+      "analysis": {
+        "prediction": "REAL",
+        "fake_probability": 0.012933630496263504,
+        "confidence": 0.9870663695037365,
+        "frame_predictions": [
+          0.01219520065933466,
+          0.01351527776569128,
+          0.007961941882967949,
+          0.018062099814414978
+        ],
+        "prediction_variance": 1.297561902902089e-05,
+        "frame_consistency": 0.999987024380971,
+        "compression_assessment": {
+          "video_bitrate": 450142.7609427609,
+          "compression_ratio": 546.3866607226738,
+          "avg_block_artifacts": 0.5701551007355292,
+          "block_consistency": 0.9813706781723274,
+          "avg_quality_score": 99.13582035824376,
+          "quality_consistency": 0.9997939499352578,
+          "is_highly_compressed": true,
+          "compression_manipulation_likelihood": 0.012933630496263504,
+          "recommendation": [
+            "Train on highly compressed videos",
+            "Focus on block artifact detection"
+          ]
+        },
+        "quality_assessment": {
+          "avg_noise_level": 8.641796417562272,
+          "noise_consistency": 0.9786294943578315,
+          "avg_high_freq_ratio": 0.761605404317379,
+          "has_quantization_noise": false,
+          "quality_degradation_likelihood": 0.25,
+          "recommendation": []
+        },
+        "artifact_assessment": {
+          "severe_artifacts": 8,
+          "moderate_artifacts": 0,
+          "artifact_distribution": {
+            "severe": 1.0,
+            "moderate": 0.0,
+            "mild": 0.0
+          },
+          "artifact_manipulation_likelihood": 0.012933630496263504,
+          "recommendation": []
+        },
+        "dct_assessment": {
+          "avg_high_freq_energy": 0.761605404317379,
+          "high_freq_consistency": 0.9957764592878935,
+          "dct_anomaly_likelihood": 0.2,
+          "recommendation": []
+        }
+      }
+    },
+    {
+      "video": "804.mp4",
+      "true_label": "REAL",
+      "compression_metadata": [
+        {
+          "frame_idx": "0",
+          "compression": {
+            "block_artifact_ratio": 0.6193636072913336,
+            "high_freq_noise": 5.7183753500118195,
+            "high_freq_ratio": 0.7657492756843567,
+            "estimated_quality": 99.42816246499882,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 666536,
+            "bitrate": 445595.0974930362,
+            "compression_ratio": 662.355581694012,
+            "resolution": [
+              854,
+              480
+            ],
+            "fps": 30.0,
+            "duration": 11.966666666666667,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "51",
+          "compression": {
+            "block_artifact_ratio": 0.6575791493444195,
+            "high_freq_noise": 5.984657957999616,
+            "high_freq_ratio": 0.7700008153915405,
+            "estimated_quality": 99.40153420420003,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 666536,
+            "bitrate": 445595.0974930362,
+            "compression_ratio": 662.355581694012,
+            "resolution": [
+              854,
+              480
+            ],
+            "fps": 30.0,
+            "duration": 11.966666666666667,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "102",
+          "compression": {
+            "block_artifact_ratio": 0.6780460505276623,
+            "high_freq_noise": 5.335111413704513,
+            "high_freq_ratio": 0.7534996271133423,
+            "estimated_quality": 99.46648885862955,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 666536,
+            "bitrate": 445595.0974930362,
+            "compression_ratio": 662.355581694012,
+            "resolution": [
+              854,
+              480
+            ],
+            "fps": 30.0,
+            "duration": 11.966666666666667,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "153",
+          "compression": {
+            "block_artifact_ratio": 0.6624560281419891,
+            "high_freq_noise": 5.036460558807629,
+            "high_freq_ratio": 0.7477287650108337,
+            "estimated_quality": 99.49635394411924,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 666536,
+            "bitrate": 445595.0974930362,
+            "compression_ratio": 662.355581694012,
+            "resolution": [
+              854,
+              480
+            ],
+            "fps": 30.0,
+            "duration": 11.966666666666667,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "204",
+          "compression": {
+            "block_artifact_ratio": 0.6662136232811001,
+            "high_freq_noise": 6.428899511004729,
+            "high_freq_ratio": 0.7699795365333557,
+            "estimated_quality": 99.35711004889953,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 666536,
+            "bitrate": 445595.0974930362,
+            "compression_ratio": 662.355581694012,
+            "resolution": [
+              854,
+              480
+            ],
+            "fps": 30.0,
+            "duration": 11.966666666666667,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "255",
+          "compression": {
+            "block_artifact_ratio": 0.6475055964182923,
+            "high_freq_noise": 7.131868421065386,
+            "high_freq_ratio": 0.7784690856933594,
+            "estimated_quality": 99.28681315789346,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 666536,
+            "bitrate": 445595.0974930362,
+            "compression_ratio": 662.355581694012,
+            "resolution": [
+              854,
+              480
+            ],
+            "fps": 30.0,
+            "duration": 11.966666666666667,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "306",
+          "compression": {
+            "block_artifact_ratio": 0.656379916853214,
+            "high_freq_noise": 4.938316337323313,
+            "high_freq_ratio": 0.7410231828689575,
+            "estimated_quality": 99.50616836626767,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 666536,
+            "bitrate": 445595.0974930362,
+            "compression_ratio": 662.355581694012,
+            "resolution": [
+              854,
+              480
+            ],
+            "fps": 30.0,
+            "duration": 11.966666666666667,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        },
+        {
+          "frame_idx": "358",
+          "compression": {
+            "block_artifact_ratio": 0.6531819635433322,
+            "high_freq_noise": 5.468263781104806,
+            "high_freq_ratio": 0.7538124322891235,
+            "estimated_quality": 99.45317362188952,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 666536,
+            "bitrate": 445595.0974930362,
+            "compression_ratio": 662.355581694012,
+            "resolution": [
+              854,
+              480
+            ],
+            "fps": 30.0,
+            "duration": 11.966666666666667,
+            "is_highly_compressed": true,
+            "is_low_quality": true,
+            "compression_assessment": "high"
+          }
+        }
+      ],
+      "analysis": {
+        "prediction": "REAL",
+        "fake_probability": 0.19831454753875732,
+        "confidence": 0.8016854524612427,
+        "frame_predictions": [
+          0.5934204459190369,
+          0.05368647351861,
+          0.06259694695472717,
+          0.08355429768562317
+        ],
+        "prediction_variance": 0.05215378478169441,
+        "frame_consistency": 0.9478462152183056,
+        "compression_assessment": {
+          "video_bitrate": 445595.0974930362,
+          "compression_ratio": 662.355581694012,
+          "avg_block_artifacts": 0.6550907419251679,
+          "block_consistency": 0.9839907359489715,
+          "avg_quality_score": 99.42447558336222,
+          "quality_consistency": 0.999306657905221,
+          "is_highly_compressed": true,
+          "compression_manipulation_likelihood": 0.19831454753875732,
+          "recommendation": [
+            "Train on highly compressed videos",
+            "Focus on block artifact detection"
+          ]
+        },
+        "quality_assessment": {
+          "avg_noise_level": 5.755244166377726,
+          "noise_consistency": 0.8973623931715238,
+          "avg_high_freq_ratio": 0.7600328400731087,
+          "has_quantization_noise": false,
+          "quality_degradation_likelihood": 0.25,
+          "recommendation": []
+        },
+        "artifact_assessment": {
+          "severe_artifacts": 8,
+          "moderate_artifacts": 0,
+          "artifact_distribution": {
+            "severe": 1.0,
+            "moderate": 0.0,
+            "mild": 0.0
+          },
+          "artifact_manipulation_likelihood": 0.19831454753875732,
+          "recommendation": []
+        },
+        "dct_assessment": {
+          "avg_high_freq_energy": 0.7600328400731087,
+          "high_freq_consistency": 0.9879324621099462,
+          "dct_anomaly_likelihood": 0.2,
+          "recommendation": []
+        }
+      }
+    },
+    {
+      "video": "805.mp4",
+      "true_label": "REAL",
+      "compression_metadata": [
+        {
+          "frame_idx": "0",
+          "compression": {
+            "block_artifact_ratio": 0.485124726167762,
+            "high_freq_noise": 6.177905084049554,
+            "high_freq_ratio": 0.839724063873291,
+            "estimated_quality": 99.38220949159505,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 2276697,
+            "bitrate": 1063566.4817518247,
+            "compression_ratio": 499.1146384433238,
+            "resolution": [
+              1280,
+              720
+            ],
+            "fps": 24.0,
+            "duration": 17.125,
+            "is_highly_compressed": false,
+            "is_low_quality": true,
+            "compression_assessment": "medium"
+          }
+        },
+        {
+          "frame_idx": "58",
+          "compression": {
+            "block_artifact_ratio": 0.5396791746166348,
+            "high_freq_noise": 5.39321442795587,
+            "high_freq_ratio": 0.8342333436012268,
+            "estimated_quality": 99.46067855720442,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 2276697,
+            "bitrate": 1063566.4817518247,
+            "compression_ratio": 499.1146384433238,
+            "resolution": [
+              1280,
+              720
+            ],
+            "fps": 24.0,
+            "duration": 17.125,
+            "is_highly_compressed": false,
+            "is_low_quality": true,
+            "compression_assessment": "medium"
+          }
+        },
+        {
+          "frame_idx": "117",
+          "compression": {
+            "block_artifact_ratio": 0.5404211716486468,
+            "high_freq_noise": 5.491060329277315,
+            "high_freq_ratio": 0.8391929268836975,
+            "estimated_quality": 99.45089396707228,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 2276697,
+            "bitrate": 1063566.4817518247,
+            "compression_ratio": 499.1146384433238,
+            "resolution": [
+              1280,
+              720
+            ],
+            "fps": 24.0,
+            "duration": 17.125,
+            "is_highly_compressed": false,
+            "is_low_quality": true,
+            "compression_assessment": "medium"
+          }
+        },
+        {
+          "frame_idx": "175",
+          "compression": {
+            "block_artifact_ratio": 0.5315878736485055,
+            "high_freq_noise": 5.608397828322705,
+            "high_freq_ratio": 0.8371167778968811,
+            "estimated_quality": 99.43916021716772,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 2276697,
+            "bitrate": 1063566.4817518247,
+            "compression_ratio": 499.1146384433238,
+            "resolution": [
+              1280,
+              720
+            ],
+            "fps": 24.0,
+            "duration": 17.125,
+            "is_highly_compressed": false,
+            "is_low_quality": true,
+            "compression_assessment": "medium"
+          }
+        },
+        {
+          "frame_idx": "234",
+          "compression": {
+            "block_artifact_ratio": 0.5306692106564908,
+            "high_freq_noise": 5.581645389954678,
+            "high_freq_ratio": 0.841526985168457,
+            "estimated_quality": 99.44183546100453,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 2276697,
+            "bitrate": 1063566.4817518247,
+            "compression_ratio": 499.1146384433238,
+            "resolution": [
+              1280,
+              720
+            ],
+            "fps": 24.0,
+            "duration": 17.125,
+            "is_highly_compressed": false,
+            "is_low_quality": true,
+            "compression_assessment": "medium"
+          }
+        },
+        {
+          "frame_idx": "292",
+          "compression": {
+            "block_artifact_ratio": 0.528937884248463,
+            "high_freq_noise": 5.167718551025756,
+            "high_freq_ratio": 0.8339852094650269,
+            "estimated_quality": 99.48322814489742,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 2276697,
+            "bitrate": 1063566.4817518247,
+            "compression_ratio": 499.1146384433238,
+            "resolution": [
+              1280,
+              720
+            ],
+            "fps": 24.0,
+            "duration": 17.125,
+            "is_highly_compressed": false,
+            "is_low_quality": true,
+            "compression_assessment": "medium"
+          }
+        },
+        {
+          "frame_idx": "351",
+          "compression": {
+            "block_artifact_ratio": 0.5355451911525687,
+            "high_freq_noise": 5.527191808024618,
+            "high_freq_ratio": 0.8417509198188782,
+            "estimated_quality": 99.44728081919754,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 2276697,
+            "bitrate": 1063566.4817518247,
+            "compression_ratio": 499.1146384433238,
+            "resolution": [
+              1280,
+              720
+            ],
+            "fps": 24.0,
+            "duration": 17.125,
+            "is_highly_compressed": false,
+            "is_low_quality": true,
+            "compression_assessment": "medium"
+          }
+        },
+        {
+          "frame_idx": "410",
+          "compression": {
+            "block_artifact_ratio": 0.5368171860645891,
+            "high_freq_noise": 5.5335342453207605,
+            "high_freq_ratio": 0.8416528701782227,
+            "estimated_quality": 99.44664657546792,
+            "has_block_artifacts": true,
+            "has_quantization_noise": "False",
+            "compression_level": "low",
+            "artifact_severity": "severe"
+          },
+          "video_compression": {
+            "file_size": 2276697,
+            "bitrate": 1063566.4817518247,
+            "compression_ratio": 499.1146384433238,
+            "resolution": [
+              1280,
+              720
+            ],
+            "fps": 24.0,
+            "duration": 17.125,
+            "is_highly_compressed": false,
+            "is_low_quality": true,
+            "compression_assessment": "medium"
+          }
+        }
+      ],
+      "analysis": {
+        "prediction": "REAL",
+        "fake_probability": 0.015633156523108482,
+        "confidence": 0.9843668434768915,
+        "frame_predictions": [
+          0.009399154223501682,
+          0.0279884971678257,
+          0.009078707545995712,
+          0.01606626808643341
+        ],
+        "prediction_variance": 5.866640276508406e-05,
+        "frame_consistency": 0.9999413335972349,
+        "compression_assessment": {
+          "video_bitrate": 1063566.4817518247,
+          "compression_ratio": 499.1146384433238,
+          "avg_block_artifacts": 0.5285978022754576,
+          "block_consistency": 0.9831118805817066,
+          "avg_quality_score": 99.44399165420086,
+          "quality_consistency": 0.9997324067536476,
+          "is_highly_compressed": false,
+          "compression_manipulation_likelihood": 0.015633156523108482,
+          "recommendation": [
+            "Focus on block artifact detection"
+          ]
+        },
+        "quality_assessment": {
+          "avg_noise_level": 5.560083457991407,
+          "noise_consistency": 0.9592088655478305,
+          "avg_high_freq_ratio": 0.8386478871107101,
+          "has_quantization_noise": false,
+          "quality_degradation_likelihood": 0.25,
+          "recommendation": []
+        },
+        "artifact_assessment": {
+          "severe_artifacts": 8,
+          "moderate_artifacts": 0,
+          "artifact_distribution": {
+            "severe": 1.0,
+            "moderate": 0.0,
+            "mild": 0.0
+          },
+          "artifact_manipulation_likelihood": 0.015633156523108482,
+          "recommendation": []
+        },
+        "dct_assessment": {
+          "avg_high_freq_energy": 0.8386478871107101,
+          "high_freq_consistency": 0.9970004954934621,
+          "dct_anomaly_likelihood": 0.2,
+          "recommendation": []
+        }
+      }
+    }
+  ]
+}

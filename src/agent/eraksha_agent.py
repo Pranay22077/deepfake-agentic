@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 """
-E-Raksha Unified Agentic System
-Complete integration of all team models with intelligent routing
+E-Raksha Unified Agentic Deepfake Detection System
+
+This module implements the core agent system that intelligently routes
+video analysis through multiple specialist models for optimal deepfake detection.
+
+Author: E-Raksha Team
+Created: Initial development phase
 """
 
 import os
@@ -17,6 +22,9 @@ from pathlib import Path
 from typing import Dict, List, Tuple, Optional, Any, TypedDict
 import logging
 from enum import Enum
+
+# Configure logging for development
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Add src to path for imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
@@ -34,16 +42,30 @@ from models.specialists_new import (
 )
 
 class ConfidenceLevel(Enum):
+    """Enumeration for model confidence levels used in routing decisions"""
     HIGH = "high"
     MEDIUM = "medium"
     LOW = "low"
 
 class VideoCharacteristics:
-    """Analyze video characteristics for intelligent routing"""
+    """
+    Analyzes video characteristics to determine optimal model routing strategy.
+    
+    This class extracts key video features that help the agent decide which
+    specialist models should be used for analysis.
+    """
     
     @staticmethod
     def analyze_video(video_path: str) -> Dict[str, Any]:
-        """Analyze video to determine routing strategy"""
+        """
+        Analyze video file to extract characteristics for routing decisions.
+        
+        Args:
+            video_path (str): Path to the video file to analyze
+            
+        Returns:
+            Dict[str, Any]: Dictionary containing video characteristics
+        """
         try:
             cap = cv2.VideoCapture(video_path)
             

@@ -1,12 +1,14 @@
 {
-  "name": "agentic",
+  "name": "eraksha-deepfake-detection",
+  "description": "E-Raksha Agentic Deepfake Detection System - Frontend",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "vite",
-    "preview": "vite preview"
+    "dev": "vite --host",
+    "preview": "vite preview",
+    "lint": "eslint src --ext js,jsx,ts,tsx"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

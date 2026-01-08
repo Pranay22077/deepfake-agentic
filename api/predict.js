@@ -1,3 +1,13 @@
+/**
+ * E-Raksha Deepfake Detection API
+ * 
+ * Vercel serverless function for video analysis using ensemble of specialist models.
+ * Implements intelligent routing and bias correction for optimal detection accuracy.
+ * 
+ * @author E-Raksha Team
+ * @created Initial development phase
+ */
+
 import { createHash } from 'crypto';
 import formidable from 'formidable';
 import fs from 'fs';
@@ -8,16 +18,22 @@ export const config = {
   },
 };
 
-// NEW Model info - 5 EfficientNet-B4 models (TM excluded - broken)
-// Using EXACT performance data from correct_models_test_results.json
+// Specialist model configurations with performance-based weights
+// Based on comprehensive testing results from model evaluation
 const MODELS = {
   "bg": { "name": "BG-Model-N", "accuracy": 0.54, "weight": 1.0 },
   "av": { "name": "AV-Model-N", "accuracy": 0.53, "weight": 1.0 },
-  "cm": { "name": "CM-Model-N", "accuracy": 0.70, "weight": 2.0 },  // BEST - higher weight
+  "cm": { "name": "CM-Model-N", "accuracy": 0.70, "weight": 2.0 },  // Best performer
   "rr": { "name": "RR-Model-N", "accuracy": 0.56, "weight": 1.0 },
   "ll": { "name": "LL-Model-N", "accuracy": 0.56, "weight": 1.0 },
 };
 
+/**
+ * Analyzes video file characteristics for intelligent model routing
+ * @param {Buffer} fileBuffer - Video file buffer
+ * @param {string} filename - Original filename
+ * @returns {Object} Video characteristics object
+ */
 function analyzeVideoFile(fileBuffer, filename) {
   const hash = createHash('md5').update(fileBuffer.subarray(0, Math.min(1024 * 100, fileBuffer.length))).digest('hex');
   const fileSize = fileBuffer.length;

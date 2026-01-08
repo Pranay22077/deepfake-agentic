@@ -1,4 +1,5 @@
-# E-Raksha Main Requirements
+# E-Raksha Deepfake Detection System - Core Dependencies
+# Machine Learning & Computer Vision
 torch==2.1.0
 torchvision==0.16.0
 torchaudio==2.1.0
@@ -6,8 +7,17 @@ numpy==1.24.3
 opencv-python-headless==4.8.1.78
 Pillow==10.1.0
 scikit-learn==1.3.2
+
+# Data Analysis & Visualization  
 matplotlib==3.7.2
 seaborn==0.12.2
+pandas==1.5.3
+
+# Utilities
 tqdm==4.66.1
 requests==2.31.0
 python-dotenv==1.0.0
+
+# Web Framework (for API)
+fastapi==0.104.1
+uvicorn==0.24.0

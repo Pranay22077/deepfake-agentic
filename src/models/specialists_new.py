@@ -1,6 +1,20 @@
 """
-NEW SPECIALIST MODELS WITH EFFICIENTNET-B4 BACKBONE
-Architectures match the ACTUAL trained models from inspection
+E-Raksha Specialist Models with EfficientNet-B4 Backbone
+
+This module contains all specialist deepfake detection models, each designed
+to detect specific types of manipulation artifacts. All models use EfficientNet-B4
+as the backbone with custom specialist modules for domain-specific analysis.
+
+Models included:
+- BG: Background/Lighting inconsistency detection
+- AV: Audio-Visual synchronization analysis  
+- CM: Compression artifact detection
+- RR: Resolution/Re-recording pattern detection
+- LL: Low-light condition analysis
+- TM: Temporal consistency analysis
+
+Author: E-Raksha Team
+Created: Initial development phase
 """
 
 import torch
@@ -13,7 +27,12 @@ from torchvision.models import efficientnet_b4
 # BACKGROUND/LIGHTING (BG) MODULE - 44 CHANNELS
 # ============================================================================
 class BackgroundLightingModule(nn.Module):
-    """Background and lighting inconsistency detection module - 44 channels"""
+    """
+    Background and lighting inconsistency detection module.
+    
+    Detects manipulation artifacts in background textures, lighting direction,
+    shadow consistency, and color temperature. Outputs 44 channels total.
+    """
     
     def __init__(self, in_channels=3):
         super().__init__()
@@ -665,6 +684,95 @@ class LLSpecialistModel(SpecialistModelBase):
         super().__init__(EnhancedLowLightModule(), 68, num_classes)
 
 
+class TMSpecialistModel(SpecialistModelBase):
+    """TM-Model: Temporal Specialist - 52 channels (NEW EfficientNet-B4 based)"""
+    def __init__(self, num_classes=2):
+        super().__init__(TemporalModule(), 52, num_classes)
+
+
+# ============================================================================
+# TEMPORAL (TM) MODULE - 52 CHANNELS
+# ============================================================================
+class TemporalModule(nn.Module):
+    """Temporal inconsistency detection module - 52 channels"""
+    
+    def __init__(self, in_channels=3):
+        super().__init__()
+        
+        # Frame-to-frame consistency checker (14 channels)
+        self.frame_consistency = nn.Sequential(
+            nn.Conv2d(in_channels, 14, kernel_size=5, padding=2),
+            nn.BatchNorm2d(14),
+            nn.ReLU(),
+            nn.Conv2d(14, 28, kernel_size=5, padding=2),
+            nn.BatchNorm2d(28),
+            nn.ReLU(),
+            nn.Conv2d(28, 14, kernel_size=1)
+        )
+        
+        # Motion flow analyzer (12 channels)
+        self.motion_analyzer = nn.Sequential(
+            nn.Conv2d(in_channels, 12, kernel_size=7, padding=3),
+            nn.BatchNorm2d(12),
+            nn.ReLU(),
+            nn.Conv2d(12, 24, kernel_size=7, padding=3),
+            nn.BatchNorm2d(24),
+            nn.ReLU(),
+            nn.Conv2d(24, 12, kernel_size=1)
+        )
+        
+        # Temporal artifact detector (12 channels)
+        self.temporal_detector = nn.Sequential(
+            nn.Conv2d(in_channels, 12, kernel_size=3, padding=1),
+            nn.BatchNorm2d(12),
+            nn.ReLU(),
+            nn.Conv2d(12, 24, kernel_size=3, padding=1),
+            nn.BatchNorm2d(24),
+            nn.ReLU(),
+            nn.Conv2d(24, 12, kernel_size=1)
+        )
+        
+        # Optical flow validator (14 channels)
+        self.optical_flow = nn.Sequential(
+            nn.Conv2d(in_channels, 14, kernel_size=9, padding=4),
+            nn.BatchNorm2d(14),
+            nn.ReLU(),
+            nn.Conv2d(14, 28, kernel_size=9, padding=4),
+            nn.BatchNorm2d(28),
+            nn.ReLU(),
+            nn.Conv2d(28, 14, kernel_size=1)
+        )
+        
+        # Attention fusion (52 channels total)
+        self.attention = nn.Sequential(
+            nn.Conv2d(14 + 12 + 12 + 14, 32, kernel_size=1),
+            nn.ReLU(),
+            nn.Conv2d(32, 52, kernel_size=1),
+            nn.Sigmoid()
+        )
+    
+    def forward(self, x):
+        # Extract features
+        frame_feat = self.frame_consistency(x)
+        frame_feat = F.adaptive_avg_pool2d(frame_feat, (7, 7))
+        
+        motion_feat = self.motion_analyzer(x)
+        motion_feat = F.adaptive_avg_pool2d(motion_feat, (7, 7))
+        
+        temporal_feat = self.temporal_detector(x)
+        temporal_feat = F.adaptive_avg_pool2d(temporal_feat, (7, 7))
+        
+        optical_feat = self.optical_flow(x)
+        optical_feat = F.adaptive_avg_pool2d(optical_feat, (7, 7))
+        
+        # Combine and apply attention
+        combined = torch.cat([frame_feat, motion_feat, temporal_feat, optical_feat], dim=1)
+        attention_weights = self.attention(combined)
+        attended_features = combined * attention_weights
+        
+        return attended_features
+
+
 # ============================================================================
 # OLD TM MODEL (ResNet18-based)
 # ============================================================================
@@ -738,8 +846,12 @@ def create_ll_model(num_classes=2):
     """Create LL-Model"""
     return LLSpecialistModel(num_classes)
 
+def create_tm_model_new(num_classes=2):
+    """Create TM-Model (NEW EfficientNet-B4 based)"""
+    return TMSpecialistModel(num_classes)
+
 def create_tm_model(num_classes=2):
-    """Create TM-Model (OLD)"""
+    """Create TM-Model (OLD ResNet18 based)"""
     return TMModelOld(num_classes)
 
 
@@ -757,6 +869,8 @@ def load_specialist_model(model_path, model_type, device='cpu'):
         model = create_rr_model()
     elif model_type == 'll':
         model = create_ll_model()
+    elif model_type == 'tm_new':
+        model = create_tm_model_new()
     elif model_type == 'tm':
         model = create_tm_model()
     else:

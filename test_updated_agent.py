@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """
-Quick test of updated agent with new ensemble logic
+E-Raksha Updated Agent Test Suite
+
+Validation test for updated agent system with enhanced ensemble logic
+and bias correction mechanisms. Tests new routing algorithms and performance optimizations.
+
+Author: E-Raksha Team
 """
 
 import sys
@@ -12,12 +17,13 @@ sys.path.insert(0, str(Path(__file__).parent / "src"))
 from agent.eraksha_agent import ErakshAgent
 
 def main():
+    """Test updated agent system with enhanced ensemble logic."""
     print("=" * 60)
-    print("TESTING UPDATED AGENT WITH NEW ENSEMBLE LOGIC")
-    print("Using exact performance data from correct_models_test_results.json")
+    print("E-RAKSHA UPDATED AGENT VALIDATION TEST")
+    print("Testing enhanced ensemble logic with bias corrections")
     print("=" * 60)
     
-    # Initialize agent
+    # Initialize enhanced agent system
     agent = ErakshAgent()
     
     # Test with a few videos if available
